@@ -1,0 +1,426 @@
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper, margin=8em]{geometry}
+
+% usa i pacchetti per la scrittura in italiano
+\usepackage[french,italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\frenchspacing 
+
+% usa i pacchetti per la formattazione matematica
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+
+% usa altri pacchetti
+\usepackage{gensymb}
+\usepackage{hyperref}
+\usepackage{standalone}
+
+\usepackage{colortbl}
+
+\usepackage{xstring}
+\usepackage{karnaugh-map}
+
+% imposta il titolo
+\title{Computer Architectures notes}
+\author{Luca Seggiani}
+\date{2026}
+
+% imposta lo stile
+% usa helvetica
+\usepackage[scaled]{helvet}
+% usa palatino
+\usepackage{palatino}
+% usa un font monospazio guardabile
+\usepackage{lmodern}
+
+\renewcommand{\rmdefault}{ppl}
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{lmtt}
+
+% circuiti
+\usepackage{circuitikz}
+\usetikzlibrary{babel}
+
+% testo cerchiato
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% disponi il titolo
+\makeatletter
+\renewcommand{\maketitle} {
+	\begin{center} 
+		\begin{minipage}[t]{.8\textwidth}
+			\textsf{\huge\bfseries \@title} 
+		\end{minipage}%
+		\begin{minipage}[t]{.2\textwidth}
+			\raggedleft \vspace{-1.65em}
+			\textsf{\small \@author} \vfill
+			\textsf{\small \@date}
+		\end{minipage}
+		\par
+	\end{center}
+
+	\thispagestyle{empty}
+	\pagestyle{fancy}
+}
+\makeatother
+
+% disponi teoremi
+\usepackage{tcolorbox}
+\newtcolorbox[auto counter, number within=section]{theorem}[2][]{%
+	colback=blue!10, 
+	colframe=blue!40!black, 
+	sharp corners=northwest,
+	fonttitle=\sffamily\bfseries, 
+	title=Theorem~\thetcbcounter: #2, 
+	#1
+}
+
+% disponi definizioni
+\newtcolorbox[auto counter, number within=section]{definition}[2][]{%
+	colback=red!10,
+	colframe=red!40!black,
+	sharp corners=northwest,
+	fonttitle=\sffamily\bfseries,
+	title=Definition~\thetcbcounter: #2,
+	#1
+}
+
+% disponi codice
+\usepackage{listings}
+\usepackage[table]{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{codestyle}{
+		backgroundcolor=\color{black!5}, 
+		commentstyle=\color{codegreen},
+		keywordstyle=\bfseries\color{magenta},
+		numberstyle=\sffamily\tiny\color{black!60},
+		stringstyle=\color{green!50!black},
+		basicstyle=\ttfamily\footnotesize,
+		breakatwhitespace=false,         
+		breaklines=true,                 
+		captionpos=b,                    
+		keepspaces=true,                 
+		numbers=left,                    
+		numbersep=5pt,                  
+		showspaces=false,                
+		showstringspaces=false,
+		showtabs=false,                  
+		tabsize=2
+}
+
+\lstdefinestyle{shellstyle}{
+		backgroundcolor=\color{black!5}, 
+		basicstyle=\ttfamily\footnotesize\color{black}, 
+		commentstyle=\color{black}, 
+		keywordstyle=\color{black},
+		numberstyle=\color{black!5},
+		stringstyle=\color{black}, 
+		showspaces=false,
+		showstringspaces=false, 
+		showtabs=false, 
+		tabsize=2, 
+		numbers=none, 
+		breaklines=true
+}
+
+
+\lstdefinelanguage{assembler}{ 
+  keywords={AAA, AAD, AAM, AAS, ADC, ADCB, ADCW, ADCL, ADD, ADDB, ADDW, ADDL, AND, ANDB, ANDW, ANDL,
+        ARPL, BOUND, BSF, BSFL, BSFW, BSR, BSRL, BSRW, BSWAP, BT, BTC, BTCB, BTCW, BTCL, BTR, 
+        BTRB, BTRW, BTRL, BTS, BTSB, BTSW, BTSL, CALL, CBW, CDQ, CLC, CLD, CLI, CLTS, CMC, CMP,
+        CMPB, CMPW, CMPL, CMPS, CMPSB, CMPSD, CMPSW, CMPXCHG, CMPXCHGB, CMPXCHGW, CMPXCHGL,
+        CMPXCHG8B, CPUID, CWDE, DAA, DAS, DEC, DECB, DECW, DECL, DIV, DIVB, DIVW, DIVL, ENTER,
+        HLT, IDIV, IDIVB, IDIVW, IDIVL, IMUL, IMULB, IMULW, IMULL, IN, INB, INW, INL, INC, INCB,
+        INCW, INCL, INS, INSB, INSD, INSW, INT, INT3, INTO, INVD, INVLPG, IRET, IRETD, JA, JAE,
+        JB, JBE, JC, JCXZ, JE, JECXZ, JG, JGE, JL, JLE, JMP, JNA, JNAE, JNB, JNBE, JNC, JNE, JNG,
+        JNGE, JNL, JNLE, JNO, JNP, JNS, JNZ, JO, JP, JPE, JPO, JS, JZ, LAHF, LAR, LCALL, LDS,
+        LEA, LEAVE, LES, LFS, LGDT, LGS, LIDT, LMSW, LOCK, LODSB, LODSD, LODSW, LOOP, LOOPE,
+        LOOPNE, LSL, LSS, LTR, MOV, MOVB, MOVW, MOVL, MOVSB, MOVSD, MOVSW, MOVSX, MOVSXB,
+        MOVSXW, MOVSXL, MOVZX, MOVZXB, MOVZXW, MOVZXL, MUL, MULB, MULW, MULL, NEG, NEGB, NEGW,
+        NEGL, NOP, NOT, NOTB, NOTW, NOTL, OR, ORB, ORW, ORL, OUT, OUTB, OUTW, OUTL, OUTSB, OUTSD,
+        OUTSW, POP, POPL, POPW, POPB, POPA, POPAD, POPF, POPFD, PUSH, PUSHL, PUSHW, PUSHB, PUSHA, 
+				PUSHAD, PUSHF, PUSHFD, RCL, RCLB, RCLW, MOVSL, MOVSB, MOVSW, STOSL, STOSB, STOSW, LODSB, LODSW,
+				LODSL, INSB, INSW, INSL, OUTSB, OUTSL, OUTSW
+        RCLL, RCR, RCRB, RCRW, RCRL, RDMSR, RDPMC, RDTSC, REP, REPE, REPNE, RET, ROL, ROLB, ROLW,
+        ROLL, ROR, RORB, RORW, RORL, SAHF, SAL, SALB, SALW, SALL, SAR, SARB, SARW, SARL, SBB,
+        SBBB, SBBW, SBBL, SCASB, SCASD, SCASW, SETA, SETAE, SETB, SETBE, SETC, SETE, SETG, SETGE,
+        SETL, SETLE, SETNA, SETNAE, SETNB, SETNBE, SETNC, SETNE, SETNG, SETNGE, SETNL, SETNLE,
+        SETNO, SETNP, SETNS, SETNZ, SETO, SETP, SETPE, SETPO, SETS, SETZ, SGDT, SHL, SHLB, SHLW,
+        SHLL, SHLD, SHR, SHRB, SHRW, SHRL, SHRD, SIDT, SLDT, SMSW, STC, STD, STI, STOSB, STOSD,
+        STOSW, STR, SUB, SUBB, SUBW, SUBL, TEST, TESTB, TESTW, TESTL, VERR, VERW, WAIT, WBINVD,
+        XADD, XADDB, XADDW, XADDL, XCHG, XCHGB, XCHGW, XCHGL, XLAT, XLATB, XOR, XORB, XORW, XORL},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{language=assembler, style=codestyle}
+
+% disponi sezioni
+\usepackage{titlesec}
+
+\titleformat{\section}
+	{\sffamily\Large\bfseries} 
+	{\thesection}{1em}{} 
+\titleformat{\subsection}
+	{\sffamily\large\bfseries}   
+	{\thesubsection}{1em}{} 
+\titleformat{\subsubsection}
+	{\sffamily\normalsize\bfseries} 
+	{\thesubsubsection}{1em}{}
+
+% tikz
+\usepackage{tikz}
+
+% float
+\usepackage{float}
+
+% grafici
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+
+% disponi alberi
+\usepackage{forest}
+
+\forestset{
+	rectstyle/.style={
+		for tree={rectangle,draw,font=\large\sffamily}
+	},
+	roundstyle/.style={
+		for tree={circle,draw,font=\large}
+	}
+}
+
+% disponi algoritmi
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\makeatletter
+\renewcommand{\ALG@name}{Algorithm}
+\makeatother
+
+% disponi numeri di pagina
+\usepackage{fancyhdr}
+\fancyhf{} 
+\fancyfoot[L]{\sffamily{\thepage}}
+
+\makeatletter
+\fancyhead[L]{\raisebox{1ex}[0pt][0pt]{\sffamily{\@title \ \@date}}} 
+\fancyhead[R]{\raisebox{1ex}[0pt][0pt]{\sffamily{\@author}}}
+\makeatother
+
+\begin{document}
+% sezione (data)
+\section{Lesson 22-09-26}
+
+% stili pagina
+\thispagestyle{empty}
+\pagestyle{fancy}
+
+% testo
+\subsection{Introduction}
+
+The aim of this course is to provide basic knowledge about the architecture of modern \textit{microprocessor}-based systems.
+Special emphasis will be put on the \textit{microprocessor core} itself.
+
+The course is structured in two main blocks:
+\begin{enumerate}
+	\item Modern processor architecture. This wil cover computer design, the \textit{RISC} processor architecture, superscalar processors and disrupting architectures;
+	\item \textit{ARM}-ased systems, that is ARM assembly language and ARM \textit{Cortex-M3} based systems. Both development boards and emulation systems will be used to aid in the study of ARM-based systems.
+\end{enumerate}
+
+\subsection{CISC vs. RISC}
+
+We first go over what an \textbf{ISA} (\textit{Instruction Set Architecture}) is in the context of processor design.
+Then we distinguish between \textbf{CISC} (\textit{Complex Instruction Set Computer}) and \textbf{RISC} (\textit{Reduced Instruction Set Computer}) architectures.
+
+\subsubsection{High level vs. Low level languages}
+
+Many programming languages exist.
+They can be classified into:
+\begin{itemize}
+	\item \textbf{High-level} programming languages, which abstract over the machine to offer more sophisticated capabilities. This gives developers the freedom to express the same algorithm in many ways, and usually to express the same algorithm with significantly less lines of code than those used in low-level languages;
+	\item \textbf{Low-level} programming languages, which stay closer to an \textbf{ISA} (\textit{Instruction Set Architecture}). An ISA is a specification which defines:
+		\begin{itemize}
+			\item Supported instructions;
+			\item Data types;
+			\item Registers;
+			\item Addressing modes.
+		\end{itemize}
+		In low-level languages, operations are smaller than those provided in high-level languages, so even simple algorithms usually take more instructions to express.
+\end{itemize}
+
+We can express this difference by taking the simple example of a loop:
+\begin{enumerate}
+	\item In high-level languages such as \textit{Python} and \textit{C}, loops are expresed via a simple and predefined syntax which allows to compactly express iteration value initialization, update and the exit condition;
+	\item In a low-level language, all of these operations are distinct: the programmer has to explictly initialize an iteration value, perform a comparison to check for the exit condition, and manually update the iteration value. 
+\end{enumerate}
+
+Another idea to note is that high-level languages are usually designed to be \textit{portable}, that is \textit{interpreted} or \textit{compiled} for a variety of systems.
+On the other hand, low-level languages are usually designed for a single machine (a single type of processor), and porting to other platforms requires manual conversion work.
+
+Programs written in high-level languages are usually compiled on the machines they are meant to run on: this means they are converted to low-level machine code which can be directly executed.
+For environments where a running a full compiler is not feasible (such as a development board), a technique known as \textit{cross-compilation} can be used: the program is compiled ona second machine, into machine code for the first machine.
+ALl of this of course doesn't apply to low-level work, where we are expected to write the same routines from scratch, and likely differently, for each target architecture.
+
+\subsubsection{Data types and addressing}
+
+An ISA also defines the \textbf{data types} the CPU can address.
+For instance, the RISC architecture might allow a programmer to address bytes, half words (double bytes) and words (double half words).
+With this being said, we note that usually low-level languages interpret all data as \textit{binary} data (complex types such as \textit{integer}, \textit{float}, ... are usually added in as high-level constructs). 
+
+There are two main methods of performing addressing:
+\begin{itemize}
+	\item \textbf{Register-Memory} architectures: operands of instructions can be immediates (contained within the instruction encoding), or contained in memory \textit{or} in registers. If \textit{all} operands can be in registers or in memory (or in combinations), the architecture is called \textit{register-plus-memory}. Clearly, as memory accesses are also operations that have to be carried out by the processor, these kinds of ISAs are more complex.
+	\item \textbf{Register-Register} architectures: these are also called \textbf{load-store} architectures. Instructions of register-register architectures are explicitly divided into:
+		\begin{itemize}
+			\item Memory access (\textit{load} and \textit{store} between memory and registers);
+			\item \textbf{ALU} (\textit{Arithmetic and Logic Unit}) operations (only between registers). The ALU itself is one of the most important components of a processor.
+		\end{itemize}
+		It follows that operands of ALU instructions are immediates or contained in registers.
+\end{itemize}
+
+
+In CISC (usually \textit{register-to-memory}) instruction sets, the order of instructions can affect the number of memory accesses.
+The more the number of memory accesses increases, the more performance degrades.
+Load-store architectures, by their nature, do not suffer from this problem
+
+\subsubsection{CISC}
+
+\textbf{CISC} (\textit{Complex Instruction Set Computer}) was the name given to the first computer designs.
+The main purpose is to complete a task in as few assembly lines as possible.
+This makes sense in an environment where programmers themselves are tasked with writing assembly code, as we said earlier that low-level languages tend to express the same concepts with more lines of code (we refer to this as a \textit{semantic gap} between low and high-level languages).
+
+Common examples of CISC CPUs are:
+\begin{itemize}
+	\item x86 (1978) and x64 (2003) family, by Intel and AMD;
+	\item Motorola 68000 series (1979);
+	\item IBM System/360 family (1964);
+	\item PDP-11 (1970) and VAX families (1977), by DEC.
+\end{itemize}
+
+Some characteristics of CISC are:
+\begin{itemize}
+	\item Instruction encoding has \textit{variable length}: for an immediate instruction we need to store the immediate, whereas for register to register or register to memory instructions we need to store register and memory addresses. As an example, x64 family instructions are between 1 and 6 bytes;
+	\item The processor architecture has to be more \textit{complex}, as a single instruction can express complex operations;
+	\item The number of \textit{clock cycles} required for execution of a single instruction is wildly variable: if an instruction requires a memory access, we need to wait for the memory to respond, which may happen on timescales far larger than those of the CPU;
+	\item The resulting \textit{code size} is far smaller than that of other architectures.
+\end{itemize}
+
+\subsubsection{RISC}
+
+\textbf{RISC} (\textit{Reduced Instruction Set Computer}) is the name given to a family of processors initially developed during the 1980s.
+The main purpose is to make the processor as simple as possible: this requires more work on the programmers' side, but allows the CPU to move much faster and execute many more instructions in the same amount of time as a CISC CPU.
+The limitation of more complex code, then, can be removed by making used of highly optimized \textit{compiler} which take the toll of manual assembly programming away from programmers.
+
+Common examples of RISC CPUs are:
+\begin{itemize}
+	\item ARM family (1985), designed by ARM Holdings, which will also be the focus of the second part of this course;
+	\item MIPS family (1984), by MIPS Technologies Inc.;
+	\item RISC-V (2014), an example of a \textit{register-to-register} ISA;
+	\item SPARC family (1985), by Sun Microsystems;
+	\item PowerPC (1991), by Apple, IBM, and Motorola.
+\end{itemize}
+
+Some characteristics of RISC are:
+\begin{itemize}
+	\item The instructions themselves are \textit{simpler};
+	\item The length of the instructions can be \textit{fixed} (for example, in RISC-V they have a fixed size of 32 bits). A fixed instruction size sometimes requires some bits of the instruction encoding to remain unused: this is still preferred over variable length encoding as it allows the component of the CPU that performs the \textit{fetch}-\textit{decode} cycle to be far simpler;
+	\item The processor architecture is \textit{simpler};
+	\item The number of clock cycles required to execute an instruction is normally \textit{lower} than in CISC, and there is less overall variance. This makes it easier to design and validate both RISC code and processors, as the amount of time taken by each instruction is easy to estimate (optimistically, 1 cycle per instruction).
+
+		Common factors that disallow having exactly 1 cycle per instruction involve:
+		\begin{itemize}
+			\item \textit{Latencies} introduced by CPU optimizations, such as pipeline flushes and branch misses;
+			\item \textit{Memory accesses}: load and store instructions always have to at least wait for the cache, and if a miss happens, for the memory, which we said is usually slower than the CPU;
+			\item Some \textit{complex instructions} can be introduced back into the architecture: these give the programmer more power, but also require more clock cycles to complete.
+		\end{itemize}
+	\item The resulting \textit{code size} is larger than that of other architectures.
+\end{itemize}
+
+All of these characteristics contributed to making RISC architectures more popular than CISC architectures nowadays.
+In fact, some modern CISC processors actually convert the CISC instructions to an internal RISC representation, which then gets actually executed on the processor.
+
+Also, the tradeoff given by longer code length is balanced by the fact that we are allowed to have \textit{easier} CPUs, that is CPUs that are easier to \textit{design} and \textit{validate}.
+Some extensions have been introduced (such as the C "Compressed" extension for RISC-V) to make RISC-V instructions smaller and reduce the code memory footprint.
+
+\subsubsection{Comparison of addressing modes}
+
+As an example, let's compare the available addressing modes in x86 (a CISC architecture) and RISC-V (a RISC architecture).
+We then go over a specific detail we will encounter in ARM architectures.
+
+\lstset{language=x86}
+
+\begin{itemize}
+	\item In \textbf{x86}, a number of addressing modes are available:
+	\begin{itemize}
+		\item Register mode: \lstinline|MOV AX, BX|
+		\item Immediate mode: \lstinline|MOV AX, 2000|
+		\item Displacement or direct mode: \lstinline|MOV AX, [DISP]|
+		\item Register indirect mode: \lstinline|MOV AX, [DI]|
+		\item Based indexed mode: \lstinline|MOV AX, [BX + DI]|
+		\item Indexed mode: \lstinline|MOV AX, [SI + 2000]|
+		\item Based mode: \lstinline|MOV AX, [BP + 0100]|
+		\item Based indexed displacement mode: \lstinline|MOV AX, [SI + BP + 2000]|
+	\end{itemize}
+	Following extension then introduced \textbf{SIB} (\textit{Scale-Index-Base}) addressing for arrays, \textit{Mod R/M} bits.
+
+The main idea is that an \textit{Expected Address} (\textit{EA}) is generally defined as:
+$$
+\textit{EA} = \text{Base} + \text{Index} \times \text{Scale} + \text{Displacement}
+$$
+where:
+\begin{itemize}
+	\item \textbf{Base} is a general-purpose register, containing a base memory address;
+	\item \textbf{Index} is a general-purpose register contaning a memory offset;
+	\item \textbf{Scale} is a special constant, which can be 1, 2, 4, or 8;
+	\item \textbf{Displacement} is an arbitrary constant, offered as an immediate in the instruction.
+\end{itemize}
+
+Any of these components can be omitted, resulting in the complex array of addressing modes shown above (the indexed/based move differ mainly in semantics because of historical reasons).
+
+In the ISA, these addressing modes are specified by the instruction encoding, by the ModR/M byte, with an optional SIB byte. For more information, refer to the notes available at \url{https://raw.githubusercontent.com/seggiani-luca/appunti-rl/34228f66db395637bd1824d04f3130b977cc0ce4/master/master.pdf} (in italian). 
+
+\lstset{language=riscv}
+
+\item In \textbf{RISC-V}, the same operations is significantly simpler. We have available:
+		\begin{itemize}
+			\item ALU operations:
+				\begin{itemize}
+					\item Register addressing mode: \lstinline|ADD t0, t1, t2|
+					\item Immediate addressing mode: \lstinline|ADDI t0, t1, 10|
+				\end{itemize}
+				with the first register taken as the destination, in common RISC fashion.
+			\item Load / store operations, in base + displacement addressing mode: \lstinline|LW t2, 4(t1)|, where the constant before the open parenthesis is an immediate offset, and the register contains a memory address. Of course, since for instant RV32x is a 32 bit architecture, 32 bit instructions cannot fully contain immediate addresses: this is taken into accoutn by special facilities in the processor which allow full address loading via multiple instructions.
+		\end{itemize}
+
+
+\lstset{language=arm}
+
+\item The same is available in ARM, with the distinction of having \textit{pre-indexed} and \textit{post-indexed} memory operations, that is control over the time when the base register is updated.
+
+		Being more specific, ARM allows load and store instructions to optionally \textit{alter} the address contained within a base register.
+		3 forms are available:
+		\begin{itemize}
+			\item \lstinline|ldr r0, [r1, #4]| is equivalent to immediate offset addressing in RISC-V, with \lstinline|#4| being the immediate operand;
+			\item \lstinline|ldr r0, [r1, #4]!|, with the additional \lstinline|!|, means performing a \textit{write-back} or \textbf{pre-indexing} operation. The calculated address, obtained by adding the offset, is \textit{written back} into the base register before the load operation. The result we get is that of a load from the base address plus the offset, with the base address reflecting the change after execution. Compared to RISC-V, this saves an instruction;
+			\item \lstinline|ldr r0, [r1], #4| means performing a \textbf{post-indexing} operation. This means increasing the value of the base register by offset, after performing the load. We can thing of this as being analogous to the \lstinline|++| syntax available in C. This also saves an instruction compared to RISC-V. 
+		\end{itemize}
+
+	As we can see, the main point of this complication is to save a few instructions when accessing arrays, or generally where striding memory access patterns are needed in ARM architectures.
+\end{itemize}
+
+\end{document}
