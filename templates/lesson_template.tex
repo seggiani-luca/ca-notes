@@ -167,7 +167,6 @@
 
 \lstdefinelanguage{riscv}{
   keywords={
-    % RV32I / RV64I
     LUI, AUIPC,
     JAL, JALR,
     BEQ, BNE, BLT, BGE, BLTU, BGEU,
@@ -176,24 +175,16 @@
     ADDI, SLTI, SLTIU, XORI, ORI, ANDI,
     SLLI, SRLI, SRAI,
     ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND,
-
-    % RV64I
     ADDIW, SLLIW, SRLIW, SRAIW,
     ADDW, SUBW, SLLW, SRLW, SRAW,
-
-    % M extension
     MUL, MULH, MULHSU, MULHU, DIV, DIVU, REM, REMU,
     MULW, DIVW, DIVUW, REMW, REMUW,
-
-    % A extension
     LR.W, SC.W, AMOSWAP.W, AMOADD.W, AMOXOR.W,
     AMOAND.W, AMOOR.W, AMOMIN.W, AMOMAX.W,
     AMOMINU.W, AMOMAXU.W,
     LR.D, SC.D, AMOSWAP.D, AMOADD.D, AMOXOR.D,
     AMOAND.D, AMOOR.D, AMOMIN.D, AMOMAX.D,
     AMOMINU.D, AMOMAXU.D,
-
-    % F extension
     FLW, FSW,
     FMADD.S, FMSUB.S, FNMSUB.S, FNMADD.S,
     FADD.S, FSUB.S, FMUL.S, FDIV.S, FSQRT.S,
@@ -202,8 +193,6 @@
     FCVT.W.S, FCVT.WU.S, FCVT.S.W, FCVT.S.WU,
     FMV.X.W, FMV.W.X,
     FEQ.S, FLT.S, FLE.S,
-
-    % D extension
     FLD, FSD,
     FMADD.D, FMSUB.D, FNMSUB.D, FNMADD.D,
     FADD.D, FSUB.D, FMUL.D, FDIV.D, FSQRT.D,
@@ -213,24 +202,14 @@
     FCVT.S.D, FCVT.D.S,
     FMV.X.D, FMV.D.X,
     FEQ.D, FLT.D, FLE.D,
-
-    % Zicsr
     CSRRW, CSRRS, CSRRC,
     CSRRWI, CSRRSI, CSRRCI,
-
-    % Zifencei
     FENCE.I,
-
-    % Memory ordering
     FENCE,
-
-    % Privileged
     ECALL, EBREAK,
     MRET, SRET, URET,
     WFI,
     SFENCE.VMA,
-
-    % Common pseudoinstructions
     NOP, LI, LA, MV,
     NOT, NEG, NEGW,
     SEQZ, SNEZ, SLTZ, SGTZ,
@@ -256,69 +235,38 @@
 
 \lstdefinelanguage{arm}{
   keywords={
-    % Data processing
     ADC, ADD, AND, BIC, CMN, CMP, EOR, MOV, MVN,
     RSB, RSC, SBC, SUB, TST, TEQ,
-
-    % Multiply
     MLA, MLS, MUL, SMLAL, SMULL, UMLAL, UMULL,
-
-    % Saturating / DSP
     QADD, QSUB, QDADD, QDSUB,
     QADD16, QADD8, QASX, QSAX,
     QSUB16, QSUB8, QSAX, QSUBADDX,
-
-    % Shifts / rotates
     ASR, LSL, LSR, ROR, RRX,
-
-    % Branch
     B, BL, BX, BLX,
     BXJ,
-
-    % Conditional branches
     BEQ, BNE, BCS, BHS, BCC, BLO,
     BMI, BPL, BVS, BVC,
     BHI, BLS, BGE, BLT, BGT, BLE,
     BAL,
-
-    % Load/store
     LDR, LDRB, LDRH, LDRSB, LDRSH,
     LDRD, LDM, LDMIA, LDMIB, LDMDA, LDMDB,
     LDRT, LDRBT, LDRHT, LDRSBT, LDRSHT,
     STR, STRB, STRH, STRD,
     STM, STMIA, STMIB, STMDA, STMDB,
     STRT, STRBT, STRHT,
-
-    % Stack
     PUSH, POP,
-
-    % Swap
     SWP, SWPB,
-
-    % Byte reversal
     REV, REV16, REVSH,
-
-    % Bit manipulation
     BFC, BFI, BFXIL, SBFX, UBFX,
-
-    % Bit counting
     CLZ,
-
-    % Synchronization
     LDREX, LDREXB, LDREXH, LDREXD,
     STREX, STREXB, STREXH, STREXD,
-
-    % Barriers
     DMB, DSB, ISB,
-
-    % Coprocessor / system
     MCR, MCRR, MRC, MRRC,
     MRS, MSR,
     CPS, SETEND, SVC, BKPT,
     CLREX, WFE, WFI, SEV,
     YIELD, NOP,
-
-    % VFP / NEON
     VLDR, VSTR,
     VMOV, VABS, VNEG,
     VADD, VSUB, VMUL, VDIV,
@@ -331,8 +279,6 @@
     VAND, VORR, VEOR, VBIC, VMVN,
     VLD1, VLD2, VLD3, VLD4,
     VST1, VST2, VST3, VST4,
-
-    % ARM assembler directives commonly appearing as mnemonics
     ADR, ADCS, ADDS, SUBS, MOVS, ANDS, ORRS, EORS
   },
   keywordstyle=\color{blue}\bfseries,

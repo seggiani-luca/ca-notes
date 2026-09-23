@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.4)  22 SEP 2026 16:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.4)  23 SEP 2026 17:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1152,7 +1152,7 @@ Overfull \hbox (17.4571pt too wide) in paragraph at lines 395--396
 \T1/ppl/m/n/10.95 tes avai-la-ble at []$\T1/lmtt/m/n/10.95 https : / / raw . githubusercontent . com / seggiani-[]luca / appunti-[]rl /
  []
 
-)
+) (../09-23/main.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1160,27 +1160,143 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5] (./master.aux)
+[5]
+<../figures/chip_histo.png, id=140, 1276.01718pt x 707.64375pt>
+File: ../figures/chip_histo.png Graphic file (type png)
+<use ../figures/chip_histo.png>
+Package pdftex.def Info: ../figures/chip_histo.png  used on input line 396.
+(pdftex.def)             Requested size: 382.8081pt x 212.29475pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[7 <../figures/chip_histo.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[9]
+Overfull \hbox (1.06421pt too wide) in paragraph at lines 540--542
+[]\T1/ppl/m/n/10.95 In mo-re re-cent years, computer-based sy-stems ex-pan-ded to other safety-critical areas,
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[10{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+<../figures/bathub_curve.png, id=169, 1036.62282pt x 596.98032pt>
+File: ../figures/bathub_curve.png Graphic file (type png)
+<use ../figures/bathub_curve.png>
+Package pdftex.def Info: ../figures/bathub_curve.png  used on input line 571.
+(pdftex.def)             Requested size: 310.98924pt x 179.09547pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[11 <../figures/bathub_curve.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[12]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[13{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+<../figures/taxonomies.png, id=189, 1364.09625pt x 811.53188pt>
+File: ../figures/taxonomies.png Graphic file (type png)
+<use ../figures/taxonomies.png>
+Package pdftex.def Info: ../figures/taxonomies.png  used on input line 718.
+(pdftex.def)             Requested size: 409.23204pt x 243.46144pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[14 <../figures/taxonomies.png>]
+<../figures/disp_imm.png, id=195, 1661.45718pt x 583.42969pt>
+File: ../figures/disp_imm.png Graphic file (type png)
+<use ../figures/disp_imm.png>
+Package pdftex.def Info: ../figures/disp_imm.png  used on input line 769.
+(pdftex.def)             Requested size: 415.36328pt x 145.85706pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[15 <../figures/disp_imm.png>])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[16] (./master.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: 51F8B133E0D69A93FFA72B3658FD46E6;1219.
+(rerunfilecheck)             Checksum: 320DA452DF97F5213CFCCB41D0401766;3733.
  ) 
 Here is how much of TeX's memory you used:
- 68555 strings out of 469479
- 1736897 string characters out of 5469360
+ 68709 strings out of 469479
+ 1740419 string characters out of 5469360
  2559885 words of memory out of 5000000
- 96364 multiletter control sequences out of 15000+600000
- 672728 words of font info for 88 fonts, out of 8000000 for 9000
+ 96481 multiletter control sequences out of 15000+600000
+ 674078 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 125i,12n,121p,1582b,1881s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on master.pdf (5 pages, 182558 bytes).
+ 125i,13n,121p,1582b,1881s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on master.pdf (16 pages, 1687173 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 292 PDF objects out of 1000 (max. 8388607)
+ 231 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 
