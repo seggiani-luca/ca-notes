@@ -1,0 +1,24 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper, margin=8em]{geometry}
+
+\begin{document}
+
+\begin{table}
+	\centering
+	\begin{tabular}{lll}
+		\hline
+		\textbf{Addressing mode} & \textbf{Example}             & \textbf{Loaded address}                            \\
+		\hline
+		Register                 & \texttt{ADD AX, BX}          & \texttt{AX}                                        \\
+		Immediate                & \texttt{ADD AX, FFh}         & \texttt{FFh}                                       \\
+		Displacement             & \texttt{ADD AX, [FFh]}       & $\mathrm{mem}[\texttt{FFh}]$                       \\
+		Based                    & \texttt{ADD AX, [BX]}        & $\mathrm{mem}[\texttt{BX}]$                        \\
+		Indexed                  & \texttt{ADD AX, [CX]}        & $\mathrm{mem}[\texttt{CX}]$                        \\
+		Scale indexed            & \texttt{ADD AX, [CX*4]}      & $\mathrm{mem}[\texttt{CX} \times 4]$               \\
+		Indexed based            & \texttt{ADD AX, [BX + CX]}   & $\mathrm{mem}[\texttt{BX} + \texttt{CX}]$          \\
+		Scale indexed based      & \texttt{ADD AX, [BX + CX*4]} & $\mathrm{mem}[\texttt{BX} + \texttt{CX} \times 4]$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\end{document}

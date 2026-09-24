@@ -377,8 +377,8 @@ We then go over a specific detail we will encounter in ARM architectures.
 		      \item Based indexed displacement mode: \lstinline|MOV AX, [SI + BP + 2000]|
 	      \end{itemize}
 
-	      Such a large amount of modes could look a bit confusing.
-	      The idea is that modern x86 processors support \textbf{SIB} (\textit{Scale-Index-Base}) addressing for arrays, \textit{Mod R/M} bits, which allow for the following parameters:
+		  Such a large amount of modes could look a bit confusing.
+		  The idea is that modern x86 processors support \textbf{SIB} (\textit{Scale-Index-Base}) addressing for arrays, \textit{Mod R/M} bits, which allow for the following parameters:
 	      \begin{itemize}
 		      \item \textbf{Base} is a general-purpose register, containing a base memory address;
 		      \item \textbf{Index} is a general-purpose register contaning a memory offset;
@@ -391,30 +391,30 @@ We then go over a specific detail we will encounter in ARM architectures.
 	      $$
 		      \textit{EA} = \text{Base} + \text{Index} \times \text{Scale} + \text{Displacement}
 	      $$
-
-	      Any of these components can be omitted, resulting in the complex array of addressing modes shown above (the indexed/based move differ mainly in semantics because of historical reasons).
+ 
+Any of these components can be omitted, resulting in the complex array of addressing modes shown above (the indexed/based move differ mainly in semantics because of historical reasons).
 
 	      In the ISA, these addressing modes are specified by the instruction encoding, by the ModR/M byte, with an optional SIB byte. For more information, refer to the notes available at this very long URL: \url{https://raw.githubusercontent.com/seggiani-luca/appunti-rl/34228f66db395637bd1824d04f3130b977cc0ce4/master/master.pdf} (in italian).
 
-	      We show one last table to summarize:
+We show one last table to summarize:
 
-	      \begin{table}[H]
-		      \centering
-		      \begin{tabular}{lll}
-			      \hline
-			      \textbf{Addressing mode} & \textbf{Example}             & \textbf{Loaded address}                            \\
-			      \hline
-			      Register                 & \texttt{ADD AX, BX}          & \texttt{AX}                                        \\
-			      Immediate                & \texttt{ADD AX, FFh}         & \texttt{FFh}                                       \\
-			      Displacement             & \texttt{ADD AX, [FFh]}       & $\mathrm{mem}[\texttt{FFh}]$                       \\
-			      Based                    & \texttt{ADD AX, [BX]}        & $\mathrm{mem}[\texttt{BX}]$                        \\
-			      Indexed                  & \texttt{ADD AX, [CX]}        & $\mathrm{mem}[\texttt{CX}]$                        \\
-			      Scale indexed            & \texttt{ADD AX, [CX*4]}      & $\mathrm{mem}[\texttt{CX} \times 4]$               \\
-			      Indexed based            & \texttt{ADD AX, [BX + CX]}   & $\mathrm{mem}[\texttt{BX} + \texttt{CX}]$          \\
-			      Scale indexed based      & \texttt{ADD AX, [BX + CX*4]} & $\mathrm{mem}[\texttt{BX} + \texttt{CX} \times 4]$ \\
-			      \hline
-		      \end{tabular}
-	      \end{table}
+			\begin{table}[H]
+    \centering
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Addressing mode} & \textbf{Example} & \textbf{Loaded address} \\
+        \hline
+        Register & \texttt{ADD AX, BX} & \texttt{AX} \\
+        Immediate & \texttt{ADD AX, FFh} & \texttt{FFh} \\
+		Displacement & \texttt{ADD AX, [FFh]} & $\mathrm{mem}[\texttt{FFh}]$ \\
+		Based & \texttt{ADD AX, [BX]} & $\mathrm{mem}[\texttt{BX}]$ \\
+		Indexed & \texttt{ADD AX, [CX]} & $\mathrm{mem}[\texttt{CX}]$ \\
+		Scale indexed & \texttt{ADD AX, [CX*4]} & $\mathrm{mem}[\texttt{CX} \times 4]$ \\
+		Indexed based & \texttt{ADD AX, [BX + CX]} & $\mathrm{mem}[\texttt{BX} + \texttt{CX}]$ \\
+		Scale indexed based & \texttt{ADD AX, [BX + CX*4]} & $\mathrm{mem}[\texttt{BX} + \texttt{CX} \times 4]$ \\
+        \hline
+    \end{tabular}
+\end{table}
 
 	      \lstset{language=riscv}
 

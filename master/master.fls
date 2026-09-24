@@ -288,6 +288,8 @@ INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlib
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
 INPUT /usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
+INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texmf-dist/tex/latex/psnfss/helvet.sty
 INPUT /usr/share/texmf-dist/tex/latex/psnfss/helvet.sty
 INPUT /usr/share/texmf-dist/tex/latex/psnfss/palatino.sty
@@ -566,6 +568,8 @@ INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplri8t.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplr8t.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplri8t.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtt8.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtt8.tfm
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc

@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1790177007.18057 "master.tex" "master.pdf" "master" 1790177009.67207 0
-  "../09-22/main.tex" 1790087110.76283 21392 996f86d3cc8b117dd4d55d23643a3df7 ""
-  "../09-23/main.tex" 1790177006.59586 33367 e714b97e6d2c885c90f3336d0b44d4fc ""
+["pdflatex"] 1790279883.48111 "master.tex" "master.pdf" "master" 1790279888.70035 0
+  "../09-22/main.tex" 1790273259.13233 22761 c43d2e4ac9dfe26068bb7aa63b42967e ""
+  "../09-23/main.tex" 1790279882.83712 37975 7db5df20a4a1ec968ae2fb64a6b2fb46 ""
   "../figures/bathub_curve.png" 1790172053.65628 308290 04b236119df76a46686d0710f2745bd9 ""
   "../figures/chip_histo.png" 1790167668.74838 370806 33d31a3167496bb583fb42f6eedbbd83 ""
   "../figures/disp_imm.png" 1790176396.81304 750114 22aab020d20bbb8de95d3dc2a1b6b20c ""
@@ -32,6 +32,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1775415801 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm" 1775415801 1368 5bfeb1cf8f9f0acdb7436bfaa8e0da4e ""
   "/usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtt10.tfm" 1775415801 1372 2ef2c2b492b3c4cd7879fe083abbb061 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtt8.tfm" 1775415801 1380 64228d979098ac090aa3f98d5aa8ad3e ""
   "/usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtt9.tfm" 1775415801 1372 a2ff2d4391a2d6bba15b518acb79e80f ""
   "/usr/share/texmf-dist/fonts/tfm/public/lm/lmex10.tfm" 1775415801 992 ce925c9346c7613270a79afbee98c070 ""
   "/usr/share/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm" 1775415801 1528 6d36b2385e0ca062a654de6ac59cb34f ""
@@ -251,6 +252,7 @@
   "/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty" 1775415801 12709 4ca3cf5f9f1d551b8a1090fba11ac95d ""
   "/usr/share/texmf-dist/tex/latex/currfile/currfile.sty" 1775415801 11079 d0660dd7678e4c3c56d9890bce94a3e5 ""
   "/usr/share/texmf-dist/tex/latex/elocalloc/elocalloc.sty" 1775415801 1428 7d469063535b93044f827bfdb1b0a130 ""
+  "/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty" 1775415801 52272 63d293bc0d496619edb57585740861a2 ""
   "/usr/share/texmf-dist/tex/latex/environ/environ.sty" 1775415801 4378 f429f0da968c278653359293040a8f52 ""
   "/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1775415801 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1775415801 46885 8953c67ffba03252c6090aa19568b8ba ""
@@ -332,9 +334,9 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1785857120 325756 c3fa4413167de785cee2babc86728bf5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1785857113 2335842 0a88e6a6d07fff138735874fccd108fa ""
-  "master.aux" 1790177009.54979 3569 f4b90accbb1f1a2318af3da7aff73991 "pdflatex"
-  "master.out" 1790177009.55179 3733 320da452df97f5213cfccb41d0401766 "pdflatex"
-  "master.tex" 1790167360.28257 10166 c45508e99f5b8244e00a4588ab209227 ""
+  "master.aux" 1790279888.45904 3570 834236b01b3ffa26ce16d2dab446ec71 "pdflatex"
+  "master.out" 1790279888.46104 3733 f7553d557c869fd7b8f0d0c824c426ec "pdflatex"
+  "master.tex" 1790261057.93 10373 97ae438d317c9e75e02bd4d9c89b5490 ""
   (generated)
   "master.aux"
   "master.log"

@@ -425,17 +425,17 @@ Processor performance has steadily increased since the 1970s, where the first ma
 	\item From the 1970s to around the 1980s, yearly performance increases were of about $25\% \sim 30\%$. We have to recall that this was a time when mainframes and minicomputers dominated the market: performance improvements were driven mainly by advances in integrated-circuit technology, together with architectural improvements such as larger register sets, more buses, caches, and pipelining.
 	\item In the 1980s, the introduction of \textbf{RISC} (\textit{Reduced Instruction Set Computer}) architectures, as opposite to \textbf{CISC}, led to a yearly performance gain of around 50\%. These allowed for major processor redesigns, which enabled optimization unfeasible (at least at the time) on CISC architectures;
 	\item In the first years of the 2000s, processor performance growth hit a slow down because aiming for higher and higher clock speeds became unfeasible.
-	      There were 3 main reasons:
-	      \begin{itemize}
-		      \item \textbf{Power} issues: higher clock speeds meant higher power dissipation, which cooling could only partially keep under control:
-		      \item Lower \textbf{ILP} (\textit{Instruction Level Parallelism}): this was disadvantageous for the \textit{superscalar} architectures used at the time, characterized by high pipeline depth and instruction level parallelism;
-		      \item Unchanged \textbf{memory latency} remained a big bottleneck.
-	      \end{itemize}
+There were 3 main reasons:
+\begin{itemize}
+	\item \textbf{Power} issues: higher clock speeds meant higher power dissipation, which cooling could only partially keep under control:
+	\item Lower \textbf{ILP} (\textit{Instruction Level Parallelism}): this was disadvantageous for the \textit{superscalar} architectures used at the time, characterized by high pipeline depth and instruction level parallelism;
+	\item Unchanged \textbf{memory latency} remained a big bottleneck.
+\end{itemize}
 
 	\item The solution most vendors adopted from the mid 2000s onwards, and which to this day is widely adopted, is \textit{multi-core} processors.
-	      In fact, since 2004, major industries stopped the race for higher-performance single processor projects running at higher clock frequencies, and embraced \textit{multi-core} CPUs.
+		In fact, since 2004, major industries stopped the race for higher-performance single processor projects running at higher clock frequencies, and embraced \textit{multi-core} CPUs.
 
-	      In a \textbf{multi-core} processor, we effectively have multiple processors (or processor \textit{cores}) running in parallel on a single, or multiple tasks. Note that multi-core setups increase \textit{throughput}, and not \textit{response time}.
+		In a \textbf{multi-core} processor, we effectively have multiple processors (or processor \textit{cores}) running in parallel on a single, or multiple tasks. Note that multi-core setups increase \textit{throughput}, and not \textit{response time}.
 
 	\item In more recent times (mid 2010s) we have seen a 12\% year improvement, or doubling every 8 years (mainly due to the limits on instruction parallelism). This has slowed down to a 3.5\% performance improvement, or doubling every 20 years, in the last 10 years (at the time of writing).
 \end{itemize}
@@ -459,7 +459,7 @@ account. These can be divided into two main categories:
 	      software development, and mask production. NRE costs grow rapidly with
 	      chip complexity and with the sophistication of the manufacturing process.
 	      In particular, moving to a newer process node requires expensive new
-	      design tools, masks, \textbf{IP} (\textit{Intellectual Property}), and extensive verification.
+		  design tools, masks, \textbf{IP} (\textit{Intellectual Property}), and extensive verification.
 
 	      Since these costs are paid before mass production, they have to be
 	      amortized over the number of chips sold. Therefore, a high-volume product
@@ -543,31 +543,31 @@ The computer \textit{market} is currently split in 5 different areas:
 Continuous increase in system complexity and device integration often leads to problems with \textbf{power consumption.}
 Power consumption may be critical under two aspects:
 \begin{itemize}
-	\item \textbf{Power}: \textit{static} power, consumed when a device is just running without doing work, and \textit{dynamic} power, which mainly depends on the frequency devices run at (and also the square power).
+	\item \textbf{Power}: \textit{static} power, consumed when a device is just running without doing work, and \textit{dynamic} power, which mainly depends on the frequency devices run at (and also the square power). 
 	      Until now it has been dominated by dynamic power, i.e., that consumed by each transistor when switching between different states.
+	     
+\begin{itemize}
+	\item 
+		  
+		  The \textbf{dynamic} power for each transistor can be evaluated by the usual formula:
+	      $$
+		  	P_{dynamic} = \frac{1}{2} f V^2 C_{eq}
+	      $$
+		  \item
+		  Whereas \textbf{static} power can be evaluated by:
+	      $$
+		      P_{static} = V I
+	      $$
+		  and amounts aroudn $50\%$ of power consumption.
+\end{itemize}
 
-	      \begin{itemize}
-		      \item
-
-		            The \textbf{dynamic} power for each transistor can be evaluated by the usual formula:
-		            $$
-			            P_{dynamic} = \frac{1}{2} f V^2 C_{eq}
-		            $$
-		      \item
-		            Whereas \textbf{static} power can be evaluated by:
-		            $$
-			            P_{static} = V I
-		            $$
-		            and amounts aroudn $50\%$ of power consumption.
-	      \end{itemize}
-
-	      For this very reason, voltage continuously dropped in the last years.
+		  For this very reason, voltage continuously dropped in the last years.
 
 	\item \textbf{Energy} consumed: it is given by:
 	      $$
 		      E = C_{eq} V^2
 	      $$
-	      It is mainly of interest for \textit{portable} devices, where we are draining a battery (these include mobile phones and laptops, like the one the author of this notes is writing on, which will likely shut down if a power outlet is not found stat).
+		  It is mainly of interest for \textit{portable} devices, where we are draining a battery (these include mobile phones and laptops, like the one the author of this notes is writing on, which will likely shut down if a power outlet is not found stat).
 \end{itemize}
 
 \subsubsection{Depedendability}
