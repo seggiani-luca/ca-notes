@@ -23,13 +23,8 @@
 
 % imposta il titolo
 \title{Computer Architectures notes}
-\author{author-tag}
-\date{year-tag}
-
-% spaziatura liste
-\usepackage{enumitem}
-\setlist[itemize]{noitemsep, topsep=4pt, partopsep=0pt, parsep=2pt, leftmargin=*}
-\setlist[enumerate]{noitemsep, topsep=4pt, partopsep=0pt, parsep=2pt, leftmargin=*}
+\author{Luca Seggiani}
+\date{2026}
 
 % imposta lo stile
 % usa helvetica
@@ -361,3 +356,6 @@
 \renewcommand{\thispagestyle}[1]{}
 
 \maketitle
+\input{../09-22/main.tex}
+\input{../09-23/main.tex}
+\end{document}

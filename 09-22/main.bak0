@@ -254,19 +254,19 @@ They can be classified into:
 \begin{itemize}
 	\item \textbf{High-level} programming languages, which abstract over the machine to offer more sophisticated capabilities. This gives developers the freedom to express the same algorithm in many ways, and usually to express the same algorithm with significantly less lines of code than those used in low-level languages;
 	\item \textbf{Low-level} programming languages, which stay closer to an \textbf{ISA} (\textit{Instruction Set Architecture}). An ISA is a specification which defines:
-	      \begin{itemize}
-		      \item Supported instructions;
-		      \item Data types;
-		      \item Registers;
-		      \item Addressing modes.
-	      \end{itemize}
-	      In low-level languages, operations are smaller than those provided in high-level languages, so even simple algorithms usually take more instructions to express.
+		\begin{itemize}
+			\item Supported instructions;
+			\item Data types;
+			\item Registers;
+			\item Addressing modes.
+		\end{itemize}
+		In low-level languages, operations are smaller than those provided in high-level languages, so even simple algorithms usually take more instructions to express.
 \end{itemize}
 
 We can express this difference by taking the simple example of a loop:
 \begin{enumerate}
 	\item In high-level languages such as \textit{Python} and \textit{C}, loops are expresed via a simple and predefined syntax which allows to compactly express iteration value initialization, update and the exit condition;
-	\item In a low-level language, all of these operations are distinct: the programmer has to explictly initialize an iteration value, perform a comparison to check for the exit condition, and manually update the iteration value.
+	\item In a low-level language, all of these operations are distinct: the programmer has to explictly initialize an iteration value, perform a comparison to check for the exit condition, and manually update the iteration value. 
 \end{enumerate}
 
 Another idea to note is that high-level languages are usually designed to be \textit{portable}, that is \textit{interpreted} or \textit{compiled} for a variety of systems.
@@ -280,17 +280,17 @@ ALl of this of course doesn't apply to low-level work, where we are expected to 
 
 An ISA also defines the \textbf{data types} the CPU can address.
 For instance, the RISC architecture might allow a programmer to address bytes, half words (double bytes) and words (double half words).
-With this being said, we note that usually low-level languages interpret all data as \textit{binary} data (complex types such as \textit{integer}, \textit{float}, ... are usually added in as high-level constructs).
+With this being said, we note that usually low-level languages interpret all data as \textit{binary} data (complex types such as \textit{integer}, \textit{float}, ... are usually added in as high-level constructs). 
 
 There are two main methods of performing addressing:
 \begin{itemize}
 	\item \textbf{Register-Memory} architectures: operands of instructions can be immediates (contained within the instruction encoding), or contained in memory \textit{or} in registers. If \textit{all} operands can be in registers or in memory (or in combinations), the architecture is called \textit{register-plus-memory}. Clearly, as memory accesses are also operations that have to be carried out by the processor, these kinds of ISAs are more complex.
 	\item \textbf{Register-Register} architectures: these are also called \textbf{load-store} architectures. Instructions of register-register architectures are explicitly divided into:
-	      \begin{itemize}
-		      \item Memory access (\textit{load} and \textit{store} between memory and registers);
-		      \item \textbf{ALU} (\textit{Arithmetic and Logic Unit}) operations (only between registers). The ALU itself is one of the most important components of a processor.
-	      \end{itemize}
-	      It follows that operands of ALU instructions are immediates or contained in registers.
+		\begin{itemize}
+			\item Memory access (\textit{load} and \textit{store} between memory and registers);
+			\item \textbf{ALU} (\textit{Arithmetic and Logic Unit}) operations (only between registers). The ALU itself is one of the most important components of a processor.
+		\end{itemize}
+		It follows that operands of ALU instructions are immediates or contained in registers.
 \end{itemize}
 
 
@@ -342,12 +342,12 @@ Some characteristics of RISC are:
 	\item The processor architecture is \textit{simpler};
 	\item The number of clock cycles required to execute an instruction is normally \textit{lower} than in CISC, and there is less overall variance. This makes it easier to design and validate both RISC code and processors, as the amount of time taken by each instruction is easy to estimate (optimistically, 1 cycle per instruction).
 
-	      Common factors that disallow having exactly 1 cycle per instruction involve:
-	      \begin{itemize}
-		      \item \textit{Latencies} introduced by CPU optimizations, such as pipeline flushes and branch misses;
-		      \item \textit{Memory accesses}: load and store instructions always have to at least wait for the cache, and if a miss happens, for the memory, which we said is usually slower than the CPU;
-		      \item Some \textit{complex instructions} can be introduced back into the architecture: these give the programmer more power, but also require more clock cycles to complete.
-	      \end{itemize}
+		Common factors that disallow having exactly 1 cycle per instruction involve:
+		\begin{itemize}
+			\item \textit{Latencies} introduced by CPU optimizations, such as pipeline flushes and branch misses;
+			\item \textit{Memory accesses}: load and store instructions always have to at least wait for the cache, and if a miss happens, for the memory, which we said is usually slower than the CPU;
+			\item Some \textit{complex instructions} can be introduced back into the architecture: these give the programmer more power, but also require more clock cycles to complete.
+		\end{itemize}
 	\item The resulting \textit{code size} is larger than that of other architectures.
 \end{itemize}
 
@@ -366,61 +366,61 @@ We then go over a specific detail we will encounter in ARM architectures.
 
 \begin{itemize}
 	\item In \textbf{x86}, a number of addressing modes are available:
-	      \begin{itemize}
-		      \item Register mode: \lstinline|MOV AX, BX|
-		      \item Immediate mode: \lstinline|MOV AX, 2000|
-		      \item Displacement or direct mode: \lstinline|MOV AX, [DISP]|
-		      \item Register indirect mode: \lstinline|MOV AX, [DI]|
-		      \item Based indexed mode: \lstinline|MOV AX, [BX + DI]|
-		      \item Indexed mode: \lstinline|MOV AX, [SI + 2000]|
-		      \item Based mode: \lstinline|MOV AX, [BP + 0100]|
-		      \item Based indexed displacement mode: \lstinline|MOV AX, [SI + BP + 2000]|
-	      \end{itemize}
-	      Following extension then introduced \textbf{SIB} (\textit{Scale-Index-Base}) addressing for arrays, \textit{Mod R/M} bits.
+	\begin{itemize}
+		\item Register mode: \lstinline|MOV AX, BX|
+		\item Immediate mode: \lstinline|MOV AX, 2000|
+		\item Displacement or direct mode: \lstinline|MOV AX, [DISP]|
+		\item Register indirect mode: \lstinline|MOV AX, [DI]|
+		\item Based indexed mode: \lstinline|MOV AX, [BX + DI]|
+		\item Indexed mode: \lstinline|MOV AX, [SI + 2000]|
+		\item Based mode: \lstinline|MOV AX, [BP + 0100]|
+		\item Based indexed displacement mode: \lstinline|MOV AX, [SI + BP + 2000]|
+	\end{itemize}
+	Following extension then introduced \textbf{SIB} (\textit{Scale-Index-Base}) addressing for arrays, \textit{Mod R/M} bits.
 
-	      The main idea is that an \textit{Expected Address} (\textit{EA}) is generally defined as:
-	      $$
-		      \textit{EA} = \text{Base} + \text{Index} \times \text{Scale} + \text{Displacement}
-	      $$
-	      where:
-	      \begin{itemize}
-		      \item \textbf{Base} is a general-purpose register, containing a base memory address;
-		      \item \textbf{Index} is a general-purpose register contaning a memory offset;
-		      \item \textbf{Scale} is a special constant, which can be 1, 2, 4, or 8;
-		      \item \textbf{Displacement} is an arbitrary constant, offered as an immediate in the instruction.
-	      \end{itemize}
+The main idea is that an \textit{Expected Address} (\textit{EA}) is generally defined as:
+$$
+\textit{EA} = \text{Base} + \text{Index} \times \text{Scale} + \text{Displacement}
+$$
+where:
+\begin{itemize}
+	\item \textbf{Base} is a general-purpose register, containing a base memory address;
+	\item \textbf{Index} is a general-purpose register contaning a memory offset;
+	\item \textbf{Scale} is a special constant, which can be 1, 2, 4, or 8;
+	\item \textbf{Displacement} is an arbitrary constant, offered as an immediate in the instruction.
+\end{itemize}
 
-	      Any of these components can be omitted, resulting in the complex array of addressing modes shown above (the indexed/based move differ mainly in semantics because of historical reasons).
+Any of these components can be omitted, resulting in the complex array of addressing modes shown above (the indexed/based move differ mainly in semantics because of historical reasons).
 
-	      In the ISA, these addressing modes are specified by the instruction encoding, by the ModR/M byte, with an optional SIB byte. For more information, refer to the notes available at \url{https://raw.githubusercontent.com/seggiani-luca/appunti-rl/34228f66db395637bd1824d04f3130b977cc0ce4/master/master.pdf} (in italian).
+In the ISA, these addressing modes are specified by the instruction encoding, by the ModR/M byte, with an optional SIB byte. For more information, refer to the notes available at \url{https://raw.githubusercontent.com/seggiani-luca/appunti-rl/34228f66db395637bd1824d04f3130b977cc0ce4/master/master.pdf} (in italian). 
 
-	      \lstset{language=riscv}
+\lstset{language=riscv}
 
-	\item In \textbf{RISC-V}, the same operations is significantly simpler. We have available:
-	      \begin{itemize}
-		      \item ALU operations:
-		            \begin{itemize}
-			            \item Register addressing mode: \lstinline|ADD t0, t1, t2|
-			            \item Immediate addressing mode: \lstinline|ADDI t0, t1, 10|
-		            \end{itemize}
-		            with the first register taken as the destination, in common RISC fashion.
-		      \item Load / store operations, in base + displacement addressing mode: \lstinline|LW t2, 4(t1)|, where the constant before the open parenthesis is an immediate offset, and the register contains a memory address. Of course, since for instant RV32x is a 32 bit architecture, 32 bit instructions cannot fully contain immediate addresses: this is taken into accoutn by special facilities in the processor which allow full address loading via multiple instructions.
-	      \end{itemize}
+\item In \textbf{RISC-V}, the same operations is significantly simpler. We have available:
+		\begin{itemize}
+			\item ALU operations:
+				\begin{itemize}
+					\item Register addressing mode: \lstinline|ADD t0, t1, t2|
+					\item Immediate addressing mode: \lstinline|ADDI t0, t1, 10|
+				\end{itemize}
+				with the first register taken as the destination, in common RISC fashion.
+			\item Load / store operations, in base + displacement addressing mode: \lstinline|LW t2, 4(t1)|, where the constant before the open parenthesis is an immediate offset, and the register contains a memory address. Of course, since for instant RV32x is a 32 bit architecture, 32 bit instructions cannot fully contain immediate addresses: this is taken into accoutn by special facilities in the processor which allow full address loading via multiple instructions.
+		\end{itemize}
 
 
-	      \lstset{language=arm}
+\lstset{language=arm}
 
-	\item The same is available in ARM, with the distinction of having \textit{pre-indexed} and \textit{post-indexed} memory operations, that is control over the time when the base register is updated.
+\item The same is available in ARM, with the distinction of having \textit{pre-indexed} and \textit{post-indexed} memory operations, that is control over the time when the base register is updated.
 
-	      Being more specific, ARM allows load and store instructions to optionally \textit{alter} the address contained within a base register.
-	      3 forms are available:
-	      \begin{itemize}
-		      \item \lstinline|ldr r0, [r1, #4]| is equivalent to immediate offset addressing in RISC-V, with \lstinline|#4| being the immediate operand;
-		      \item \lstinline|ldr r0, [r1, #4]!|, with the additional \lstinline|!|, means performing a \textit{write-back} or \textbf{pre-indexing} operation. The calculated address, obtained by adding the offset, is \textit{written back} into the base register before the load operation. The result we get is that of a load from the base address plus the offset, with the base address reflecting the change after execution. Compared to RISC-V, this saves an instruction;
-		      \item \lstinline|ldr r0, [r1], #4| means performing a \textbf{post-indexing} operation. This means increasing the value of the base register by offset, after performing the load. We can thing of this as being analogous to the \lstinline|++| syntax available in C. This also saves an instruction compared to RISC-V.
-	      \end{itemize}
+		Being more specific, ARM allows load and store instructions to optionally \textit{alter} the address contained within a base register.
+		3 forms are available:
+		\begin{itemize}
+			\item \lstinline|ldr r0, [r1, #4]| is equivalent to immediate offset addressing in RISC-V, with \lstinline|#4| being the immediate operand;
+			\item \lstinline|ldr r0, [r1, #4]!|, with the additional \lstinline|!|, means performing a \textit{write-back} or \textbf{pre-indexing} operation. The calculated address, obtained by adding the offset, is \textit{written back} into the base register before the load operation. The result we get is that of a load from the base address plus the offset, with the base address reflecting the change after execution. Compared to RISC-V, this saves an instruction;
+			\item \lstinline|ldr r0, [r1], #4| means performing a \textbf{post-indexing} operation. This means increasing the value of the base register by offset, after performing the load. We can thing of this as being analogous to the \lstinline|++| syntax available in C. This also saves an instruction compared to RISC-V. 
+		\end{itemize}
 
-	      As we can see, the main point of this complication is to save a few instructions when accessing arrays, or generally where striding memory access patterns are needed in ARM architectures.
+	As we can see, the main point of this complication is to save a few instructions when accessing arrays, or generally where striding memory access patterns are needed in ARM architectures.
 \end{itemize}
 
 \end{document}

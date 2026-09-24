@@ -22,14 +22,9 @@
 \usepackage{karnaugh-map}
 
 % imposta il titolo
-\title{Computer Architectures notes}
+\title{title-tag notes}
 \author{author-tag}
 \date{year-tag}
-
-% spaziatura liste
-\usepackage{enumitem}
-\setlist[itemize]{noitemsep, topsep=4pt, partopsep=0pt, parsep=2pt, leftmargin=*}
-\setlist[enumerate]{noitemsep, topsep=4pt, partopsep=0pt, parsep=2pt, leftmargin=*}
 
 % imposta lo stile
 % usa helvetica
@@ -134,7 +129,6 @@
 		numbers=none, 
 		breaklines=true
 }
-
 
 \lstdefinelanguage{x86}{ 
   keywords={AAA, AAD, AAM, AAS, ADC, ADCB, ADCW, ADCL, ADD, ADDB, ADDW, ADDL, AND, ANDB, ANDW, ANDL,
@@ -355,9 +349,13 @@
 \makeatother
 
 \begin{document}
+% sezione (data)
+\section{Lesson date-tag}
 
-\pagestyle{fancy}
+% stili pagina
 \thispagestyle{empty}
-\renewcommand{\thispagestyle}[1]{}
+\pagestyle{fancy}
 
-\maketitle
+% testo
+
+
