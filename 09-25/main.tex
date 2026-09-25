@@ -962,14 +962,57 @@ sltu x1, x0, x2 # if (x2 != 0) x1 <- 1
 \end{center}
 
 \begin{itemize}
-	\item \lstinline|j label|:
-	\item \lstinline|jal label|:
-	\item \lstinline|jal x3, label|:
-	\item \lstinline|jr x3|:
-	\item \lstinline|jalr x3|:
-	\item \lstinline|jalr x3, x2, 0|:
-	\item \lstinline|call sub1|:
-	\item \lstinline|ret|:
+	\item \lstinline|j label|: a PC relative jump having a $\pm$ 1MiB range. It is a pseudo-instruction:
+\begin{lstlisting}[style=codestyle]	
+j label
+
+# translates to:
+
+jal x0, label
+\end{lstlisting}
+\item \lstinline|jal label|: a PC relative jump and link having a $\pm$ 1MiB range. It is a pseudo-instruction which assumes \texttt{x1} to be the return address:
+\begin{lstlisting}[style=codestyle]	
+jal label
+
+# translates to:
+
+jal x1, label
+\end{lstlisting}
+	\item \lstinline|jal x3, label|: a PC relative jump and link having a $\pm$ 1MiB range;
+	\item \lstinline|jr x3|: an indirect jump to register with $\pm$ 2KiB plus register range. It is a pseudo-instruction:
+\begin{lstlisting}[style=codestyle]	
+jr x3 
+
+# translates to:
+
+jalr x0, 0(x3) 
+\end{lstlisting}
+	\item \lstinline|jalr x3|: an indirect jump to register with $\pm$ 2KiB plus register range. It is a pseudo-instruction which assumes \texttt{x1} to be the return address:
+\begin{lstlisting}[style=codestyle]	
+jalr x3 
+
+# translates to:
+
+jalr x1, 0(x3) 
+\end{lstlisting}
+	\item \lstinline|jalr x3, x2, 0|: an indirect jump and link to register. Saves the return value in the destinatino register. 
+	\item \lstinline|call sub1|: calls a named subroutine. It is a pseudo-instruction which assumes \texttt{x1} to be the return address:
+\begin{lstlisting}[style=codestyle]	
+call sub1
+
+# translates to:
+
+auipc x1, sub1 # top 20 bits of subroutine address
+jalr x1, offset (x1)
+\end{lstlisting}
+	\item \lstinline|ret|: returns from a subroutine. It is a pseudo-instruction which assumes \texttt{x1} to be the return address:
+\begin{lstlisting}[style=codestyle]	
+ret
+
+# translates to:
+
+jalr x0, 0(x1)
+\end{lstlisting}
 \end{itemize}
 
 \end{document}
