@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.4)  24 SEP 2026 21:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.4)  25 SEP 2026 11:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1174,7 +1174,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [5]
-<../figures/chip_histo.png, id=140, 1276.01718pt x 707.64375pt>
+<../figures/chip_histo.png, id=176, 1276.01718pt x 707.64375pt>
 File: ../figures/chip_histo.png Graphic file (type png)
 <use ../figures/chip_histo.png>
 Package pdftex.def Info: ../figures/chip_histo.png  used on input line 385.
@@ -1224,7 +1224,7 @@ Overfull \hbox (1.06421pt too wide) in paragraph at lines 594--597
 []\T1/ppl/m/n/10.95 In mo-re re-cent years, computer-based sy-stems ex-pan-ded to other safety-critical areas,
  []
 
-<../figures/bathub_curve.png, id=169, 1036.62282pt x 596.98032pt>
+<../figures/bathub_curve.png, id=205, 1036.62282pt x 596.98032pt>
 File: ../figures/bathub_curve.png Graphic file (type png)
 <use ../figures/bathub_curve.png>
 Package pdftex.def Info: ../figures/bathub_curve.png  used on input line 629.
@@ -1253,7 +1253,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [13{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-<../figures/taxonomies.png, id=189, 1364.09625pt x 811.53188pt>
+<../figures/taxonomies.png, id=225, 1364.09625pt x 811.53188pt>
 File: ../figures/taxonomies.png Graphic file (type png)
 <use ../figures/taxonomies.png>
 Package pdftex.def Info: ../figures/taxonomies.png  used on input line 776.
@@ -1267,7 +1267,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [14 <../figures/taxonomies.png>]
-<../figures/disp_imm.png, id=195, 1661.45718pt x 583.42969pt>
+<../figures/disp_imm.png, id=231, 1661.45718pt x 583.42969pt>
 File: ../figures/disp_imm.png Graphic file (type png)
 <use ../figures/disp_imm.png>
 Package pdftex.def Info: ../figures/disp_imm.png  used on input line 826.
@@ -1280,7 +1280,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[15 <../figures/disp_imm.png>])
+[15 <../figures/disp_imm.png>]) (../09-25/main.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1288,27 +1288,323 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[16] (./master.aux)
+[16]
+Overfull \hbox (5.81499pt too wide) in paragraph at lines 400--400
+[]|\T1/ppl/b/n/10.95 Examples| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+[]|\T1/ppl/b/n/10.95 Condition co-de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+[]|\T1/ppl/m/n/10.95 80x86,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+\T1/ppl/m/n/10.95 ARM,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+\T1/ppl/m/n/10.95 Po-wer-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+\T1/ppl/m/n/10.95 PC,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+\T1/ppl/m/n/10.95 SPARC,
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 410--411
+[]|\T1/ppl/m/n/10.95 Tests spe-cial bi-
+ []
+
+
+Underfull \hbox (badness 5460) in paragraph at lines 410--411
+\T1/ppl/m/n/10.95 ts set by ALU
+ []
+
+
+Underfull \hbox (badness 7030) in paragraph at lines 410--411
+\T1/ppl/m/n/10.95 ope-ra-tions, pos-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
+[]|\T1/ppl/m/n/10.95 Sometimes
+ []
+
+
+Underfull \hbox (badness 6412) in paragraph at lines 412--413
+\T1/ppl/m/n/10.95 con-di-tion is
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
+[]|\T1/ppl/m/n/10.95 CC is ex-tra sta-te.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
+\T1/ppl/m/n/10.95 in-struc-tions be-cau-se
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
+[]|\T1/ppl/b/n/10.95 Condition re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
+\T1/ppl/b/n/10.95 gi-ster/limited
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
+[]|\T1/ppl/m/n/10.95 Alpha,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
+[]|\T1/ppl/m/n/10.95 Tests ar-bi-tra-ry
+ []
+
+
+Underfull \hbox (badness 1681) in paragraph at lines 422--423
+\T1/ppl/m/n/10.95 re-sult of a sim-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
+\T1/ppl/m/n/10.95 ple com-pa-ri-son
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 430--431
+[]|\T1/ppl/b/n/10.95 Compare and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
+[]|\T1/ppl/m/n/10.95 PA-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
+\T1/ppl/m/n/10.95 RISC,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
+\T1/ppl/m/n/10.95 VAX,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
+\T1/ppl/m/n/10.95 of the branch.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
+\T1/ppl/m/n/10.95 Fair-ly ge-ne-ral
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
+\T1/ppl/m/n/10.95 com-pa-res are
+ []
+
+
+Underfull \hbox (badness 3000) in paragraph at lines 434--435
+\T1/ppl/m/n/10.95 al-lo-wed (grea-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
+\T1/ppl/m/n/10.95 tion ra-ther
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 438--440
+\T1/ppl/m/n/10.95 for branch in-struc-
+ []
+
+
+Overfull \hbox (17.76665pt too wide) in paragraph at lines 397--443
+ [] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[17]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 469.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[18] (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 538.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[19]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[20]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[21]
+<../figures/riscv_reg_abi.png, id=262, 1717.91812pt x 759.58781pt>
+File: ../figures/riscv_reg_abi.png Graphic file (type png)
+<use ../figures/riscv_reg_abi.png>
+Package pdftex.def Info: ../figures/riscv_reg_abi.png  used on input line 763.
+(pdftex.def)             Requested size: 429.47849pt x 189.89648pt.
+
+Overfull \hbox (7.17105pt too wide) in paragraph at lines 763--764
+ [][] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[22]
+Overfull \hbox (8.84758pt too wide) in paragraph at lines 779--781
+[]$\T1/lmtt/m/n/10.95 https : / / www . cs . sfu . ca / ~ashriram / Courses / CS295 / assets / notebooks / RISCV / RISCV _
+ []
+
+<../figures/riscv_types.png, id=268, 943.27406pt x 203.25937pt>
+File: ../figures/riscv_types.png Graphic file (type png)
+<use ../figures/riscv_types.png>
+Package pdftex.def Info: ../figures/riscv_types.png  used on input line 783.
+(pdftex.def)             Requested size: 433.91133pt x 93.50044pt.
+
+Overfull \hbox (11.6039pt too wide) in paragraph at lines 783--784
+ [] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[23 <../figures/riscv_reg_abi.png> <../figures/riscv_types.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[24]
+<../figures/riscv_load_store.png, id=280, 1655.18375pt x 944.52875pt>
+File: ../figures/riscv_load_store.png Graphic file (type png)
+<use ../figures/riscv_load_store.png>
+Package pdftex.def Info: ../figures/riscv_load_store.png  used on input line 888.
+(pdftex.def)             Requested size: 413.79492pt x 236.1316pt.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.54997pt on input line 899.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 5.69998pt on input line 899.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[25 <../figures/riscv_load_store.png>]
+<../figures/riscv_alu.png, id=293, 1842.885pt x 417.56pt>
+File: ../figures/riscv_alu.png Graphic file (type png)
+<use ../figures/riscv_alu.png>
+Package pdftex.def Info: ../figures/riscv_alu.png  used on input line 927.
+(pdftex.def)             Requested size: 405.43596pt x 91.86348pt.
+<../figures/riscv_jumps.png, id=294, 1820.8025pt x 87.32625pt>
+File: ../figures/riscv_jumps.png Graphic file (type png)
+<use ../figures/riscv_jumps.png>
+Package pdftex.def Info: ../figures/riscv_jumps.png  used on input line 961.
+(pdftex.def)             Requested size: 400.57779pt x 19.21182pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[26 <../figures/riscv_alu.png> <../figures/riscv_jumps.png>])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[27] (./master.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: F7553D557C869FD7B8F0D0C824C426EC;3733.
+(rerunfilecheck)             Checksum: 6B8F958A1687BAF7A787A0D11D66D19D;5130.
  ) 
 Here is how much of TeX's memory you used:
- 69043 strings out of 469479
- 1746125 string characters out of 5469360
- 2569769 words of memory out of 5000000
- 96810 multiletter control sequences out of 15000+600000
- 674720 words of font info for 92 fonts, out of 8000000 for 9000
+ 69374 strings out of 469479
+ 1752058 string characters out of 5469360
+ 2628769 words of memory out of 5000000
+ 97082 multiletter control sequences out of 15000+600000
+ 684276 words of font info for 101 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 125i,13n,121p,1582b,1997s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 125i,16n,121p,1582b,1997s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on master.pdf (16 pages, 1694217 bytes).
+Output written on master.pdf (27 pages, 2876612 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
- 225 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 340 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 322 words of extra memory for PDF output out of 10000 (max. 10000000)
 
