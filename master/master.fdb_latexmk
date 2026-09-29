@@ -1,10 +1,13 @@
 # Fdb version 4
-["pdflatex"] 1790327949.55737 "master.tex" "master.pdf" "master" 1790327956.00967 0
-  "../09-22/main.tex" 1790279906.60351 23208 dca8c9300ce0088e56554348e4eac469 ""
-  "../09-23/main.tex" 1790318586.36694 38124 19d88abcfc827d72a2d29148e5fca22a ""
-  "../09-25/main.tex" 1790327943.97388 37053 9756f49b1e90b95faf7445d1ab6eec05 ""
+["pdflatex"] 1790671662.49822 "master.tex" "master.pdf" "master" 1790671667.45968 0
+  "../09-22/main.tex" 1790586146.72624 23208 dca8c9300ce0088e56554348e4eac469 ""
+  "../09-23/main.tex" 1790586146.54306 38124 19d88abcfc827d72a2d29148e5fca22a ""
+  "../09-25/main.tex" 1790586147.92872 42735 939402218af7d93ec186ca7e4b8a24b8 ""
+  "../09-29/main.tex" 1790671656.24984 31723 86f9a802bf7fdca343b0e05634262be5 ""
   "../figures/bathub_curve.png" 1790172053.65628 308290 04b236119df76a46686d0710f2745bd9 ""
   "../figures/chip_histo.png" 1790167668.74838 370806 33d31a3167496bb583fb42f6eedbbd83 ""
+  "../figures/datapath.png" 1790664768.77577 391594 b8ef12107492a306f8ebb75f83b87c0d ""
+  "../figures/datapath_pipeline.png" 1790666430.68134 253388 7b542da8f8eecd451b0c5abbc9c6a843 ""
   "../figures/disp_imm.png" 1790176396.81304 750114 22aab020d20bbb8de95d3dc2a1b6b20c ""
   "../figures/riscv_alu.png" 1790327505.74815 169092 8e371a9028d8ccb62bd06714a8aa51db ""
   "../figures/riscv_jumps.png" 1790327806.54399 29568 c9ef85dfc471d53266b239ed8e96fc40 ""
@@ -346,9 +349,9 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1785857120 325756 c3fa4413167de785cee2babc86728bf5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1785857113 2335842 0a88e6a6d07fff138735874fccd108fa ""
-  "master.aux" 1790327955.01926 4762 4fa1b17d94ebb8f56b6cb9a8b14fd6c2 "pdflatex"
-  "master.out" 1790327955.02093 5130 6b8f958a1687baf7a787a0d11d66d19d "pdflatex"
-  "master.tex" 1790319413.94624 10399 812e0cc6ebed8863aef33f2d62c20c66 ""
+  "master.aux" 1790671667.28985 7146 11d89cae1cb64f6388511a4411c07268 "pdflatex"
+  "master.out" 1790671667.29256 7913 017d561aece3fa8e0afda5b97e50a030 "pdflatex"
+  "master.tex" 1790664141.51308 10425 9959ce5aab5c96261b8a8173070b7d57 ""
   (generated)
   "master.aux"
   "master.log"
