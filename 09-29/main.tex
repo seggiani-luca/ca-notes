@@ -626,7 +626,7 @@ Let's look at a couple of instruction types as an example:
 	\item \textit{Memory reference}: $\text{ALU output} \leftarrow A + Imm$. Note that we store the target \textit{address} of the memory access! For loads we will use this directly, for stores we will use $B$ and write the ALU output;
 	\item \textit{Register-Register ALU instruction}: $\text{ALU output} \leftarrow A \, \text{funct} \, B$
 	\item \textit{Register-Register ALU instruction}: $\text{ALU output} \leftarrow A \, \text{funct} \, \text{Immediate}$
-	\item \textit{Branch}: $\text{ALU output} \leftarrow NPC + \text{Immediate} << 2$, $Cond \leftarrow (A == B)$
+	\item \textit{Branch}: $\text{ALU output} \leftarrow NPC + \text{Immediate} << 2$, $Cond \leftarrow (A == B)$. Note that these are 2 operations!
 \end{itemize}
 
 Another thing to note is if the instruction is a branch one: if it is, we have to evaluate a condition and use it to multiplex between NPC and a calculated value (here the value of register $A$).
