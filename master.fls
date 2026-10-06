@@ -756,6 +756,9 @@ INPUT ../figures/big_dhazard.png
 INPUT ../figures/big_dhazard.png
 INPUT ../figures/big_dhazard.png
 INPUT ../figures/big_dhazard.png
+INPUT ../10-06/main.tex
+INPUT ../10-06/main.tex
+INPUT ../10-06/main.tex
 INPUT master.aux
 INPUT ./master.out
 INPUT ./master.out
