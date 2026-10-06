@@ -363,7 +363,7 @@ We know move on to discussing \textbf{control hazards}.
 We explicitly ignored them until now as they are:
 \begin{itemize}
 	\item Slightly more complicated;
-	\item Open up a world of possibilities for CPU optimizations. 
+	\item Open up a world of possibilities for CPU optimizations.
 \end{itemize}
 
 They are due to branches (conditional and unconditional), which may change the PC after the following instruction has been fetched already.
@@ -460,7 +460,7 @@ This technique is based on filling the slot after the
 branch instruction (named branch-delay slot) with
 instructions which have to be executed no matter the
 branch outcome.
-It is an actual \textit{architectural} change on the ISA: branches actually branch only after one instruction, and the slot which was wasted before now has a fixed purpose. 
+It is an actual \textit{architectural} change on the ISA: branches actually branch only after one instruction, and the slot which was wasted before now has a fixed purpose.
 
 It is up to the compiler (or the seasoned programmer) to fill each branch-delay slot with
 the right instructions.
@@ -511,11 +511,11 @@ The resulting pipeline is as follows, with the EX stage divided in multiple unit
 We see the problems of this approach by considering certain \textit{metrics} of the execution phase:
 \begin{itemize}
 	\item \textbf{Latency}: it is the number of cycles that should last
-between an instruction that produces a result
-and an instruction that uses the same result;
+	      between an instruction that produces a result
+	      and an instruction that uses the same result;
 	\item \textbf{Initiation interval}: it is the number of cycles that must elapse
-between issuing two operations of the same
-type to the same unit.
+	      between issuing two operations of the same
+	      type to the same unit.
 \end{itemize}
 
 This approach increases latency as some instructions stay in the execution stage longer.
@@ -528,7 +528,7 @@ An improvement is to \textit{pipeline} our expanded execution stage:
 	\includegraphics[scale=0.2]{../figures/fp_pipeline_1.png}
 \end{center}
 
-Each instruction, as with all pipelines, stays in the processor the same amount of time (if not longer because of pipelining overhead), but at least we have the increased throughput from more instruction coexisting in the pipeline at the same time. 
+Each instruction, as with all pipelines, stays in the processor the same amount of time (if not longer because of pipelining overhead), but at least we have the increased throughput from more instruction coexisting in the pipeline at the same time.
 
 One thing to note, though, is that due to the different structure of the EX stage, \textit{hazards} may become more frequent.
 
@@ -538,46 +538,46 @@ Let's see the \textbf{hazards} we can encounter with this architecture.
 
 \begin{itemize}
 	\item \textbf{Structural hazards} can occur in ways we didn't encounter before:
-		\begin{itemize}
-\item Because of the unpipelined divide unit (at least in our example above), several instructions could need it at the same time;
-\item Because the instructions have varying running times, the number of register writes required in a cycle can be larger than 1 (and this applies generally).
-	\begin{center}
-		\includegraphics[scale=0.2]{../figures/multi_wb.png}
-	\end{center}
-	This is particularly bad as in our integer pipeline there was no way to have WB stages overlap.
-		\end{itemize}
+	      \begin{itemize}
+		      \item Because of the unpipelined divide unit (at least in our example above), several instructions could need it at the same time;
+		      \item Because the instructions have varying running times, the number of register writes required in a cycle can be larger than 1 (and this applies generally).
+		            \begin{center}
+			            \includegraphics[scale=0.2]{../figures/multi_wb.png}
+		            \end{center}
+		            This is particularly bad as in our integer pipeline there was no way to have WB stages overlap.
+	      \end{itemize}
 
-		The solutions, as always (we saw structural hazards on the integer pipeline), are:
-		\begin{itemize}
-\item Adding other write ports (normally too expensive)
-\item Forcing a structural hazard via \textit{stalling}:
-	\begin{itemize}
-\item Instructions are stalled in the ID stage;
-\item Or instructions are stalled before entering the MEM or WB stage.
-	\end{itemize}
-		\end{itemize}
+	      The solutions, as always (we saw structural hazards on the integer pipeline), are:
+	      \begin{itemize}
+		      \item Adding other write ports (normally too expensive)
+		      \item Forcing a structural hazard via \textit{stalling}:
+		            \begin{itemize}
+			            \item Instructions are stalled in the ID stage;
+			            \item Or instructions are stalled before entering the MEM or WB stage.
+		            \end{itemize}
+	      \end{itemize}
 
 	\item \textbf{Data hazards} can occur, are more frequent and have an higher performance impact.
-		\begin{itemize}
-			\item Because of longer latency of operations, stalls for data hazards may stall the pipeline for longer periods.
+	      \begin{itemize}
+		      \item Because of longer latency of operations, stalls for data hazards may stall the pipeline for longer periods.
 
-		\begin{center}
-			\includegraphics[scale=0.2]{../figures/big_dhazard.png}
-		\end{center}
+		            \begin{center}
+			            \includegraphics[scale=0.2]{../figures/big_dhazard.png}
+		            \end{center}
 
-		As with the before example, the long stall is due to the hefty execution size of the floating point instructions, which keeps the target register "locked" for more than our integer pipeline did.
+		            As with the before example, the long stall is due to the hefty execution size of the floating point instructions, which keeps the target register "locked" for more than our integer pipeline did.
 
-		This is a case of a \textbf{RAW} (\textit{Read After Write}) hazard;
+		            This is a case of a \textbf{RAW} (\textit{Read After Write}) hazard;
 
-			\item The concurrent WB retires are also worth noting: new kinds of data hazards might manifest because multiple instructions reach WB at the same time.
-		
-				This is a case of a \textbf{WAW} (\textit{Write After Write}) hazard.
+		      \item The concurrent WB retires are also worth noting: new kinds of data hazards might manifest because multiple instructions reach WB at the same time.
 
-The simple solution is: before issuing an instruction to the EXE stage, check
-whether it is going to write on the same register of an
-instruction still in the EXE stage.
-In this case, stall the new instruction.
-		\end{itemize}
+		            This is a case of a \textbf{WAW} (\textit{Write After Write}) hazard.
+
+		            The simple solution is: before issuing an instruction to the EXE stage, check
+		            whether it is going to write on the same register of an
+		            instruction still in the EXE stage.
+		            In this case, stall the new instruction.
+	      \end{itemize}
 
 \end{itemize}
 
@@ -586,14 +586,14 @@ In this case, stall the new instruction.
 To sumamrize, iif hazard detection is always performed in the ID stage,
 three checks have to be performed:
 \begin{itemize}
-\item Structural hazards (involving the divide unit and the write port);
-\item RAW data hazards: check whether some source
-register is listed among the destination registers of
-pending instructions, and whether this register will
-not be available at the right moment
-\item WAW data hazards: check whether the instruction
-currently in ID has the same destination register of
-any instruction in EXE. 
+	\item Structural hazards (involving the divide unit and the write port);
+	\item RAW data hazards: check whether some source
+	      register is listed among the destination registers of
+	      pending instructions, and whether this register will
+	      not be available at the right moment
+	\item WAW data hazards: check whether the instruction
+	      currently in ID has the same destination register of
+	      any instruction in EXE.
 \end{itemize}
 
 \end{document}

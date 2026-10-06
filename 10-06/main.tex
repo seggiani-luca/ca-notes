@@ -1,0 +1,594 @@
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper, margin=8em]{geometry}
+
+% usa i pacchetti per la scrittura in italiano
+\usepackage[french,italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\frenchspacing 
+
+% usa i pacchetti per la formattazione matematica
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+
+% usa altri pacchetti
+\usepackage{gensymb}
+\usepackage{hyperref}
+\usepackage{standalone}
+
+\usepackage{colortbl}
+
+\usepackage{xstring}
+\usepackage{karnaugh-map}
+
+% imposta il titolo
+\title{Computer Architectures notes}
+\author{Luca Seggiani}
+\date{2026}
+
+% imposta lo stile
+% usa helvetica
+\usepackage[scaled]{helvet}
+% usa palatino
+\usepackage{palatino}
+% usa un font monospazio guardabile
+\usepackage{lmodern}
+
+\renewcommand{\rmdefault}{ppl}
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{lmtt}
+
+% circuiti
+\usepackage{circuitikz}
+\usetikzlibrary{babel}
+
+% testo cerchiato
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% disponi il titolo
+\makeatletter
+\renewcommand{\maketitle} {
+	\begin{center} 
+		\begin{minipage}[t]{.8\textwidth}
+			\textsf{\huge\bfseries \@title} 
+		\end{minipage}%
+		\begin{minipage}[t]{.2\textwidth}
+			\raggedleft \vspace{-1.65em}
+			\textsf{\small \@author} \vfill
+			\textsf{\small \@date}
+		\end{minipage}
+		\par
+	\end{center}
+
+	\thispagestyle{empty}
+	\pagestyle{fancy}
+}
+\makeatother
+
+% disponi teoremi
+\usepackage{tcolorbox}
+\newtcolorbox[auto counter, number within=section]{theorem}[2][]{%
+	colback=blue!10, 
+	colframe=blue!40!black, 
+	sharp corners=northwest,
+	fonttitle=\sffamily\bfseries, 
+	title=Theorem~\thetcbcounter: #2, 
+	#1
+}
+
+% disponi definizioni
+\newtcolorbox[auto counter, number within=section]{definition}[2][]{%
+	colback=red!10,
+	colframe=red!40!black,
+	sharp corners=northwest,
+	fonttitle=\sffamily\bfseries,
+	title=Definition~\thetcbcounter: #2,
+	#1
+}
+
+% disponi codice
+\usepackage{listings}
+\usepackage[table]{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{codestyle}{
+		backgroundcolor=\color{black!5}, 
+		commentstyle=\color{codegreen},
+		keywordstyle=\bfseries\color{magenta},
+		numberstyle=\sffamily\tiny\color{black!60},
+		stringstyle=\color{green!50!black},
+		basicstyle=\ttfamily\footnotesize,
+		breakatwhitespace=false,         
+		breaklines=true,                 
+		captionpos=b,                    
+		keepspaces=true,                 
+		numbers=left,                    
+		numbersep=5pt,                  
+		showspaces=false,                
+		showstringspaces=false,
+		showtabs=false,                  
+		tabsize=2
+}
+
+\lstdefinestyle{shellstyle}{
+		backgroundcolor=\color{black!5}, 
+		basicstyle=\ttfamily\footnotesize\color{black}, 
+		commentstyle=\color{black}, 
+		keywordstyle=\color{black},
+		numberstyle=\color{black!5},
+		stringstyle=\color{black}, 
+		showspaces=false,
+		showstringspaces=false, 
+		showtabs=false, 
+		tabsize=2, 
+		numbers=none, 
+		breaklines=true
+}
+
+\lstdefinelanguage{x86}{ 
+  keywords={AAA, AAD, AAM, AAS, ADC, ADCB, ADCW, ADCL, ADD, ADDB, ADDW, ADDL, AND, ANDB, ANDW, ANDL,
+        ARPL, BOUND, BSF, BSFL, BSFW, BSR, BSRL, BSRW, BSWAP, BT, BTC, BTCB, BTCW, BTCL, BTR, 
+        BTRB, BTRW, BTRL, BTS, BTSB, BTSW, BTSL, CALL, CBW, CDQ, CLC, CLD, CLI, CLTS, CMC, CMP,
+        CMPB, CMPW, CMPL, CMPS, CMPSB, CMPSD, CMPSW, CMPXCHG, CMPXCHGB, CMPXCHGW, CMPXCHGL,
+        CMPXCHG8B, CPUID, CWDE, DAA, DAS, DEC, DECB, DECW, DECL, DIV, DIVB, DIVW, DIVL, ENTER,
+        HLT, IDIV, IDIVB, IDIVW, IDIVL, IMUL, IMULB, IMULW, IMULL, IN, INB, INW, INL, INC, INCB,
+        INCW, INCL, INS, INSB, INSD, INSW, INT, INT3, INTO, INVD, INVLPG, IRET, IRETD, JA, JAE,
+        JB, JBE, JC, JCXZ, JE, JECXZ, JG, JGE, JL, JLE, JMP, JNA, JNAE, JNB, JNBE, JNC, JNE, JNG,
+        JNGE, JNL, JNLE, JNO, JNP, JNS, JNZ, JO, JP, JPE, JPO, JS, JZ, LAHF, LAR, LCALL, LDS,
+        LEA, LEAVE, LES, LFS, LGDT, LGS, LIDT, LMSW, LOCK, LODSB, LODSD, LODSW, LOOP, LOOPE,
+        LOOPNE, LSL, LSS, LTR, MOV, MOVB, MOVW, MOVL, MOVSB, MOVSD, MOVSW, MOVSX, MOVSXB,
+        MOVSXW, MOVSXL, MOVZX, MOVZXB, MOVZXW, MOVZXL, MUL, MULB, MULW, MULL, NEG, NEGB, NEGW,
+        NEGL, NOP, NOT, NOTB, NOTW, NOTL, OR, ORB, ORW, ORL, OUT, OUTB, OUTW, OUTL, OUTSB, OUTSD,
+        OUTSW, POP, POPL, POPW, POPB, POPA, POPAD, POPF, POPFD, PUSH, PUSHL, PUSHW, PUSHB, PUSHA, 
+        RCLL, RCR, RCRB, RCRW, RCRL, RDMSR, RDPMC, RDTSC, REP, REPE, REPNE, RET, ROL, ROLB, ROLW,
+        ROLL, ROR, RORB, RORW, RORL, SAHF, SAL, SALB, SALW, SALL, SAR, SARB, SARW, SARL, SBB,
+        SBBB, SBBW, SBBL, SCASB, SCASD, SCASW, SETA, SETAE, SETB, SETBE, SETC, SETE, SETG, SETGE,
+        SETL, SETLE, SETNA, SETNAE, SETNB, SETNBE, SETNC, SETNE, SETNG, SETNGE, SETNL, SETNLE,
+        SETNO, SETNP, SETNS, SETNZ, SETO, SETP, SETPE, SETPO, SETS, SETZ, SGDT, SHL, SHLB, SHLW,
+        SHLL, SHLD, SHR, SHRB, SHRW, SHRL, SHRD, SIDT, SLDT, SMSW, STC, STD, STI, STOSB, STOSD,
+        STOSW, STR, SUB, SUBB, SUBW, SUBL, TEST, TESTB, TESTW, TESTL, VERR, VERW, WAIT, WBINVD,
+        XADD, XADDB, XADDW, XADDL, XCHG, XCHGB, XCHGW, XCHGL, XLAT, XLATB, XOR, XORB, XORW, XORL},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{riscv}{
+  keywords={
+    LUI, AUIPC,
+    JAL, JALR,
+    BEQ, BNE, BLT, BGE, BLTU, BGEU,
+    LB, LH, LW, LBU, LHU, LD,
+    SB, SH, SW, SD,
+    ADDI, SLTI, SLTIU, XORI, ORI, ANDI,
+    SLLI, SRLI, SRAI,
+    ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND,
+    ADDIW, SLLIW, SRLIW, SRAIW,
+    ADDW, SUBW, SLLW, SRLW, SRAW,
+    MUL, MULH, MULHSU, MULHU, DIV, DIVU, REM, REMU,
+    MULW, DIVW, DIVUW, REMW, REMUW,
+    LR.W, SC.W, AMOSWAP.W, AMOADD.W, AMOXOR.W,
+    AMOAND.W, AMOOR.W, AMOMIN.W, AMOMAX.W,
+    AMOMINU.W, AMOMAXU.W,
+    LR.D, SC.D, AMOSWAP.D, AMOADD.D, AMOXOR.D,
+    AMOAND.D, AMOOR.D, AMOMIN.D, AMOMAX.D,
+    AMOMINU.D, AMOMAXU.D,
+    FLW, FSW,
+    FMADD.S, FMSUB.S, FNMSUB.S, FNMADD.S,
+    FADD.S, FSUB.S, FMUL.S, FDIV.S, FSQRT.S,
+    FSGNJ.S, FSGNJN.S, FSGNJX.S,
+    FMIN.S, FMAX.S,
+    FCVT.W.S, FCVT.WU.S, FCVT.S.W, FCVT.S.WU,
+    FMV.X.W, FMV.W.X,
+    FEQ.S, FLT.S, FLE.S,
+    FLD, FSD,
+    FMADD.D, FMSUB.D, FNMSUB.D, FNMADD.D,
+    FADD.D, FSUB.D, FMUL.D, FDIV.D, FSQRT.D,
+    FSGNJ.D, FSGNJN.D, FSGNJX.D,
+    FMIN.D, FMAX.D,
+    FCVT.W.D, FCVT.WU.D, FCVT.D.W, FCVT.D.WU,
+    FCVT.S.D, FCVT.D.S,
+    FMV.X.D, FMV.D.X,
+    FEQ.D, FLT.D, FLE.D,
+    CSRRW, CSRRS, CSRRC,
+    CSRRWI, CSRRSI, CSRRCI,
+    FENCE.I,
+    FENCE,
+    ECALL, EBREAK,
+    MRET, SRET, URET,
+    WFI,
+    SFENCE.VMA,
+    NOP, LI, LA, MV,
+    NOT, NEG, NEGW,
+    SEQZ, SNEZ, SLTZ, SGTZ,
+    BEQZ, BNEZ, BLEZ, BGEZ, BLTZ, BGTZ,
+    BGT, BLE, BGTU, BLEU,
+    J, JR, RET,
+    CALL, TAIL,
+    RDINSTRET, RDCYCLE, RDTIME,
+    CSRR, CSRW, CSRS, CSRC,
+    CSRWI, CSRSI, CSRCI
+  },
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{arm}{
+  keywords={
+    ADC, ADD, AND, BIC, CMN, CMP, EOR, MOV, MVN,
+    RSB, RSC, SBC, SUB, TST, TEQ,
+    MLA, MLS, MUL, SMLAL, SMULL, UMLAL, UMULL,
+    QADD, QSUB, QDADD, QDSUB,
+    QADD16, QADD8, QASX, QSAX,
+    QSUB16, QSUB8, QSAX, QSUBADDX,
+    ASR, LSL, LSR, ROR, RRX,
+    B, BL, BX, BLX,
+    BXJ,
+    BEQ, BNE, BCS, BHS, BCC, BLO,
+    BMI, BPL, BVS, BVC,
+    BHI, BLS, BGE, BLT, BGT, BLE,
+    BAL,
+    LDR, LDRB, LDRH, LDRSB, LDRSH,
+    LDRD, LDM, LDMIA, LDMIB, LDMDA, LDMDB,
+    LDRT, LDRBT, LDRHT, LDRSBT, LDRSHT,
+    STR, STRB, STRH, STRD,
+    STM, STMIA, STMIB, STMDA, STMDB,
+    STRT, STRBT, STRHT,
+    PUSH, POP,
+    SWP, SWPB,
+    REV, REV16, REVSH,
+    BFC, BFI, BFXIL, SBFX, UBFX,
+    CLZ,
+    LDREX, LDREXB, LDREXH, LDREXD,
+    STREX, STREXB, STREXH, STREXD,
+    DMB, DSB, ISB,
+    MCR, MCRR, MRC, MRRC,
+    MRS, MSR,
+    CPS, SETEND, SVC, BKPT,
+    CLREX, WFE, WFI, SEV,
+    YIELD, NOP,
+    VLDR, VSTR,
+    VMOV, VABS, VNEG,
+    VADD, VSUB, VMUL, VDIV,
+    VMLA, VMLS, VNMLA, VNMLS, VNMUL,
+    VMAX, VMIN,
+    VSQRT,
+    VCMP, VCMPE,
+    VCVT,
+    VCLZ, VCLS,
+    VAND, VORR, VEOR, VBIC, VMVN,
+    VLD1, VLD2, VLD3, VLD4,
+    VST1, VST2, VST3, VST4,
+    ADR, ADCS, ADDS, SUBS, MOVS, ANDS, ORRS, EORS
+  },
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{@},
+  morecomment=[l]{;},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{style=codestyle, language=C}
+
+% disponi sezioni
+\usepackage{titlesec}
+
+\titleformat{\section}
+	{\sffamily\Large\bfseries} 
+	{\thesection}{1em}{} 
+\titleformat{\subsection}
+	{\sffamily\large\bfseries}   
+	{\thesubsection}{1em}{} 
+\titleformat{\subsubsection}
+	{\sffamily\normalsize\bfseries} 
+	{\thesubsubsection}{1em}{}
+
+% tikz
+\usepackage{tikz}
+
+% float
+\usepackage{float}
+
+% grafici
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+
+% disponi alberi
+\usepackage{forest}
+
+\forestset{
+	rectstyle/.style={
+		for tree={rectangle,draw,font=\large\sffamily}
+	},
+	roundstyle/.style={
+		for tree={circle,draw,font=\large}
+	}
+}
+
+% disponi algoritmi
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\makeatletter
+\renewcommand{\ALG@name}{Algorithm}
+\makeatother
+
+% disponi numeri di pagina
+\usepackage{fancyhdr}
+\fancyhf{} 
+\fancyfoot[L]{\sffamily{\thepage}}
+
+\makeatletter
+\fancyhead[L]{\raisebox{1ex}[0pt][0pt]{\sffamily{\@title \ \@date}}} 
+\fancyhead[R]{\raisebox{1ex}[0pt][0pt]{\sffamily{\@author}}}
+\makeatother
+
+\begin{document}
+% sezione (data)
+\section{Lesson 06-10-26}
+
+% stili pagina
+\thispagestyle{empty}
+\pagestyle{fancy}
+
+% testo
+\subsection{Exceptions and interrupts}
+
+\textbf{Exceptions} are events that modify the normal execution order of the program.
+
+Usually, to refer to events coming from the outside, we use the term \textbf{interrupt}.
+Interrupts come from I/O devices, or reset requests from the device's hardware.
+Sometimes we see the name \textit{internal interrupt} used for exceptions.
+
+Possible causes of exceptions are:
+\begin{itemize}
+	\item I/O device request
+	\item Operating system call by a user program
+	\item Tracing instruction execution
+	\item Breakpoint (programmer-requested interrupt)
+	\item Integer arithmetic overflow or underflow
+	\item FP arithmetic anomaly
+	\item Page fault
+	\item Misaligned memory accesses
+	\item Memory-protection violation
+	\item Undefined instruction
+	\item Hardware malfunction
+	\item Power failure.
+\end{itemize}
+
+Exceptional events (\textit{exceptions}, \textit{interrupts}, or \textit{faults}) are more complex to handle in pipelined architectures because several instructions are being executed at a time.
+
+\subsubsection{Exception taxonomy}
+
+There are a few orthogonal characteristics we can use to classify exceptions.
+\begin{itemize}
+	\item \textbf{Synchronous} vs \textbf{asynchronous}: an exception is \textit{synchronous} if it can always be triggered in the same position by the code, \textit{asynchronous} if it comes from an external source;
+	\item User \textbf{requestable} vs \textbf{coerced}: user \textit{requested} exceptions are similar to procedures. \textit{Coerced} exceptions are out of the control of the user program;
+	\item User \textbf{maskable} vs \textbf{non-maskable}: \textit{maskable} exceptions can be suppressed by the user, whereas \textit{non-maskable} exceptions need to be serviced in any case;
+	\item \textbf{Within} vs \textbf{between} instructions: exceptions can be raised \textit{within} an istruction (as its executing), or \textit{between} instructions. In this case they are generated by the instruction itself;
+	\item \textbf{Resume} vs \textbf{terminate}: after raising an exception, a program can either \textit{resume} execution or \textit{terminate} completely.
+
+	      So called \textit{restartable machines} are able to handle an exception, save the state, and restart without affecting the execution of the program. Nearly all processors nowadays are restartable machines.
+\end{itemize}
+
+\subsubsection{Pipeline}
+
+When an exception occurs, the pipeline must execute
+the following steps:
+\begin{itemize}
+	\item Force a trap instruction into the pipeline on the next IF stage;
+	\item until the trap is taken, turn off all writes for the instruction that raised the exception (i.e., the faulty instruction) and for all the following instructions in the pipeline;
+	\item when the exception-handling procedure receives control, it immediately saves the PC of the faulty instruction.
+\end{itemize}
+
+\subsubsection{Interrupt protocols}
+
+Let's compare \textit{protocols} for handling interrupts on different architectures.
+
+\begin{itemize}
+	\item On \textbf{x86}, the general routine is:
+	      \begin{enumerate}
+		      \item An external device sends an interrupt request;
+		      \item The CPU detects the interrupt;
+		      \item The CPU reads the Interrupt Type N from the bus;
+		      \item The CPU saves the value of the processor status word (PSW) and the return address (Code Segment and Instruction Pointer registers) in the stack;
+		      \item The CPU resets the interrupt flags disabling external interrupts and trap mode;
+		      \item Using N as an index, the processor reads from the Interrupt Vector Table the address where to jump;
+		      \item The CPU jumps to the Interrupt Service Routine.
+	      \end{enumerate}
+	\item On \textbf{ARM}, the routine changes to:
+	      \begin{enumerate}
+		      \item An external device sends an interrupt request;
+		      \item The CPU detects the interrupt
+		      \item The CPU pushes into the current stack the information of the current stack frame composed by 8 registers including the Program Counter and the Processor Status Register;
+		      \item The CPU updates the processor flags and jumps to the address given by the interrupt type N: on that position a new jump to the actual Interrupt Service Routine may be placed.
+	      \end{enumerate}
+\end{itemize}
+
+For RISC-V, for now let's not focus on interrupt protocol but on possible \textbf{causes} of exceptions during each stage of the pipeline.
+\begin{table}[h!]
+	\center \rowcolors{2}{white}{black!10}
+	\begin{tabular} { c | p{10cm} }
+		\bfseries Stage & \bfseries Cause                                                                 \\
+		\hline
+		IF              & Pagefault on instruction fetch, Misaligned access, Memory-protection violation  \\
+		ID              & Undefined or illegal opcode                                                     \\
+		EX              & Arithmetic exception                                                            \\
+		MEM             & Page fault on data fetch, Misaligned memory access, Memory-protection violation \\
+		WB              & None.
+	\end{tabular}
+\end{table}
+
+The fact that all RISC-V instructions write back only in the WB phase (except stores, which write back to memory during the MEM phase) makes pipeline stalling on exceptions easier.
+As we saw in 1.2.5, ARM addressing allows for \textit{pre-indexing} and \textit{post-indexing}, which access registers earlier than the writeback phase.
+This clearly makes the situation more complex.
+
+\subsubsection{Precise exceptions}
+
+A processor is said to have \textbf{precise exceptions} if the pipeline can be stopped so that:
+\begin{itemize}
+	\item The instructions just before the instruction that triggered the exception are completed;
+	\item The instructions following the instruction that triggered the exception can be restarted from scratch.
+\end{itemize}
+
+Restarting after an exception may be really hard if exceptions are not handled precisely.
+Precise exception handling is a must for most architectures, at least for integer instructions.
+Of course, the problem of precise exception is that they are more difficult to implement / slower.
+
+The main cause for imprecise exceptions is having slower units, such as a \textit{Floating-Point} unit.
+The solutions in this case can be:
+\begin{itemize}
+	\item Accepting imprecise exceptions;
+	\item Providing a fast, but imprecise operating mode, and a slow, but precise one (only one FP instruction is executed at a time);
+	\item Forcing the FP units to early determine whether an instruction can cause an exception, and issuing further instructions only when the previous ones are guaranteed not to cause an exception;
+	\item Buffering the results of each instruction until all the previously issued instructions have been completed.
+\end{itemize}
+
+\subsection{Instruction-Level Parallelism}
+
+Pipelines exploit the \textbf{parallelism} existing among \textbf{instructions} (\textit{Instruction-Level Parallelism}, or \textbf{ILP}), which allows their execution in parallel.
+The highest the amount of ILP that can be found and exploited, the better the performance of the pipeline.
+
+The are 2 main ways to exploit ILP:
+\begin{itemize}
+	\item \textbf{Dynamic}, depending on the hardware to locate parallelism. This dominates both the desktop and embedded market;
+	\item \textbf{Static}, depending on the compiler to locate parallelism before the program is even loaded into memory. Can be found in the embedded market, for instance the ARM Cortex-M8. Intel briefly experimented with it in the \textit{Itanium} (IA-64) architecture.
+\end{itemize}
+
+The two approaches can be partly combined.
+
+\subsubsection{Basics of ILP}
+
+Let's first look at the basics of the \textit{static} kind of ILP.
+
+\begin{itemize}
+	\item The first idea is to scan the code for \textbf{basic blocks}.
+	      The first kind of ILP is the one among instructions belonging to the same basic block.
+	      A basic block is a sequence of instructions with:
+	      \begin{itemize}
+		      \item No branches in, except to the entry
+		      \item No branches out, except at the exit.
+	      \end{itemize}
+
+	      Inside a basic block, \textit{rescheduling} can be performed to optimized instruction parallelism.
+	      For typical RISC-V programs, the typical size of a
+	      basic block is between 4 and 7 instructions.
+	      Since these instructions are likely to be dependent
+	      one from the other, the amount of parallelism existing
+	      within a basic block is normally rather small.
+
+	\item To further increase the available parallelism, the parallelism among iterations of a \textbf{loop} is considered. \textit{Loop unrolling} is the usual technique to avoid branch-related control hazards. Note that unrolling loops by explicitly replicating the loop body multiple times, widens the loop basic block.
+
+	      In this way:
+	      \begin{itemize}
+		      \item The relative overhead due to the control of iteration is reduced;
+		      \item The loop body is made wider, thus increasing the
+		            chance for the compiler to exploit rescheduling to
+		            eliminate stalls.
+	      \end{itemize}
+
+	      The disadvantage is that loop unrolling increases the size of the code.
+
+	      \par\smallskip
+
+	      Another possible solution is that of \textbf{SIMD} (\textit{Single Instruction, Multiple Data}).
+	      More precisely, \textit{Single instruction stream, multiple data streams} may be exploited in:
+	      \begin{itemize}
+		      \item \textbf{Vector processors}:
+		            A vector instruction operates on a set of data, instead
+		            of on a scalar data (as a normal instruction);
+		      \item \textit{Graphics Processing Units} (\textbf{GPU}s):
+		            Different functional units perform similar tasks in
+		            parallel acting on multiple data.
+	      \end{itemize}
+
+\end{itemize}
+
+\subsection{Dependencies}
+
+If two instructions are not dependent, they can be executed in parallel without any stall.
+If they are dependent, they have to be executed in order (although partly overlapped).
+Therefore, exploiting the parallelism among instructions requires identifying dependencies existing among them.
+
+There are three kinds of dependencies:
+\begin{itemize}
+	\item \textbf{Data dependencies}: an instruction $j$ data depends on instruction $i$ if $i$ produces a result that $j$ uses, or there is some transitive chain of instructions which $j$ data depends on and $i$ is a data dependency on;
+	\item \textbf{Name dependencies}:
+	\item \textbf{Control dependencies}:
+\end{itemize}
+
+At this point we have to make some clarifications.
+\textit{Dependencies} are properties of the program:
+\begin{itemize}
+	\item They create the possibility for a \textit{hazard};
+	\item Determine the order in which results must be calculated;
+	\item Set an upper bound on the amount of parallelism that can be exploited.
+\end{itemize}
+Hazards are potential problems stemming from
+dependecies in a specific pipeline organization.
+Stalls depend on the program and the pipeline: a
+dependency can cause a hazard or not, and the hazard
+can cause a stall or not (e.g., forwarding can avoid the
+stall).
+
+\subsubsection{Data dependencies}
+
+Detecting dependencies involving registers is easy.
+Detecting dependencies involving memory cells is much
+more difficult, because accesses to the same cell can
+look very different.
+If static techniques are used, the compiler must adopt a
+conservative approach, assuming that any load
+instruction refers to the same cell of a previous store.
+Dependencies involving memory cells can only be
+detected at run time, when the addresses are known.
+
+\subsubsection{Name dependencies}
+
+A name dependency occurs when two instructions refer
+to the same register or memory location (name) but
+there is no flow of data associated to the name.
+There are two kinds of name dependencies between an
+instruction $i$ and an instruction $j$ that follows:
+
+\begin{itemize}
+	\item \textbf{Antidependence}: instruction $j$ writes a register or
+	memory location that instruction $i$ reads, and
+	instruction $i$ is executed first;
+	\item \textbf{Output} dependence: both instruction $i$ and
+	instruction $j$ write the same register or memory
+	location.
+\end{itemize}
+
+As we know, these dependencies aren't real dependencies and can be eliminated by:
+\begin{itemize}
+	\item Increasing the number of registers in the processor;
+	\item Implementing \textit{register renaming}.
+\end{itemize}
+
+\end{document}

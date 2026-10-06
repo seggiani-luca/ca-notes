@@ -382,16 +382,16 @@ The types are a bit limited:
 Some zero-based pseudo-instructions are availale:
 \begin{itemize}
 	\item \lstinline|beqz rs, label|: branches if \lstinline|rs = 0|:
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 beqz x3, label
 
 # translates to:
 
 beq x3, x0, label
 \end{lstlisting}
-	
+
 	\item \lstinline|bnez rs, label|: branches if \lstinline|rs != 0|:
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 bnez x3, label
 
 # translates to:
@@ -400,16 +400,16 @@ bne x3, x0, label
 \end{lstlisting}
 
 	\item \lstinline|bltz rs, label|: branches if \lstinline|rs < 0|:
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 bltz x3, label
 
 # translates to:
 
 blt x3, x0, label
 \end{lstlisting}
-	
+
 	\item \lstinline|bgtz rs, label|: branches if \lstinline|rs1 >= 0|:
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 bgtz x3, label
 
 # translates to:
@@ -449,7 +449,7 @@ Lastly, we define \textbf{CPI} as \textit{Clock Cycles per Instruction}.
 In an ideal pipeline, all the stages are perfectly balanced (i.e., they require the same time).
 The throughput of an ideal pipeline (i.e., the number of instructions completed in a given time period) is:
 $$
-\text{throughput}_\text{pipelined} = \text{throughput}_\text{unpipelined} * n
+	\text{throughput}_\text{pipelined} = \text{throughput}_\text{unpipelined} * n
 $$
 where $n$ is the number of stages.
 
@@ -481,8 +481,8 @@ One way of dealing with hazards is to force the pipeline to \textbf{stall}, i.e.
 
 When an instruction is stalled:
 \begin{itemize}
-\item The instructions following the stalled instruction are also stalled;
-\item The instructions preceding the stalled instruction continue.
+	\item The instructions following the stalled instruction are also stalled;
+	\item The instructions preceding the stalled instruction continue.
 \end{itemize}
 This can be easily achieved by modifying the buffer registers, making them able to \textit{conserve} the previous value (this will be the sstage which caused the hazard), and introducing an empty instruction to propagate onwards.
 
@@ -521,19 +521,19 @@ Assume that:
 We want to measure the performance gain.
 
 \begin{itemize}
-	\item 
-For the machine without structural hazard:
-$$
-\text{Average Instruction Time}' = CPI \times T_C 
-$$
-where $T_C$ is the clock period.
+	\item
+	      For the machine without structural hazard:
+	      $$
+		      \text{Average Instruction Time}' = CPI \times T_C
+	      $$
+	      where $T_C$ is the clock period.
 
 	\item
-For the machine with structural hazard:
-$$
-\text{Average Instruction Time}'' = CPI_\text{ideal} \times T''_c + \text{Inst. freq} \times \text{Stall penalty}
-$$
-computed using $T''_C = T_C \times 1.05$.
+	      For the machine with structural hazard:
+	      $$
+		      \text{Average Instruction Time}'' = CPI_\text{ideal} \times T''_c + \text{Inst. freq} \times \text{Stall penalty}
+	      $$
+	      computed using $T''_C = T_C \times 1.05$.
 \end{itemize}
 
 \subsubsection{Data hazards}
@@ -648,9 +648,9 @@ More clearly:
 \begin{itemize}
 	\item \textit{Memory reference}: $LMD \leftarrow \text{Mem}[\text{ALUOutput}]$ (loads) or $\text{Mem}[\text{ALUOutput}] \leftarrow B$ (stores);
 	\item \textit{Branch}:
-$$
-cond \ ?\  PC \leftarrow \text{ALU output}, \ \text{otherwise} \ PC \leftarrow NPC
-$$
+	      $$
+		      cond \ ?\  PC \leftarrow \text{ALU output}, \ \text{otherwise} \ PC \leftarrow NPC
+	      $$
 \end{itemize}
 
 \subsubsection{Write-back cycle}
@@ -715,10 +715,10 @@ In general, this can happen for:
 \begin{itemize}
 	\item \textbf{Register operands};
 	\item \textbf{Memory operands}: this is possible if:
-	\begin{itemize}
-		\item Accesses to memory by load and store are not made in the same stage;
-		\item Execution can proceed while an instruction waits for a cache miss to be solved.
-	\end{itemize}
+	      \begin{itemize}
+		      \item Accesses to memory by load and store are not made in the same stage;
+		      \item Execution can proceed while an instruction waits for a cache miss to be solved.
+	      \end{itemize}
 \end{itemize}
 
 A problem is that not all data hazards can be solved through data forwarding.
@@ -742,10 +742,10 @@ Implementing the \textbf{control} for these bubbles requires that at each clock 
 \begin{itemize}
 	\item All tests for detecting a possible data hazard concerning an instruction are performed when this is in the ID stage
 	\item If a data hazard is detected, two actions can be alternatively taken:
-	\begin{itemize}
-		\item The appropriate forwarding is activated;
-		\item The instruction is stalled before entering the stage where operands are not available (i.e., before being issued).
-	\end{itemize}
+	      \begin{itemize}
+		      \item The appropriate forwarding is activated;
+		      \item The instruction is stalled before entering the stage where operands are not available (i.e., before being issued).
+	      \end{itemize}
 \end{itemize}
 
 \par\smallskip
@@ -754,14 +754,14 @@ The control circuitry used to handle loads is called \textbf{LID} (\textit{Load 
 
 Let's look at a table of possible hazard conditions:
 \begin{table}[H]
-\centering
-\begin{tabular}{lll}
-\textbf{Situation} & \textbf{\begin{tabular}[c]{@{}l@{}}Example fragment\end{tabular}} & \textbf{Action} \\ \hline
-No dependence & \begin{tabular}[c]{@{}l@{}}\texttt{LD   R1,45(R2)}\\\texttt{DADD R5,R6,R7}\\\texttt{DSUB R8,R6,R7}\\\texttt{OR   R9,R6,R7}\end{tabular} & \begin{tabular}[c]{@{}l@{}}No hazard possible because no dependence\\ exists on R1 in the immediately following three\\ instructions.\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}Dependence\\ requiring stall\end{tabular} & \begin{tabular}[c]{@{}l@{}}\texttt{LD   \textbf{R1},45(R2)}\\\texttt{DADD R5,\textbf{R1},R7}\\\texttt{DSUB R8,R6,R7}\\\texttt{OR   R9,R6,R7}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Comparators detect the use of R1 in the DADD\\ and stall the DADD (and DSUB and OR) before the\\ DADD begins EX.\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}Dependence\\ overcome by\\ forwarding\end{tabular} & \begin{tabular}[c]{@{}l@{}}\texttt{LD   \textbf{R1},45(R2)}\\\texttt{DADD R5,R6,R7}\\\texttt{DSUB R8,\textbf{R1},R7}\\\texttt{OR   R9,R6,R7}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Comparators detect use of R1 in DSUB and\\ forward result of load to ALU in time for DSUB\\ to begin EX.\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}Dependence with\\ accesses in order\end{tabular} & \begin{tabular}[c]{@{}l@{}}\texttt{LD   \textbf{R1},45(R2)}\\\texttt{DADD R5,R6,R7}\\\texttt{DSUB R8,R6,R7}\\\texttt{OR   R9,\textbf{R1},R7}\end{tabular} & \begin{tabular}[c]{@{}l@{}}No action required because the read of R1 by OR\\ occurs in the second half of the ID phase, while\\ the write of the loaded data occurred in the first\\ half.\end{tabular} \\
-\end{tabular}
+	\centering
+	\begin{tabular}{lll}
+		\textbf{Situation}                                                            & \textbf{\begin{tabular}[c]{@{}l@{}}Example fragment\end{tabular}}                                                                                                               & \textbf{Action}                                                                                                                                                                                         \\ \hline
+		No dependence                                                                 & \begin{tabular}[c]{@{}l@{}}\texttt{LD   R1,45(R2)}\\\texttt{DADD R5,R6,R7}\\\texttt{DSUB R8,R6,R7}\\\texttt{OR   R9,R6,R7}\end{tabular}                                         & \begin{tabular}[c]{@{}l@{}}No hazard possible because no dependence\\ exists on R1 in the immediately following three\\ instructions.\end{tabular}                                                      \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Dependence\\ requiring stall\end{tabular}          & \begin{tabular}[c]{@{}l@{}}\texttt{LD   \textbf{R1},45(R2)}\\\texttt{DADD R5,\textbf{R1},R7}\\\texttt{DSUB R8,R6,R7}\\\texttt{OR   R9,R6,R7}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Comparators detect the use of R1 in the DADD\\ and stall the DADD (and DSUB and OR) before the\\ DADD begins EX.\end{tabular}                                                \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Dependence\\ overcome by\\ forwarding\end{tabular} & \begin{tabular}[c]{@{}l@{}}\texttt{LD   \textbf{R1},45(R2)}\\\texttt{DADD R5,R6,R7}\\\texttt{DSUB R8,\textbf{R1},R7}\\\texttt{OR   R9,R6,R7}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Comparators detect use of R1 in DSUB and\\ forward result of load to ALU in time for DSUB\\ to begin EX.\end{tabular}                                                        \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Dependence with\\ accesses in order\end{tabular}   & \begin{tabular}[c]{@{}l@{}}\texttt{LD   \textbf{R1},45(R2)}\\\texttt{DADD R5,R6,R7}\\\texttt{DSUB R8,R6,R7}\\\texttt{OR   R9,\textbf{R1},R7}\end{tabular} & \begin{tabular}[c]{@{}l@{}}No action required because the read of R1 by OR\\ occurs in the second half of the ID phase, while\\ the write of the loaded data occurred in the first\\ half.\end{tabular} \\
+	\end{tabular}
 \end{table}
 
 We deduce that the following checks have to be performed when a load instruction is in the EX stage and another instruction exploiting the loaded value is in the ID stage.
@@ -769,11 +769,11 @@ We deduce that the following checks have to be performed when a load instruction
 \begin{table}[h!]
 	\center \rowcolors{2}{white}{black!10}
 	\begin{tabular} { c | c | c }
-		\bfseries ID Opcode & \bfseries IF Opcode & \bfseries Match \\
+		\bfseries ID Opcode & \bfseries IF Opcode                & \bfseries Match                \\
 		\hline
-		Load & Register-Register ALU & ID/EX.IR[rd] == IF/ID.IR[rs1] \\
-		Load & Register-Register ALU & ID/ EX.IR[rd] == IF/ID.IR[rs2] \\
-		Load & Load, store, ALU immediate, branch & ID/EX.IR[rd] == IF/ID.IR[rs1] \\
+		Load                & Register-Register ALU              & ID/EX.IR[rd] == IF/ID.IR[rs1]  \\
+		Load                & Register-Register ALU              & ID/ EX.IR[rd] == IF/ID.IR[rs2] \\
+		Load                & Load, store, ALU immediate, branch & ID/EX.IR[rd] == IF/ID.IR[rs1]  \\
 	\end{tabular}
 \end{table}
 
@@ -807,36 +807,35 @@ The forwarding logic must compare:
 	\item The source fields of the IR contained in the IF/ID, ID/EX and EX/MEM registers.
 \end{itemize}
 
-We see one final table regarding the forwarding conditions and the \textit{comparisons} (checks): 
+We see one final table regarding the forwarding conditions and the \textit{comparisons} (checks):
 \begin{table}[H]
-\center \rowcolors{2}{white}{black!10}
-\small
-\begin{tabular}{p{2cm} | p{2cm} | p{2cm} | p{2cm} | p{2cm} | p{2cm}}
-\textbf{Source} & \textbf{Opcode} &
-\textbf{Dest.} & \textbf{Opcode} &
-\textbf{Forward} & \textbf{Comparison} \\ \hline
+	\center \rowcolors{2}{white}{black!10}
+	\small
+	\begin{tabular}{p{2cm} | p{2cm} | p{2cm} | p{2cm} | p{2cm} | p{2cm}}
+		\textbf{Source}  & \textbf{Opcode}                             &
+		\textbf{Dest.}   & \textbf{Opcode}                             &
+		\textbf{Forward} & \textbf{Comparison}                           \\ \hline
 
-EX/MEM & Reg--reg ALU, ALU imm. &
-ID/EX & Reg--reg ALU, ALU imm., load, store, branch &
-Top ALU &
-\texttt{EX/MEM.rd == ID/EX.rs1} \\
+		EX/MEM           & Reg--reg ALU, ALU imm.                      &
+		ID/EX            & Reg--reg ALU, ALU imm., load, store, branch &
+		Top ALU          &
+		\texttt{EX/MEM.rd == ID/EX.rs1}                                  \\
 
-EX/MEM & Reg--reg ALU, ALU imm. &
-ID/EX & Reg--reg ALU &
-Bottom ALU &
-\texttt{EX/MEM.rd == ID/EX.rs2} \\
+		EX/MEM           & Reg--reg ALU, ALU imm.                      &
+		ID/EX            & Reg--reg ALU                                &
+		Bottom ALU       &
+		\texttt{EX/MEM.rd == ID/EX.rs2}                                  \\
 
-MEM/WB & Reg--reg ALU, ALU imm., load &
-ID/EX & Reg--reg ALU, ALU imm., load, store, branch &
-Top ALU &
-\texttt{MEM/WB.rd == ID/EX.rs1} \\
+		MEM/WB           & Reg--reg ALU, ALU imm., load                &
+		ID/EX            & Reg--reg ALU, ALU imm., load, store, branch &
+		Top ALU          &
+		\texttt{MEM/WB.rd == ID/EX.rs1}                                  \\
 
-MEM/WB & Reg--reg ALU, ALU imm., load &
-ID/EX & Reg--reg ALU &
-Bottom ALU &
-\texttt{MEM/WB.rd == ID/EX.rs2}
-
-\end{tabular}
+		MEM/WB           & Reg--reg ALU, ALU imm., load                &
+		ID/EX            & Reg--reg ALU                                &
+		Bottom ALU       &
+		\texttt{MEM/WB.rd == ID/EX.rs2}
+	\end{tabular}
 \end{table}
 
 \subsubsection{Summary of RISC-V dependency handling}
@@ -846,13 +845,13 @@ To summarize, we note that the following situations might happen in the pipeline
 \begin{table}[H]
 	\center \rowcolors{2}{white}{black!10}
 	\begin{tabular}{ p{7cm} | p{7cm} }
-		\bfseries Situation & \bfseries Solution \\
+		\bfseries Situation                                           & \bfseries Solution \\
 		\hline
-		No dependence & Do nothing \\
-		Structural hazard & Stall \\
-		Any source IF/ID register in load target ID/EX stage & Stall (table 1) \\
-		Any reg-reg ID/EX register in any target EX/MEM stage & Forward (table 2) \\
-		Any reg-reg or load ID/EX register in any target MEM/WB stage & Forward (table 2) \\
+		No dependence                                                 & Do nothing         \\
+		Structural hazard                                             & Stall              \\
+		Any source IF/ID register in load target ID/EX stage          & Stall (table 1)    \\
+		Any reg-reg ID/EX register in any target EX/MEM stage         & Forward (table 2)  \\
+		Any reg-reg or load ID/EX register in any target MEM/WB stage & Forward (table 2)  \\
 	\end{tabular}
 \end{table}
 
@@ -866,13 +865,13 @@ For clarity (and also for fun) we test these out on a microarchitectural simulat
 The simulator chosen is \textbf{Gem5} (\url{https://www.gem5.org/}) as it's used by the course.
 
 A code example is provided, and underneath the disassembly without pseudo-instructions and pipeline state.
-It should be clear that the hazards in table 1 (section 4.3.8) are solved via stalling, whereas the hazards in table 2 (section 4.3.9) are solved, if the processor supports it, via forwarding. 
+It should be clear that the hazards in table 1 (section 4.3.8) are solved via stalling, whereas the hazards in table 2 (section 4.3.9) are solved, if the processor supports it, via forwarding.
 
 \begin{enumerate}
 
-\item \textbf{Table 1} (4.3.8), \textbf{type 1}: ALU source register 1 target of load.
+	\item \textbf{Table 1} (4.3.8), \textbf{type 1}: ALU source register 1 target of load.
 
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 .section .data
     val: .word 42
 
@@ -896,13 +895,13 @@ End:
     ecall
 \end{lstlisting}
 
-\begin{center}
-	\includegraphics[scale=0.36]{../figures/riscv_deps/4_3_8_a.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.36]{../figures/riscv_deps/4_3_8_a.png}
+	      \end{center}
 
-\item \textbf{Table 1} (4.3.8), \textbf{type 2}: ALU source register 2 target of load.
+	\item \textbf{Table 1} (4.3.8), \textbf{type 2}: ALU source register 2 target of load.
 
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 .section .data
     val: .word 42
 
@@ -926,13 +925,13 @@ End:
     ecall
 \end{lstlisting}
 
-\begin{center}
-	\includegraphics[scale=0.36]{../figures/riscv_deps/4_3_8_b.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.36]{../figures/riscv_deps/4_3_8_b.png}
+	      \end{center}
 
-\item \textbf{Table 1} (4.3.8), \textbf{type 3}: load source target of (other) load.
+	\item \textbf{Table 1} (4.3.8), \textbf{type 3}: load source target of (other) load.
 
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 .section .data
 val:  .byte 42
 addr: .word val
@@ -957,13 +956,13 @@ End:
     ecall
 \end{lstlisting}
 
-\begin{center}
-	\includegraphics[scale=0.36]{../figures/riscv_deps/4_3_8_c.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.36]{../figures/riscv_deps/4_3_8_c.png}
+	      \end{center}
 
-\item \textbf{Table 2} (4.3.9), \textbf{type 1}: ALU source register 1 target of ALU.
+	\item \textbf{Table 2} (4.3.9), \textbf{type 1}: ALU source register 1 target of ALU.
 
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 # The text section contains the instructions that the CPU runs.
 .section .text
 # Make _start visible as the point where the program begins.
@@ -987,13 +986,13 @@ End:
     ecall
 \end{lstlisting}
 
-\begin{center}
-	\includegraphics[scale=0.36]{../figures/riscv_deps/4_3_9_a.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.36]{../figures/riscv_deps/4_3_9_a.png}
+	      \end{center}
 
-\item \textbf{Table 2} (4.3.9), \textbf{type 1}: ALU source register 2 target of ALU.
+	\item \textbf{Table 2} (4.3.9), \textbf{type 1}: ALU source register 2 target of ALU.
 
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 # The text section contains the instructions that the CPU runs.
 .section .text
 # Make _start visible as the point where the program begins.
@@ -1017,13 +1016,13 @@ End:
     ecall
 \end{lstlisting}
 
-\begin{center}
-	\includegraphics[scale=0.36]{../figures/riscv_deps/4_3_9_b.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.36]{../figures/riscv_deps/4_3_9_b.png}
+	      \end{center}
 
-\item \textbf{Table 2} (4.3.9), \textbf{type 1}: ALU source register 1 target of load (delayed).
+	\item \textbf{Table 2} (4.3.9), \textbf{type 1}: ALU source register 1 target of load (delayed).
 
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 .section .data
 val: .byte 3
 
@@ -1050,13 +1049,13 @@ End:
     ecall
 \end{lstlisting}
 
-\begin{center}
-	\includegraphics[scale=0.36]{../figures/riscv_deps/4_3_9_c.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.36]{../figures/riscv_deps/4_3_9_c.png}
+	      \end{center}
 
-\item \textbf{Table 2} (4.3.9), \textbf{type 1}: ALU source register 2 target of load (delayed).
+	\item \textbf{Table 2} (4.3.9), \textbf{type 1}: ALU source register 2 target of load (delayed).
 
-\begin{lstlisting}[language=riscv, style=codestyle]	
+	      \begin{lstlisting}[language=riscv, style=codestyle]	
 .section .data
 val: .byte 3
 
@@ -1083,9 +1082,9 @@ End:
     ecall
 \end{lstlisting}
 
-\begin{center}
-	\includegraphics[scale=0.36]{../figures/riscv_deps/4_3_9_d.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.36]{../figures/riscv_deps/4_3_9_d.png}
+	      \end{center}
 
 \end{enumerate}
 
