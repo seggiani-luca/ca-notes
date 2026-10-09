@@ -381,7 +381,7 @@ Today the 3 main product lines mantained by ARM are:
 	\item \textbf{Cortex-M}: microcontrollers (Cortex-M3 LPC1768)
 \end{itemize}
 
-\subsubsection{Busines model}
+\subsubsection{Business model}
 
 ARM has seldom delivered stand-alone devices with its own microprocessor.
 It mainly sells cores, to be used for integration in microcontrollers or \textit{Systems on
@@ -413,7 +413,7 @@ To summarize:
 
 Let's give a quick overview of the ARM v7-M architecture, which is the architecture used in the ARM Cortex-M3 processor we will be using.
 
-\textbf{\textsf{Data types}}
+\par\smallskip\textbf{\textsf{Data types}}
 The following data types are supported:
 \begin{itemize}
 	\item byte: 8 bits
@@ -421,7 +421,7 @@ The following data types are supported:
 	\item word: 32 bits
 \end{itemize}
 
-\textbf{\textsf{Registers}}
+\par\smallskip\textbf{\textsf{General registers}}
 Registers are 32-bit wide.
 
 We have the following general-purpose registers (some aliased):
@@ -429,7 +429,25 @@ We have the following general-purpose registers (some aliased):
 	\includegraphics[scale=0.2]{../figures/arm7_gp_regs.png}
 \end{center}
 
-And the following special registers:
+We sse the aliases in the table.
+The main ones are:
+\begin{itemize}
+	\item \textbf{IP}: not really significant, means \textit{Intra-Procedure scratch} for compiler generated routines (see AAPCS below);
+	\item \textbf{SP}: this is the \textit{Stack Pointer}, with \textbf{MSP} and \textbf{PSP} being respectively the \textit{Main} (handler) and \textit{Program} (thread/user) stack pointers in the respective modes;
+	\item \textbf{LR}: this is the \textit{Link Register} for jump and link calling convention;
+	\item \textbf{PC}: the good old program counter.
+\end{itemize}
+
+Arm defines \textbf{AAPCS} (\textit{ARM Architecture Procedure Call Standard}) for the caller convention ABI.
+A quick overview is:
+\begin{itemize}
+	\item Registers from \texttt{r0} to \texttt{r3} are the first 4 function arguments (from the fifth onwards we use the stack). Register \texttt{r0} then takes the return value. These are \textit{caller-saved};
+	\item Registers from \textit{r4} to \textit{r11} are \textit{callee-saved} scratch;
+	\item Register \texttt{r12} is, as we said, a special \textit{intra-procedure scratch}. The only significant characteristic for now is that it's \textit{caller-saved}, as the first four.
+\end{itemize}
+
+\par\smallskip\textbf{\textsf{Special registers}}
+We also have the following special registers:
 \begin{center}
 	\includegraphics[scale=0.2]{../figures/arm7_sp_regs.png}
 \end{center}
@@ -440,10 +458,10 @@ The \textbf{PSR} (\textit{Program Status Register}) is significant.
 	\includegraphics[scale=0.2]{../figures/xpsr.png}
 \end{center}
 
-It can be accessed all at once (PSR) or as a combination of 3 registers:
+It can be accessed all at once (PSR) or as a combination of 3 registers (in order, the three rows of the figure above):
 \begin{itemize}
 	\item \textit{Application Program Status Register} (\textbf{APSR}):
-It contains:
+This contains application info (akin to the status flags on x86):
 \begin{itemize}
 \item N: Negative result from ALU;
 \item Z: Zero result from ALU;
@@ -451,19 +469,21 @@ It contains:
 \item V: ALU operation oVerflowed;
 \item Q: “sticky” flag for saturation arithmetic.
 \end{itemize}
+
 	\item \textit{Execution Program Status Register}   (\textbf{EPSR}).
-		It contains:
+		This contains program execution status usually not of interest to the programmer:
 \begin{itemize}
 	\item IT: IF-THEN instruction status bits. This is interesting: the ARMv7-M (Cortex-M3) uses conditional execution to let instructions execute only when a condition is true. The IT instruction controls this for Thumb instructions;
 \item ICI: Interrupt-Continuable Instruction bits;
 \item T: Thumb bit. It is always 1: clearing this bit will cause a hard fault exception in ARM-v7.
 \end{itemize}
-	\item \textit{Interrupt Program Status Register}   (\textbf{IPSR}). It contains an exception number used in exception handling.
+
+\item \textit{Interrupt Program Status Register}   (\textbf{IPSR}). It contains an exception number used in exception handling. The ISRNUM is extremely important as, if it is different than 0, signals that the processor is in \textit{handler} mode (the equivalent of system mode in ARM).
 \end{itemize}
 
 
 
-\textbf{\textsf{Instructions}}
+\par\smallskip\textbf{\textsf{Instructions}}
 There are 3 kinds of instructions:
 \begin{itemize}
 	\item ARM instructions: 32 bits wide
@@ -473,8 +493,7 @@ There are 3 kinds of instructions:
 
 In fact, ARM v7-M architecture supports Thumb and Thumb-2 instructions only.
 
-\textbf{\textsf{Processor modes}} 
-
+\par\smallskip\textbf{\textsf{Processor modes}} 
 We have orthogonal operating and privilege modes.
 
 There are two operating modes:
@@ -485,27 +504,30 @@ There are two operating modes:
 
 And two access levels:
 \begin{itemize}
-	\item user level: limited access to resources;
-	\item privileged level: access to all resources.
+	\item User level: limited access to resources;
+	\item Privileged level: access to all resources.
 \end{itemize}
 
 Note that handler mode is always privileged.
 
 The CONTROL register has only 2 bits, which control:
 \begin{itemize}
-	\item The access level;
-	\item The current stack (main or process).
+	\item Bit 0, which is \textbf{nPRIV}, controls the access level;
+	\item Bit 1, which is \textbf{SPSEL}, controls the current stack (main or process).
 \end{itemize} 
 The CONTROL register can be changed only in privileged mode.
 When an exception is taken, the processor automatically switches to Handler mode. When the handler finishes and exception return occurs, the processor returns to Thread mode if no other exception handler should run.
 This means handler state is encoded in IPSR $\neq 0$.
 
-\textbf{\textsf{Interrupt Vector Table}} ARM-v7 has an \textbf{IVT} (\textit{Interrupt Vector Table}). 
+We show a summarizing table:
+\begin{center}
+	\includegraphics[scale=0.15]{../figures/control.png}
+\end{center}
+
+\par\smallskip\textbf{\textsf{Interrupt Vector Table}} ARM-v7 has an \textbf{IVT} (\textit{Interrupt Vector Table}). 
 \begin{itemize}
 	\item Each entry manages an exception, interrupt, or other atypical events such as a reset;
 	\item The vector table contains either ARM instructions or addresses in memory: in the v7-M architecture, there are addresses.
 \end{itemize}
-
-
 
 \end{document}
