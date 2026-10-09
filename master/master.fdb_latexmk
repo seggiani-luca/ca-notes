@@ -1,11 +1,14 @@
 # Fdb version 4
-["pdflatex"] 1791278792.22759 "master.tex" "master.pdf" "master" 1791278798.96477 0
+["pdflatex"] 1791535675.46097 "master.tex" "master.pdf" "master" 1791535708.18229 0
   "../09-22/main.tex" 1791278200.14744 23208 dca8c9300ce0088e56554348e4eac469 ""
   "../09-23/main.tex" 1791278199.99513 38124 19d88abcfc827d72a2d29148e5fca22a ""
   "../09-25/main.tex" 1791278201.94759 42722 c7f570578e831c208a51471b631bd3e4 ""
   "../09-29/main.tex" 1791278200.52676 41253 4074d6d3d51262da55c06c17ad7007e0 ""
   "../10-02/main.tex" 1791278202.13915 21135 715bc3d252075fbadf2a0a07ad99683b ""
-  "../10-06/main.tex" 1791278790.27799 22579 8a4a8bc4fdb6702a98524cc6927ec95e ""
+  "../10-06/main.tex" 1791278814.29697 22579 8a4a8bc4fdb6702a98524cc6927ec95e ""
+  "../10-09/main.tex" 1791535673.90867 16280 d5abba8c98d8d87bddd3501648bec516 ""
+  "../figures/arm7_gp_regs.png" 1791533604.66161 160339 29201c51f11bebf85c646d57af3aa4da ""
+  "../figures/arm7_sp_regs.png" 1791533609.04862 96939 cb04a51e6858dff974a89e5fc4633693 ""
   "../figures/bad_branch.png" 1790927358.61121 111753 544b6129d87cb1544205ff5603cd3814 ""
   "../figures/bathub_curve.png" 1790172053.65628 308290 04b236119df76a46686d0710f2745bd9 ""
   "../figures/big_dhazard.png" 1790931182.04052 290831 410918be4301f59aa31e21aecf747fdd ""
@@ -33,6 +36,7 @@
   "../figures/riscv_reg_abi.png" 1790324802.83803 608632 c4885323c3e59580a45a89630cea1780 ""
   "../figures/riscv_types.png" 1790325203.32776 89647 ed6a35e23d1949c45beedf32256de1ab ""
   "../figures/taxonomies.png" 1790174889.02403 223758 68e99175ef5e684fdd5db79da393e3b6 ""
+  "../figures/xpsr.png" 1791535061.95563 42176 66af08384b0ec191f550e34ab14e5846 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775415801 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1775415801 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1775415801 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -370,9 +374,9 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1785857120 325756 c3fa4413167de785cee2babc86728bf5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1785857113 2335842 0a88e6a6d07fff138735874fccd108fa ""
-  "master.aux" 1791278798.80097 10465 b71a8700667ae863779847b6c786216b "pdflatex"
-  "master.out" 1791278798.80297 11894 e6734de99062ef84a1da3170ab0eb75e "pdflatex"
-  "master.tex" 1791278202.56313 10477 98cc6444bd045133ca0f5220fd241f7e ""
+  "master.aux" 1791535706.85677 11267 4bc44a9b74454266fcaaf5c1eaf9a049 "pdflatex"
+  "master.out" 1791535706.86577 12915 42a848a0b4f6b66b95a295947d1e6204 "pdflatex"
+  "master.tex" 1791530085.22907 10503 174171adea87288076d8d3672f4112a9 ""
   (generated)
   "master.aux"
   "master.log"

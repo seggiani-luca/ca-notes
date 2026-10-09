@@ -26,11 +26,6 @@
 \author{Luca Seggiani}
 \date{2026}
 
-% spaziatura liste
-\usepackage{enumitem}
-\setlist[itemize]{noitemsep, topsep=4pt, partopsep=0pt, parsep=2pt, leftmargin=*}
-\setlist[enumerate]{noitemsep, topsep=4pt, partopsep=0pt, parsep=2pt, leftmargin=*}
-
 % imposta lo stile
 % usa helvetica
 \usepackage[scaled]{helvet}
@@ -134,7 +129,6 @@
 		numbers=none, 
 		breaklines=true
 }
-
 
 \lstdefinelanguage{x86}{ 
   keywords={AAA, AAD, AAM, AAS, ADC, ADCB, ADCW, ADCL, ADD, ADDB, ADDW, ADDL, AND, ANDB, ANDW, ANDL,
@@ -355,17 +349,163 @@
 \makeatother
 
 \begin{document}
+% sezione (data)
+\section{Lesson 09-10-26}
 
-\pagestyle{fancy}
+% stili pagina
 \thispagestyle{empty}
-\renewcommand{\thispagestyle}[1]{}
+\pagestyle{fancy}
 
-\maketitle
-\input{../09-22/main.tex}
-\input{../09-23/main.tex}
-\input{../09-25/main.tex}
-\input{../09-29/main.tex}
-\input{../10-02/main.tex}
-\input{../10-06/main.tex}
-\input{../10-09/main.tex}
+% testo
+\subsection{Introduction to ARM architectures}
+
+\textbf{ARM} (which means anything from \textit{Acorn RISC Machine} to \textit{Advanced RISC Machine}) is a british company specialized in RISC processor designs (sold as \textbf{IP}, \textit{Intellectual Property}).
+
+\subsubsection{Timeline}
+
+A short timeline is:
+\begin{itemize}
+	\item 1985: ARM1, first ARM processor (v1), designed by Acorn Computers produced by VLSI Technology (now NXP);
+	\item 1987-1989: ARM2 and ARM3 (v2), used by Acorn in its desktop PCs, sold by VLSI as part of processor chip sets;
+	\item 1990: Acorn and Apple found ARM Ltd. with a new business model: manufacturing rights instead of processors. Of course, VLSI become the first licensee;
+\item 1991: ARM6 (v3);
+\item 1993: ARM7 (v4), ARM7TDMI: Debug and ICE (In-Circuit Emulation) plus a new compressed instruction set: \textbf{Thumb};
+\item 1996-2006: ARM8 - ARM11 (v5, v6);
+\item 2004-today: Cortex cores (v7, v8, v9).
+\end{itemize}
+
+Today the 3 main product lines mantained by ARM are:
+\begin{itemize}
+	\item \textbf{Cortex-A, X}: high-end applications (smartphones)
+	\item \textbf{Cortex-R}: real-time and safety-critical applications
+	\item \textbf{Cortex-M}: microcontrollers (Cortex-M3 LPC1768)
+\end{itemize}
+
+\subsubsection{Busines model}
+
+ARM has seldom delivered stand-alone devices with its own microprocessor.
+It mainly sells cores, to be used for integration in microcontrollers or \textit{Systems on
+Chip} (\textbf{SoC}s).
+
+Two types:
+\begin{itemize}
+	\item \textbf{Hard cores}: ARM provides a physical layout optimized for a specific semiconductor technology
+	\item \textbf{Soft cores}: ARM provides a high-level description that the designer can synthesize for a specific technology.
+\end{itemize}
+
+\subsubsection{Microprocessor vs microcontrollers}
+
+Let's look at the difference between \textbf{microprocessors} (which we are used to) and \textbf{microcontrollers}.
+A microcontroller is a single computer system packed into a computer chip, which can in term be placed in a board or some other device, to control it as an \textit{embedded system}.
+
+A common format is \textbf{SoC}, which we said means \textit{System-on-Chip}.
+An SoC is fundamentally an entire system integrated in a single piece of silicon.
+Most microcontrollers are examples of SoC integration technologies, but SoCs are widely used in other applications too. 
+
+To summarize:
+\begin{itemize}
+	\item Microprocessor describes a processor-oriented chip;
+	\item Microcontroller describes a computer optimized for control, typically with integrated memory and peripherals;
+	\item SoC describes the integration of a system's major components into one chip.
+\end{itemize}
+
+\subsubsection{ARM v7-M architecture}
+
+Let's give a quick overview of the ARM v7-M architecture, which is the architecture used in the ARM Cortex-M3 processor we will be using.
+
+\textbf{\textsf{Data types}}
+The following data types are supported:
+\begin{itemize}
+	\item byte: 8 bits
+	\item halfword: 16 bits
+	\item word: 32 bits
+\end{itemize}
+
+\textbf{\textsf{Registers}}
+Registers are 32-bit wide.
+
+We have the following general-purpose registers (some aliased):
+\begin{center}
+	\includegraphics[scale=0.2]{../figures/arm7_gp_regs.png}
+\end{center}
+
+And the following special registers:
+\begin{center}
+	\includegraphics[scale=0.2]{../figures/arm7_sp_regs.png}
+\end{center}
+
+The \textbf{PSR} (\textit{Program Status Register}) is significant.
+
+\begin{center}
+	\includegraphics[scale=0.2]{../figures/xpsr.png}
+\end{center}
+
+It can be accessed all at once (PSR) or as a combination of 3 registers:
+\begin{itemize}
+	\item \textit{Application Program Status Register} (\textbf{APSR}):
+It contains:
+\begin{itemize}
+\item N: Negative result from ALU;
+\item Z: Zero result from ALU;
+\item C: ALU operation Carried out;
+\item V: ALU operation oVerflowed;
+\item Q: “sticky” flag for saturation arithmetic.
+\end{itemize}
+	\item \textit{Execution Program Status Register}   (\textbf{EPSR}).
+		It contains:
+\begin{itemize}
+	\item IT: IF-THEN instruction status bits. This is interesting: the ARMv7-M (Cortex-M3) uses conditional execution to let instructions execute only when a condition is true. The IT instruction controls this for Thumb instructions;
+\item ICI: Interrupt-Continuable Instruction bits;
+\item T: Thumb bit. It is always 1: clearing this bit will cause a hard fault exception in ARM-v7.
+\end{itemize}
+	\item \textit{Interrupt Program Status Register}   (\textbf{IPSR}). It contains an exception number used in exception handling.
+\end{itemize}
+
+
+
+\textbf{\textsf{Instructions}}
+There are 3 kinds of instructions:
+\begin{itemize}
+	\item ARM instructions: 32 bits wide
+	\item Thumb instructions: 16 bits wide
+	\item Thumb-2 instructions: 16 or 32 bits wide
+\end{itemize}
+
+In fact, ARM v7-M architecture supports Thumb and Thumb-2 instructions only.
+
+\textbf{\textsf{Processor modes}} 
+
+We have orthogonal operating and privilege modes.
+
+There are two operating modes:
+\begin{itemize}
+	\item Thread mode: on reset or after completing the exception routine;
+	\item Handler mode: when an exception occurs.
+\end{itemize}
+
+And two access levels:
+\begin{itemize}
+	\item user level: limited access to resources;
+	\item privileged level: access to all resources.
+\end{itemize}
+
+Note that handler mode is always privileged.
+
+The CONTROL register has only 2 bits, which control:
+\begin{itemize}
+	\item The access level;
+	\item The current stack (main or process).
+\end{itemize} 
+The CONTROL register can be changed only in privileged mode.
+When an exception is taken, the processor automatically switches to Handler mode. When the handler finishes and exception return occurs, the processor returns to Thread mode if no other exception handler should run.
+This means handler state is encoded in IPSR $\neq 0$.
+
+\textbf{\textsf{Interrupt Vector Table}} ARM-v7 has an \textbf{IVT} (\textit{Interrupt Vector Table}). 
+\begin{itemize}
+	\item Each entry manages an exception, interrupt, or other atypical events such as a reset;
+	\item The vector table contains either ARM instructions or addresses in memory: in the v7-M architecture, there are addresses.
+\end{itemize}
+
+
+
 \end{document}
