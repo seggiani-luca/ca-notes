@@ -795,6 +795,14 @@ INPUT ../figures/mmap_perm.png
 INPUT ../figures/mmap_perm.png
 INPUT ../figures/mmap_perm.png
 INPUT ../figures/mmap_perm.png
+INPUT ../10-16/main.tex
+INPUT ../10-16/main.tex
+INPUT ../10-16/main.tex
+INPUT ../figures/tomasulo.png
+INPUT ../figures/tomasulo.png
+INPUT ../figures/tomasulo.png
+INPUT ../figures/tomasulo.png
+INPUT ../figures/tomasulo.png
 INPUT master.aux
 INPUT ./master.out
 INPUT ./master.out
