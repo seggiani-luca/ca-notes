@@ -816,6 +816,9 @@ INPUT ../figures/rob.png
 INPUT ../figures/rob.png
 INPUT ../figures/rob.png
 INPUT ../figures/rob.png
+INPUT ../10-23/main.tex
+INPUT ../10-23/main.tex
+INPUT ../10-23/main.tex
 INPUT master.aux
 INPUT ./master.out
 INPUT ./master.out
