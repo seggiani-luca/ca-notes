@@ -819,6 +819,14 @@ INPUT ../figures/rob.png
 INPUT ../10-23/main.tex
 INPUT ../10-23/main.tex
 INPUT ../10-23/main.tex
+INPUT ../10-27/main.tex
+INPUT ../10-27/main.tex
+INPUT ../10-27/main.tex
+INPUT ../figures/cache_org.png
+INPUT ../figures/cache_org.png
+INPUT ../figures/cache_org.png
+INPUT ../figures/cache_org.png
+INPUT ../figures/cache_org.png
 INPUT master.aux
 INPUT ./master.out
 INPUT ./master.out
