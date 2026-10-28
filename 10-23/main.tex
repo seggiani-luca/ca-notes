@@ -384,10 +384,10 @@ defined by the compiler is rather easy and inexpensive.
 
 For instance, two instructions can be issued per clock cycle if:
 \begin{itemize}
-\item One is a load, store, branch, or integer ALU
-operation;
-\item The other is any FP operation (but load and store,
-which belong to the first category).
+	\item One is a load, store, branch, or integer ALU
+	      operation;
+	\item The other is any FP operation (but load and store,
+	      which belong to the first category).
 \end{itemize}
 
 Two instructions (64 bits) are fetched and decoded at
@@ -428,7 +428,7 @@ There are 2 types of locality:
 
 Cache performance is given by the average \textit{access time} in function of the hit rate $h$:
 $$
-t_{ave} = h \times C + (1 - h) \times M
+	t_{ave} = h \times C + (1 - h) \times M
 $$
 where $C$ is the cache access time (on cache \textit{hit}), and $M$ is the memory access time (on cache \textit{miss}).
 

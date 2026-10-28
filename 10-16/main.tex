@@ -377,11 +377,11 @@ We can summerize this with a graph:
 \begin{table}[h!]
 	\centering
 	\begin{tabular} { c || c | c }
-		& $i$ writes & $i$ reads \\
+		           & $i$ writes            & $i$ reads                     \\
 		\hline\hline
 		$j$ writes & \textbf{WAW} (output) & \textbf{WAR} (antidependency) \\
 		\hline
-		$j$ reads & \textbf{RAW} (data) & // \\
+		$j$ reads  & \textbf{RAW} (data)   & //                            \\
 	\end{tabular}
 \end{table}
 
@@ -389,14 +389,14 @@ We can summerize this with a graph:
 
 A control dependency occurs when an instruction depends on a branch.
 \begin{itemize}
-	\item 
-An instruction that is control dependent on a branch
-cannot be moved before the branch (so that its
-execution is no more controlled by the branch).
 	\item
-An instruction that is not control dependent on a
-branch cannot be moved after the branch (so that its
-execution become dependent on the branch).
+	      An instruction that is control dependent on a branch
+	      cannot be moved before the branch (so that its
+	      execution is no more controlled by the branch).
+	\item
+	      An instruction that is not control dependent on a
+	      branch cannot be moved after the branch (so that its
+	      execution become dependent on the branch).
 \end{itemize}
 
 Normally, preserving control dependencies is a sufficient
@@ -454,13 +454,13 @@ behavior or the data flow.
 These are cases where:
 
 \begin{itemize}
-	\item 
-The moved instruction
-cannot generate
-exceptions;
-\item
-The program results are
-not changed anyway.
+	\item
+	      The moved instruction
+	      cannot generate
+	      exceptions;
+	\item
+	      The program results are
+	      not changed anyway.
 \end{itemize}
 
 By doing this, the compiler
