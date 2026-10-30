@@ -1,0 +1,502 @@
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper, margin=8em]{geometry}
+
+% usa i pacchetti per la scrittura in italiano
+\usepackage[french,italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\frenchspacing 
+
+% usa i pacchetti per la formattazione matematica
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+
+% usa altri pacchetti
+\usepackage{gensymb}
+\usepackage{hyperref}
+\usepackage{standalone}
+
+\usepackage{colortbl}
+
+\usepackage{xstring}
+\usepackage{karnaugh-map}
+
+% imposta il titolo
+\title{Computer Architectures notes}
+\author{Luca Seggiani}
+\date{2026}
+
+% imposta lo stile
+% usa helvetica
+\usepackage[scaled]{helvet}
+% usa palatino
+\usepackage{palatino}
+% usa un font monospazio guardabile
+\usepackage{lmodern}
+
+\renewcommand{\rmdefault}{ppl}
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{lmtt}
+
+% circuiti
+\usepackage{circuitikz}
+\usetikzlibrary{babel}
+
+% testo cerchiato
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% disponi il titolo
+\makeatletter
+\renewcommand{\maketitle} {
+	\begin{center} 
+		\begin{minipage}[t]{.8\textwidth}
+			\textsf{\huge\bfseries \@title} 
+		\end{minipage}%
+		\begin{minipage}[t]{.2\textwidth}
+			\raggedleft \vspace{-1.65em}
+			\textsf{\small \@author} \vfill
+			\textsf{\small \@date}
+		\end{minipage}
+		\par
+	\end{center}
+
+	\thispagestyle{empty}
+	\pagestyle{fancy}
+}
+\makeatother
+
+% disponi teoremi
+\usepackage{tcolorbox}
+\newtcolorbox[auto counter, number within=section]{theorem}[2][]{%
+	colback=blue!10, 
+	colframe=blue!40!black, 
+	sharp corners=northwest,
+	fonttitle=\sffamily\bfseries, 
+	title=Theorem~\thetcbcounter: #2, 
+	#1
+}
+
+% disponi definizioni
+\newtcolorbox[auto counter, number within=section]{definition}[2][]{%
+	colback=red!10,
+	colframe=red!40!black,
+	sharp corners=northwest,
+	fonttitle=\sffamily\bfseries,
+	title=Definition~\thetcbcounter: #2,
+	#1
+}
+
+% disponi codice
+\usepackage{listings}
+\usepackage[table]{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{codestyle}{
+		backgroundcolor=\color{black!5}, 
+		commentstyle=\color{codegreen},
+		keywordstyle=\bfseries\color{magenta},
+		numberstyle=\sffamily\tiny\color{black!60},
+		stringstyle=\color{green!50!black},
+		basicstyle=\ttfamily\footnotesize,
+		breakatwhitespace=false,         
+		breaklines=true,                 
+		captionpos=b,                    
+		keepspaces=true,                 
+		numbers=left,                    
+		numbersep=5pt,                  
+		showspaces=false,                
+		showstringspaces=false,
+		showtabs=false,                  
+		tabsize=2
+}
+
+\lstdefinestyle{shellstyle}{
+		backgroundcolor=\color{black!5}, 
+		basicstyle=\ttfamily\footnotesize\color{black}, 
+		commentstyle=\color{black}, 
+		keywordstyle=\color{black},
+		numberstyle=\color{black!5},
+		stringstyle=\color{black}, 
+		showspaces=false,
+		showstringspaces=false, 
+		showtabs=false, 
+		tabsize=2, 
+		numbers=none, 
+		breaklines=true
+}
+
+\lstdefinelanguage{x86}{ 
+  keywords={AAA, AAD, AAM, AAS, ADC, ADCB, ADCW, ADCL, ADD, ADDB, ADDW, ADDL, AND, ANDB, ANDW, ANDL,
+        ARPL, BOUND, BSF, BSFL, BSFW, BSR, BSRL, BSRW, BSWAP, BT, BTC, BTCB, BTCW, BTCL, BTR, 
+        BTRB, BTRW, BTRL, BTS, BTSB, BTSW, BTSL, CALL, CBW, CDQ, CLC, CLD, CLI, CLTS, CMC, CMP,
+        CMPB, CMPW, CMPL, CMPS, CMPSB, CMPSD, CMPSW, CMPXCHG, CMPXCHGB, CMPXCHGW, CMPXCHGL,
+        CMPXCHG8B, CPUID, CWDE, DAA, DAS, DEC, DECB, DECW, DECL, DIV, DIVB, DIVW, DIVL, ENTER,
+        HLT, IDIV, IDIVB, IDIVW, IDIVL, IMUL, IMULB, IMULW, IMULL, IN, INB, INW, INL, INC, INCB,
+        INCW, INCL, INS, INSB, INSD, INSW, INT, INT3, INTO, INVD, INVLPG, IRET, IRETD, JA, JAE,
+        JB, JBE, JC, JCXZ, JE, JECXZ, JG, JGE, JL, JLE, JMP, JNA, JNAE, JNB, JNBE, JNC, JNE, JNG,
+        JNGE, JNL, JNLE, JNO, JNP, JNS, JNZ, JO, JP, JPE, JPO, JS, JZ, LAHF, LAR, LCALL, LDS,
+        LEA, LEAVE, LES, LFS, LGDT, LGS, LIDT, LMSW, LOCK, LODSB, LODSD, LODSW, LOOP, LOOPE,
+        LOOPNE, LSL, LSS, LTR, MOV, MOVB, MOVW, MOVL, MOVSB, MOVSD, MOVSW, MOVSX, MOVSXB,
+        MOVSXW, MOVSXL, MOVZX, MOVZXB, MOVZXW, MOVZXL, MUL, MULB, MULW, MULL, NEG, NEGB, NEGW,
+        NEGL, NOP, NOT, NOTB, NOTW, NOTL, OR, ORB, ORW, ORL, OUT, OUTB, OUTW, OUTL, OUTSB, OUTSD,
+        OUTSW, POP, POPL, POPW, POPB, POPA, POPAD, POPF, POPFD, PUSH, PUSHL, PUSHW, PUSHB, PUSHA, 
+        RCLL, RCR, RCRB, RCRW, RCRL, RDMSR, RDPMC, RDTSC, REP, REPE, REPNE, RET, ROL, ROLB, ROLW,
+        ROLL, ROR, RORB, RORW, RORL, SAHF, SAL, SALB, SALW, SALL, SAR, SARB, SARW, SARL, SBB,
+        SBBB, SBBW, SBBL, SCASB, SCASD, SCASW, SETA, SETAE, SETB, SETBE, SETC, SETE, SETG, SETGE,
+        SETL, SETLE, SETNA, SETNAE, SETNB, SETNBE, SETNC, SETNE, SETNG, SETNGE, SETNL, SETNLE,
+        SETNO, SETNP, SETNS, SETNZ, SETO, SETP, SETPE, SETPO, SETS, SETZ, SGDT, SHL, SHLB, SHLW,
+        SHLL, SHLD, SHR, SHRB, SHRW, SHRL, SHRD, SIDT, SLDT, SMSW, STC, STD, STI, STOSB, STOSD,
+        STOSW, STR, SUB, SUBB, SUBW, SUBL, TEST, TESTB, TESTW, TESTL, VERR, VERW, WAIT, WBINVD,
+        XADD, XADDB, XADDW, XADDL, XCHG, XCHGB, XCHGW, XCHGL, XLAT, XLATB, XOR, XORB, XORW, XORL},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{riscv}{
+  keywords={
+    LUI, AUIPC,
+    JAL, JALR,
+    BEQ, BNE, BLT, BGE, BLTU, BGEU,
+    LB, LH, LW, LBU, LHU, LD,
+    SB, SH, SW, SD,
+    ADDI, SLTI, SLTIU, XORI, ORI, ANDI,
+    SLLI, SRLI, SRAI,
+    ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND,
+    ADDIW, SLLIW, SRLIW, SRAIW,
+    ADDW, SUBW, SLLW, SRLW, SRAW,
+    MUL, MULH, MULHSU, MULHU, DIV, DIVU, REM, REMU,
+    MULW, DIVW, DIVUW, REMW, REMUW,
+    LR.W, SC.W, AMOSWAP.W, AMOADD.W, AMOXOR.W,
+    AMOAND.W, AMOOR.W, AMOMIN.W, AMOMAX.W,
+    AMOMINU.W, AMOMAXU.W,
+    LR.D, SC.D, AMOSWAP.D, AMOADD.D, AMOXOR.D,
+    AMOAND.D, AMOOR.D, AMOMIN.D, AMOMAX.D,
+    AMOMINU.D, AMOMAXU.D,
+    FLW, FSW,
+    FMADD.S, FMSUB.S, FNMSUB.S, FNMADD.S,
+    FADD.S, FSUB.S, FMUL.S, FDIV.S, FSQRT.S,
+    FSGNJ.S, FSGNJN.S, FSGNJX.S,
+    FMIN.S, FMAX.S,
+    FCVT.W.S, FCVT.WU.S, FCVT.S.W, FCVT.S.WU,
+    FMV.X.W, FMV.W.X,
+    FEQ.S, FLT.S, FLE.S,
+    FLD, FSD,
+    FMADD.D, FMSUB.D, FNMSUB.D, FNMADD.D,
+    FADD.D, FSUB.D, FMUL.D, FDIV.D, FSQRT.D,
+    FSGNJ.D, FSGNJN.D, FSGNJX.D,
+    FMIN.D, FMAX.D,
+    FCVT.W.D, FCVT.WU.D, FCVT.D.W, FCVT.D.WU,
+    FCVT.S.D, FCVT.D.S,
+    FMV.X.D, FMV.D.X,
+    FEQ.D, FLT.D, FLE.D,
+    CSRRW, CSRRS, CSRRC,
+    CSRRWI, CSRRSI, CSRRCI,
+    FENCE.I,
+    FENCE,
+    ECALL, EBREAK,
+    MRET, SRET, URET,
+    WFI,
+    SFENCE.VMA,
+    NOP, LI, LA, MV,
+    NOT, NEG, NEGW,
+    SEQZ, SNEZ, SLTZ, SGTZ,
+    BEQZ, BNEZ, BLEZ, BGEZ, BLTZ, BGTZ,
+    BGT, BLE, BGTU, BLEU,
+    J, JR, RET,
+    CALL, TAIL,
+    RDINSTRET, RDCYCLE, RDTIME,
+    CSRR, CSRW, CSRS, CSRC,
+    CSRWI, CSRSI, CSRCI
+  },
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{arm}{
+  keywords={
+    ADC, ADD, AND, BIC, CMN, CMP, EOR, MOV, MVN,
+    RSB, RSC, SBC, SUB, TST, TEQ,
+    MLA, MLS, MUL, SMLAL, SMULL, UMLAL, UMULL,
+    QADD, QSUB, QDADD, QDSUB,
+    QADD16, QADD8, QASX, QSAX,
+    QSUB16, QSUB8, QSAX, QSUBADDX,
+    ASR, LSL, LSR, ROR, RRX,
+    B, BL, BX, BLX,
+    BXJ,
+    BEQ, BNE, BCS, BHS, BCC, BLO,
+    BMI, BPL, BVS, BVC,
+    BHI, BLS, BGE, BLT, BGT, BLE,
+    BAL,
+    LDR, LDRB, LDRH, LDRSB, LDRSH,
+    LDRD, LDM, LDMIA, LDMIB, LDMDA, LDMDB,
+    LDRT, LDRBT, LDRHT, LDRSBT, LDRSHT,
+    STR, STRB, STRH, STRD,
+    STM, STMIA, STMIB, STMDA, STMDB,
+    STRT, STRBT, STRHT,
+    PUSH, POP,
+    SWP, SWPB,
+    REV, REV16, REVSH,
+    BFC, BFI, BFXIL, SBFX, UBFX,
+    CLZ,
+    LDREX, LDREXB, LDREXH, LDREXD,
+    STREX, STREXB, STREXH, STREXD,
+    DMB, DSB, ISB,
+    MCR, MCRR, MRC, MRRC,
+    MRS, MSR,
+    CPS, SETEND, SVC, BKPT,
+    CLREX, WFE, WFI, SEV,
+    YIELD, NOP,
+    VLDR, VSTR,
+    VMOV, VABS, VNEG,
+    VADD, VSUB, VMUL, VDIV,
+    VMLA, VMLS, VNMLA, VNMLS, VNMUL,
+    VMAX, VMIN,
+    VSQRT,
+    VCMP, VCMPE,
+    VCVT,
+    VCLZ, VCLS,
+    VAND, VORR, VEOR, VBIC, VMVN,
+    VLD1, VLD2, VLD3, VLD4,
+    VST1, VST2, VST3, VST4,
+    ADR, ADCS, ADDS, SUBS, MOVS, ANDS, ORRS, EORS
+  },
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{@},
+  morecomment=[l]{;},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{style=codestyle, language=C}
+
+% disponi sezioni
+\usepackage{titlesec}
+
+\titleformat{\section}
+	{\sffamily\Large\bfseries} 
+	{\thesection}{1em}{} 
+\titleformat{\subsection}
+	{\sffamily\large\bfseries}   
+	{\thesubsection}{1em}{} 
+\titleformat{\subsubsection}
+	{\sffamily\normalsize\bfseries} 
+	{\thesubsubsection}{1em}{}
+
+% tikz
+\usepackage{tikz}
+
+% float
+\usepackage{float}
+
+% grafici
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+
+% disponi alberi
+\usepackage{forest}
+
+\forestset{
+	rectstyle/.style={
+		for tree={rectangle,draw,font=\large\sffamily}
+	},
+	roundstyle/.style={
+		for tree={circle,draw,font=\large}
+	}
+}
+
+% disponi algoritmi
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\makeatletter
+\renewcommand{\ALG@name}{Algorithm}
+\makeatother
+
+% disponi numeri di pagina
+\usepackage{fancyhdr}
+\fancyhf{} 
+\fancyfoot[L]{\sffamily{\thepage}}
+
+\makeatletter
+\fancyhead[L]{\raisebox{1ex}[0pt][0pt]{\sffamily{\@title \ \@date}}} 
+\fancyhead[R]{\raisebox{1ex}[0pt][0pt]{\sffamily{\@author}}}
+\makeatother
+
+\begin{document}
+% sezione (data)
+\section{Lesson 30-10-26}
+
+% stili pagina
+\thispagestyle{empty}
+\pagestyle{fancy}
+
+% testo
+\subsubsection{Cache levels}
+
+We talked for a while about cache memories, but not about how caches are actually organized on the local bus.
+
+We find that they are usually close to the \textit{processors}, organized in \textbf{levels} progressively farther from it. Usually, at level 1 only, we have a split data and instruction cache.
+
+\begin{center}
+	\includegraphics[scale=0.1]{../figures/cache_levels.png}
+\end{center}
+
+t may be convenient to have multiple levels of caches, as we can have:
+\begin{itemize}
+	\item A first level cache (L1), smaller and faster;
+	\item A second level cache (L2), slower but larger;
+	\item A third level cache (L3), even slower and bigger.
+\end{itemize}
+
+Each time the processor performs a memory access
+\begin{enumerate}
+	\item It checks first whether the word is in L1
+	\item If so, it can access the word in L1
+	\item If not, it checks whether the word is in L2
+	\item If so, it will access to the word in L2 and eventually update L1
+	\item If not, it checks whether the word is in L3
+	\item If yes, L3 is accessed and L2 is updated
+	\item If not, it accesses to the main memory and eventually updates L3
+\end{enumerate}
+
+\subsubsection{Cache coherence}
+
+For multiple processor CPUs, then, we are intersted in \textit{cache coherence} between multiple processor caches.
+The architeture is usually as follows:
+
+\begin{center}
+	\includegraphics[scale=0.22]{../figures/cache_coher.png}
+\end{center}
+
+The problem is that of course we don't know if all CPUs get the same value in their cache: even if we implement a \textit{write through} (see 12.0.4) policy, the other caches on the bus don't notice the value change if they don't explicitly go and check if they have the updated value in their cachelines.
+
+This is a major problem in multiprocessor systems with shared memory, in which each processor has its own cache.
+Similar problems may occur if the system uses a DMA controller.
+
+\par\smallskip
+
+To fix this and achieve cache coherence, two main approaches exist:
+\begin{itemize}
+	\item \textbf{Snooping}
+Snooping is a process where the individual caches monitor address lines for accesses to memory locations that they have cached.
+If a write is detected in one of the locations contained in cacheline, the cacheline on the cache is invalidated;
+
+\item \textbf{Directory-based}
+In a directory-based system, the data being shared is placed in a common directory that maintains the coherence between caches. The directory acts as a filter through which the processor must ask permission to load an entry from the primary memory to its cache. When an entry is changed, the directory either updates or invalidates the other caches with that entry. The directory is usually stored in shared memory.
+\end{itemize}
+
+\subsection{Branch prediction}
+
+We have somewhat hinted at \textbf{branch prediction} in the past lessons, sticking to simple predict taken or predict untaken solutions for pipelined processors.
+Since we have studied the Tomasulo architecture and its application insSuperscalar processors with ROBs that need flushing on misses (which is a very expensive operation), we know want to focus on more advanced techniques for predicting wether a branch is taken.
+
+To summarize, branches can potentially impact in a very serious way the pipeline performance.
+It is possible to reduce the performance losses by predicting how branches will behave.
+
+Branche preduction \textit{schemes} aim at correctly forecasting branches, thus reducing the chance that control dependences cause stalls.
+They can be categorized in two groups:
+\begin{itemize}
+	\item \textbf{Dynamic techniques}: they are implemented by the hardware based on the behavior of the code;
+	\item \textbf{Static techniques}: they are handled by the compiler resorting to a preliminary analysis of the code.
+\end{itemize}
+
+This is akin to the distinction we made in 6.2 regarding ILP dynamic scheduling techniques.
+
+\subsubsection{Static branch prediction}
+
+Of course, as we said earlier, \textbf{static} branch prediction can be useful when combined with other static techniques, such as:
+\begin{itemize}
+	\item Enabling delayed branches;
+	\item Rescheduling to avoid data hazards.
+\end{itemize}
+
+The compiler may predict branch behavior in different alternative ways:
+\begin{itemize}
+	\item Always predicting branches as taken: this is the simple \textit{predict taken} scheme.
+
+	It is generally inaccurate, with benchmarks giving anything from 5\% to 60\% misprediction rate;
+	\item Predicting branch behavior depending on branch direction, which is a simple but highly accurate techniques for code in standard form (such as code produced by C compilers).
+
+The technique is based on the observation that, mainly due to loop constructs in high level languages:
+\begin{itemize}
+	\item Forward branches are more often untaken: the only real cases in high level code is the \texttt{goto} statement sometimes used in kernel-level C code to simulate exception handling;
+	\item Backward branches are more often taken: these are the common branches inside \texttt{while} and \texttt{for} loops. If a loop repeats $n$ times, then $n - 1$ times the branch is taken, thus the heuristic.
+\end{itemize}
+
+	\item Predicting on the basis of \textbf{profile} information coming from earlier runs.
+		Note that this is \textit{not} dynamic yet (!). We are making heuristic decisions on profile data collected at compile time, which then gets hardcoded.
+
+So, the technique is based on:
+\begin{enumerate}
+	\item Identifying a typical sequence of input stimula for the program;
+	\item Running the program a limited number of times using these stimula;
+	\item Gathering statistics on the behavior of branches;
+	\item Using these statistics as predictions.
+\end{enumerate}
+\end{itemize}
+
+\subsubsection{Dynamic branch prediction}
+
+\textbf{Dynamic} schemas are based on hardware, and use the branch instruction address to activate the different prediction mechanisms.
+Dynamic branch prediction can be based on different techniques:
+\begin{itemize}
+	\item \textit{Branch History Table} (\textbf{BHT}): one- and two-bit prediction schemes.
+
+It is the simplest method for dynamic branch prediction. The BHT is a small memory:
+\begin{itemize}
+	\item Indexed by the lower portion of the address of the branch instruction (same as in cache direct mapping);
+	\item Containing for each entry one or more bits recording whether the branch has been taken or not the last time it has been executed.
+\end{itemize}
+
+Each time a branch instruction is decoded:
+\begin{enumerate}
+\item An access is made in the BHT using the lowest portion of its address as an index
+\item The prediction stored in the table is used, and the new PC is computed according to the prediction.
+\item When the branch result is known, the BHT is possibly updated.
+\end{enumerate}
+
+A BHT using only \textbf{one bit} at every table location is called a \textit{Bimodal} predictor
+
+\begin{center}
+	\includegraphics[scale=0.15]{../figures/one_bit.png}
+\end{center}
+
+\textbf{Two bit} BHT entries can also be used. They provide higher prediction capabilities.
+If for every branch, two bits are maintained, the prediction is changed only after missing twice.
+
+\begin{center}
+	\includegraphics[scale=0.22]{../figures/two_bit.png}
+\end{center}
+
+	\item Two-level prediction schemes (correlating predictors);
+	\item \textit{Branch Target Buffer} (\textbf{BTB});
+	\item Others.
+\end{itemize}
+
+\end{document}
