@@ -363,33 +363,33 @@ In assembly ARM we have a number of instructions to load literals into registers
 
 \begin{itemize}
 	\item The usual \texttt{mov} is \texttt{mov <rd>, <rn> \{, shift\}}. \texttt{shift} is an optional shift applied to \texttt{Rn}:
-		\begin{itemize}
-			\item \texttt{ASR \#n} : arithmetic shift right;
-			\item \texttt{LSL \#n} : logical shift left;
-			\item \texttt{LSR \#n} : logical shift right;
-			\item \texttt{ROR \#n} : rotate right;
-			\item \texttt{RRX} : rotate right 1 bit with extend.
-		\end{itemize}
+	      \begin{itemize}
+		      \item \texttt{ASR \#n} : arithmetic shift right;
+		      \item \texttt{LSL \#n} : logical shift left;
+		      \item \texttt{LSR \#n} : logical shift right;
+		      \item \texttt{ROR \#n} : rotate right;
+		      \item \texttt{RRX} : rotate right 1 bit with extend.
+	      \end{itemize}
 
 	\item There is also a way to move a constant, with \texttt{mov <Rd>, \#constant}.
-		The constant is stored on 8 bits so there are limitations. It can be:
-		\begin{itemize}
-			\item A value obtained by shifting left an 8-bit value up to 24 positions;
-			\item A value of the form \texttt{0x00XY00XY};
-			\item A value of the form \texttt{0xXY00XY00};
-			\item A value of the form \texttt{0xXYXYXYXY}.
-		\end{itemize}
+	      The constant is stored on 8 bits so there are limitations. It can be:
+	      \begin{itemize}
+		      \item A value obtained by shifting left an 8-bit value up to 24 positions;
+		      \item A value of the form \texttt{0x00XY00XY};
+		      \item A value of the form \texttt{0xXY00XY00};
+		      \item A value of the form \texttt{0xXYXYXYXY}.
+	      \end{itemize}
 	\item \texttt{mvn} has the same exact syntax as \texttt{mov}, but  moves the one’s complement of the operand into a register;
-		
+
 	\item \texttt{movw} is the wide equivalent of \texttt{mov}. It moves a 16-bit value in the low halfword of a register. The assembler can replace \texttt{mov} with \texttt{mvn} or \texttt{MOVW} if needed. This increases the number of possible values supplied as constants to \texttt{mov}:
-		\begin{itemize}
-			\item A 16-bit value: 0-65535 (\texttt{mvw}),
-			\item A value obtained by shifting left an 8-bit constant up to 24 positions;
-			\item A value obtained by shifting left an 8-bit constant up to 24 positions, and then applying a bitwise logical NOT operation (\texttt{mvn});
-			\item A value of the form \texttt{0x00XY00XY} or \texttt{0xFFXYFFXY} (\texttt{mvn});
-			\item A value of the form \texttt{0xXY00XY00} or \texttt{0xXYFFXYFF} (\texttt{mvn});
-			\item A value of the form \texttt{0xXYXYXYXY}.
-		\end{itemize}
+	      \begin{itemize}
+		      \item A 16-bit value: 0-65535 (\texttt{mvw}),
+		      \item A value obtained by shifting left an 8-bit constant up to 24 positions;
+		      \item A value obtained by shifting left an 8-bit constant up to 24 positions, and then applying a bitwise logical NOT operation (\texttt{mvn});
+		      \item A value of the form \texttt{0x00XY00XY} or \texttt{0xFFXYFFXY} (\texttt{mvn});
+		      \item A value of the form \texttt{0xXY00XY00} or \texttt{0xXYFFXYFF} (\texttt{mvn});
+		      \item A value of the form \texttt{0xXYXYXYXY}.
+	      \end{itemize}
 
 	\item \texttt{movt} is the upper 16-bit version of \texttt{movw}. It moves a 16-bit value in the high halfword of a register. A register can be set to any 32-bit constant by using \texttt{movw} and \texttt{movt} together, so the pseudo-instruction \texttt{mov32} is translated into a combination of those.
 
@@ -401,10 +401,10 @@ Besides loading values from memory (also note that \texttt{mov} can't load value
 
 It is a pseudo-instruction:
 \begin{itemize}
-	\item 
-If constant is among the valid values of MOV, then the instruction is replaced with: \texttt{mov <Rd>, \#<constant>};
 	\item
-Otherwise, a block of constants, called \textbf{literal pool}, is created and the instruction becomes: \texttt{ldr <Rd>, [PC, \#<offset>]}.
+	      If constant is among the valid values of MOV, then the instruction is replaced with: \texttt{mov <Rd>, \#<constant>};
+	\item
+	      Otherwise, a block of constants, called \textbf{literal pool}, is created and the instruction becomes: \texttt{ldr <Rd>, [PC, \#<offset>]}.
 \end{itemize}
 
 \end{document}

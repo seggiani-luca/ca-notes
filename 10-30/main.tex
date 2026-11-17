@@ -404,11 +404,11 @@ Similar problems may occur if the system uses a DMA controller.
 To fix this and achieve cache coherence, two main approaches exist:
 \begin{itemize}
 	\item \textbf{Snooping}
-Snooping is a process where the individual caches monitor address lines for accesses to memory locations that they have cached.
-If a write is detected in one of the locations contained in cacheline, the cacheline on the cache is invalidated;
+	      Snooping is a process where the individual caches monitor address lines for accesses to memory locations that they have cached.
+	      If a write is detected in one of the locations contained in cacheline, the cacheline on the cache is invalidated;
 
-\item \textbf{Directory-based}
-In a directory-based system, the data being shared is placed in a common directory that maintains the coherence between caches. The directory acts as a filter through which the processor must ask permission to load an entry from the primary memory to its cache. When an entry is changed, the directory either updates or invalidates the other caches with that entry. The directory is usually stored in shared memory.
+	\item \textbf{Directory-based}
+	      In a directory-based system, the data being shared is placed in a common directory that maintains the coherence between caches. The directory acts as a filter through which the processor must ask permission to load an entry from the primary memory to its cache. When an entry is changed, the directory either updates or invalidates the other caches with that entry. The directory is usually stored in shared memory.
 \end{itemize}
 
 \subsection{Branch prediction}
@@ -440,25 +440,25 @@ The compiler may predict branch behavior in different alternative ways:
 \begin{itemize}
 	\item Always predicting branches as taken: this is the simple \textit{predict taken} scheme.
 
-	It is generally inaccurate, with benchmarks giving anything from 5\% to 60\% misprediction rate;
+	      It is generally inaccurate, with benchmarks giving anything from 5\% to 60\% misprediction rate;
 	\item Predicting branch behavior depending on branch direction, which is a simple but highly accurate techniques for code in standard form (such as code produced by C compilers).
 
-The technique is based on the observation that, mainly due to loop constructs in high level languages:
-\begin{itemize}
-	\item Forward branches are more often untaken: the only real cases in high level code is the \texttt{goto} statement sometimes used in kernel-level C code to simulate exception handling;
-	\item Backward branches are more often taken: these are the common branches inside \texttt{while} and \texttt{for} loops. If a loop repeats $n$ times, then $n - 1$ times the branch is taken, thus the heuristic.
-\end{itemize}
+	      The technique is based on the observation that, mainly due to loop constructs in high level languages:
+	      \begin{itemize}
+		      \item Forward branches are more often untaken: the only real cases in high level code is the \texttt{goto} statement sometimes used in kernel-level C code to simulate exception handling;
+		      \item Backward branches are more often taken: these are the common branches inside \texttt{while} and \texttt{for} loops. If a loop repeats $n$ times, then $n - 1$ times the branch is taken, thus the heuristic.
+	      \end{itemize}
 
 	\item Predicting on the basis of \textbf{profile} information coming from earlier runs.
-		Note that this is \textit{not} dynamic yet (!). We are making heuristic decisions on profile data collected at compile time, which then gets hardcoded.
+	      Note that this is \textit{not} dynamic yet (!). We are making heuristic decisions on profile data collected at compile time, which then gets hardcoded.
 
-So, the technique is based on:
-\begin{enumerate}
-	\item Identifying a typical sequence of input stimula for the program;
-	\item Running the program a limited number of times using these stimula;
-	\item Gathering statistics on the behavior of branches;
-	\item Using these statistics as predictions.
-\end{enumerate}
+	      So, the technique is based on:
+	      \begin{enumerate}
+		      \item Identifying a typical sequence of input stimula for the program;
+		      \item Running the program a limited number of times using these stimula;
+		      \item Gathering statistics on the behavior of branches;
+		      \item Using these statistics as predictions.
+	      \end{enumerate}
 \end{itemize}
 
 \subsubsection{Dynamic branch prediction}
@@ -468,31 +468,31 @@ Dynamic branch prediction can be based on different techniques:
 \begin{itemize}
 	\item \textit{Branch History Table} (\textbf{BHT}): one- and two-bit prediction schemes.
 
-It is the simplest method for dynamic branch prediction. The BHT is a small memory:
-\begin{itemize}
-	\item Indexed by the lower portion of the address of the branch instruction (same as in cache direct mapping);
-	\item Containing for each entry one or more bits recording whether the branch has been taken or not the last time it has been executed.
-\end{itemize}
+	      It is the simplest method for dynamic branch prediction. The BHT is a small memory:
+	      \begin{itemize}
+		      \item Indexed by the lower portion of the address of the branch instruction (same as in cache direct mapping);
+		      \item Containing for each entry one or more bits recording whether the branch has been taken or not the last time it has been executed.
+	      \end{itemize}
 
-Each time a branch instruction is decoded:
-\begin{enumerate}
-\item An access is made in the BHT using the lowest portion of its address as an index
-\item The prediction stored in the table is used, and the new PC is computed according to the prediction.
-\item When the branch result is known, the BHT is possibly updated.
-\end{enumerate}
+	      Each time a branch instruction is decoded:
+	      \begin{enumerate}
+		      \item An access is made in the BHT using the lowest portion of its address as an index
+		      \item The prediction stored in the table is used, and the new PC is computed according to the prediction.
+		      \item When the branch result is known, the BHT is possibly updated.
+	      \end{enumerate}
 
-A BHT using only \textbf{one bit} at every table location is called a \textit{Bimodal} predictor
+	      A BHT using only \textbf{one bit} at every table location is called a \textit{Bimodal} predictor
 
-\begin{center}
-	\includegraphics[scale=0.15]{../figures/one_bit.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.15]{../figures/one_bit.png}
+	      \end{center}
 
-\textbf{Two bit} BHT entries can also be used. They provide higher prediction capabilities.
-If for every branch, two bits are maintained, the prediction is changed only after missing twice.
+	      \textbf{Two bit} BHT entries can also be used. They provide higher prediction capabilities.
+	      If for every branch, two bits are maintained, the prediction is changed only after missing twice.
 
-\begin{center}
-	\includegraphics[scale=0.22]{../figures/two_bit.png}
-\end{center}
+	      \begin{center}
+		      \includegraphics[scale=0.22]{../figures/two_bit.png}
+	      \end{center}
 
 	\item Two-level prediction schemes (correlating predictors);
 	\item \textit{Branch Target Buffer} (\textbf{BTB});

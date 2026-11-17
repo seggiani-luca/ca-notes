@@ -364,23 +364,23 @@ We move on to other schemas now.
 \begin{itemize}
 	\item \textbf{Correlating predictors} (also known as \textit{Bilevel} predictors): this approach is based on the dependencies between the results of last branches. What we mean is that the behavior of a branch is strongly dependent on the result of the previous ones.
 
-$(m, n)$ predictors use the behavior of the last $m$ branches to choose from $2^m$ branch predictors, each of which is a $n$-bit predictor.
-The hardware required for implementing this scheme is very simple:
-\begin{itemize}
-	\item The history of the most recent $m$ branches is recorded in an $m$-bit shift register, where each bit records whether the branch was taken or not;
-	\item The branch-prediction buffer is indexed using a concatenation of the low-order bits from the branch address with the $m$ low-order history bits.
-\end{itemize}
+	      $(m, n)$ predictors use the behavior of the last $m$ branches to choose from $2^m$ branch predictors, each of which is a $n$-bit predictor.
+	      The hardware required for implementing this scheme is very simple:
+	      \begin{itemize}
+		      \item The history of the most recent $m$ branches is recorded in an $m$-bit shift register, where each bit records whether the branch was taken or not;
+		      \item The branch-prediction buffer is indexed using a concatenation of the low-order bits from the branch address with the $m$ low-order history bits.
+	      \end{itemize}
 
-Let's see a few examples:
-\begin{itemize}
-	\item $(1, 1)$ predictor: in this case, $m = 1$ and $n = 1$. Each branch is associated with 2 predictors of one bit: one reporting the prediction in the case the previous branch was taken, one with the prediction in the case the previous branch was not taken;
-	\item $(2, 2)$ predictor: same as above, but with $m = 2$ and $n = 2$. Each branch is associated with 4 predictors of 2 bits.
+	      Let's see a few examples:
+	      \begin{itemize}
+		      \item $(1, 1)$ predictor: in this case, $m = 1$ and $n = 1$. Each branch is associated with 2 predictors of one bit: one reporting the prediction in the case the previous branch was taken, one with the prediction in the case the previous branch was not taken;
+		      \item $(2, 2)$ predictor: same as above, but with $m = 2$ and $n = 2$. Each branch is associated with 4 predictors of 2 bits.
 
-		\begin{center}
-			\includegraphics[scale=0.25]{../figures/22_pred.png}
-		\end{center}
-	
-\end{itemize}
+		            \begin{center}
+			            \includegraphics[scale=0.25]{../figures/22_pred.png}
+		            \end{center}
+
+	      \end{itemize}
 
 \end{itemize}
 

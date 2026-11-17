@@ -368,16 +368,16 @@ The ARM Cortex-M3 architecture allows for a variety of patterns in:
 	\item \textbf{Stack management}: stacks can be descending full or ascending empty, using the \texttt{ldmia/dmb} and \texttt{stia/dmb} instructions. \texttt{push} and \texttt{pop} pseudo-instructions are provided to follow the descending full pattern;
 	\item \textbf{Caller convention}: as we said, normally \texttt{r0} to \texttt{r3} are caller saved, as is \texttt{r12} (intra-procedure scratch). The others are callee-saved. This. note, is only a convention;
 	\item \textbf{Subroutine calling}: we have the \texttt{bl} (branch and link) and \texttt{bx} (branch and exchange instruction set) instructions to call and return from subroutines. This is also a convention as many things can be changed:
-		\begin{itemize}
-			\item Direct PC manipulation is possible;
-			\item The stack can be selectively used to store the return address at LR (usually not done on leaf calls); 
-		\end{itemize}
+	      \begin{itemize}
+		      \item Direct PC manipulation is possible;
+		      \item The stack can be selectively used to store the return address at LR (usually not done on leaf calls);
+	      \end{itemize}
 	\item \textbf{Argument passing}: there are 3 approaches.
-\begin{itemize}
-\item In registers;
-\item By reference, i.e., a register with an address in memory;
-\item On the stack.
-\end{itemize}
+	      \begin{itemize}
+		      \item In registers;
+		      \item By reference, i.e., a register with an address in memory;
+		      \item On the stack.
+	      \end{itemize}
 \end{itemize}
 
 \subsubsection{AAPCS}
@@ -389,9 +389,9 @@ It regulates the interaction between a caller
 (the calling program) and the callee (the
 called subroutine:
 \begin{itemize}
-\item Obligations on the caller: proper program state;
-\item Obligations on the callee: which parts of the program state must be preserved;
-\item Rights of the callee: which parts of the program state can be changed.
+	\item Obligations on the caller: proper program state;
+	\item Obligations on the callee: which parts of the program state must be preserved;
+	\item Rights of the callee: which parts of the program state can be changed.
 \end{itemize}
 
 We already know the register properties (caller or callee saved).
@@ -405,33 +405,33 @@ Let's now look at other obligations.
 \subsubsection{Caller obligations}
 
 \begin{itemize}
-    \item The first four parameters are passed in registers \texttt{r0-r3};
-    \item Further parameters are passed on the stack;
-    \item After returning from the called subroutine, parameters must be removed from the stack;
-    \item The stack pointer must therefore have the same value as before the call.
+	\item The first four parameters are passed in registers \texttt{r0-r3};
+	\item Further parameters are passed on the stack;
+	\item After returning from the called subroutine, parameters must be removed from the stack;
+	\item The stack pointer must therefore have the same value as before the call.
 \end{itemize}
 
 \subsubsection{Callee obligations}
 
 \begin{itemize}
-    \item The callee must preserve the contents of registers \texttt{r4-r11} and \texttt{SP};
-    \item The callee can use \texttt{r0-r3} and \texttt{r12} as scratch registers;
-    \item The return value is passed in \texttt{r0-r3}, depending on its size:
-    \begin{itemize}
-        \item 32-bit type: \texttt{r0};
-        \item 64-bit type: \texttt{r0-r1};
-        \item 128-bit type: \texttt{r0-r3}.
-    \end{itemize}
+	\item The callee must preserve the contents of registers \texttt{r4-r11} and \texttt{SP};
+	\item The callee can use \texttt{r0-r3} and \texttt{r12} as scratch registers;
+	\item The return value is passed in \texttt{r0-r3}, depending on its size:
+	      \begin{itemize}
+		      \item 32-bit type: \texttt{r0};
+		      \item 64-bit type: \texttt{r0-r1};
+		      \item 128-bit type: \texttt{r0-r3}.
+	      \end{itemize}
 
-	For endianess RTFM.
+	      For endianess RTFM.
 \end{itemize}
 
 \subsection{Exceptions}
 
 The ARM Cortex-M3 processor, at any point, can find itself into 2 operating modes:
 \begin{itemize}
-\item  \textbf{Thread mode}: on reset or after returning from an exception routine;
-\item \textbf{Handler mode}: when an exception occurs, and the ISR is called.
+	\item  \textbf{Thread mode}: on reset or after returning from an exception routine;
+	\item \textbf{Handler mode}: when an exception occurs, and the ISR is called.
 \end{itemize}
 
 There are also 2 access (\textit{privilege}) levels. Note that these are fully orthogonal with the operating modes! Don't fall into the trap of thinking that thread mode is always unprivileged, or handler mode is always privileged. The processor starts in privileged thread mode, and we move to unprivileged kernel mode by setting the control register (see 13.1.4).
@@ -439,8 +439,8 @@ There are also 2 access (\textit{privilege}) levels. Note that these are fully o
 Handler mode is always privileged, and we go back to unprivileged on ISR return to an unprivileged thread mode.
 
 \begin{itemize}
-\item \textbf{User level}: limited access to resources;
-\item \textbf{Privileged level}: access to all resources.
+	\item \textbf{User level}: limited access to resources;
+	\item \textbf{Privileged level}: access to all resources.
 \end{itemize}
 
 \begin{center}
@@ -455,15 +455,15 @@ Many points to touch if we want to handle interrutps: first off, the \textbf{NVI
 This is an internal processor peripheral that controls the parameters of the different interrupt requests.
 
 \begin{itemize}
-\item It is involved in the management of internal exceptions and up to 240 external interrupts.
-It contains control registers for:
-\begin{itemize}
-\item Interrupt processing
-\item SYSTICK timer
-\item Debugging
-\end{itemize}
-\item Registers are accessible as memory-mapped devices, starting from 0xE000E000.
-Most registers are accessible only in privileged mode.
+	\item It is involved in the management of internal exceptions and up to 240 external interrupts.
+	      It contains control registers for:
+	      \begin{itemize}
+		      \item Interrupt processing
+		      \item SYSTICK timer
+		      \item Debugging
+	      \end{itemize}
+	\item Registers are accessible as memory-mapped devices, starting from 0xE000E000.
+	      Most registers are accessible only in privileged mode.
 \end{itemize}
 
 \end{document}
