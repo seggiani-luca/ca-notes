@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.4)  17 NOV 2026 08:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.4)  20 NOV 2026 10:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1174,7 +1174,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [5]
-<../figures/chip_histo.png, id=558, 1276.01718pt x 707.64375pt>
+<../figures/chip_histo.png, id=562, 1276.01718pt x 707.64375pt>
 File: ../figures/chip_histo.png Graphic file (type png)
 <use ../figures/chip_histo.png>
 Package pdftex.def Info: ../figures/chip_histo.png  used on input line 385.
@@ -1224,7 +1224,7 @@ Overfull \hbox (1.06421pt too wide) in paragraph at lines 594--597
 []\T1/ppl/m/n/10.95 In mo-re re-cent years, computer-based sy-stems ex-pan-ded to other safety-critical areas,
  []
 
-<../figures/bathub_curve.png, id=587, 1036.62282pt x 596.98032pt>
+<../figures/bathub_curve.png, id=591, 1036.62282pt x 596.98032pt>
 File: ../figures/bathub_curve.png Graphic file (type png)
 <use ../figures/bathub_curve.png>
 Package pdftex.def Info: ../figures/bathub_curve.png  used on input line 629.
@@ -1253,7 +1253,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [13{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-<../figures/taxonomies.png, id=607, 1364.09625pt x 811.53188pt>
+<../figures/taxonomies.png, id=611, 1364.09625pt x 811.53188pt>
 File: ../figures/taxonomies.png Graphic file (type png)
 <use ../figures/taxonomies.png>
 Package pdftex.def Info: ../figures/taxonomies.png  used on input line 776.
@@ -1267,7 +1267,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [14 <../figures/taxonomies.png>]
-<../figures/disp_imm.png, id=613, 1661.45718pt x 583.42969pt>
+<../figures/disp_imm.png, id=617, 1661.45718pt x 583.42969pt>
 File: ../figures/disp_imm.png Graphic file (type png)
 <use ../figures/disp_imm.png>
 Package pdftex.def Info: ../figures/disp_imm.png  used on input line 826.
@@ -1492,7 +1492,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [21]
-<../figures/riscv_reg_abi.png, id=644, 1717.91812pt x 759.58781pt>
+<../figures/riscv_reg_abi.png, id=648, 1717.91812pt x 759.58781pt>
 File: ../figures/riscv_reg_abi.png Graphic file (type png)
 <use ../figures/riscv_reg_abi.png>
 Package pdftex.def Info: ../figures/riscv_reg_abi.png  used on input line 763.
@@ -1514,7 +1514,7 @@ Overfull \hbox (8.84758pt too wide) in paragraph at lines 779--781
 []$\T1/lmtt/m/n/10.95 https : / / www . cs . sfu . ca / ~ashriram / Courses / CS295 / assets / notebooks / RISCV / RISCV _
  []
 
-<../figures/riscv_types.png, id=650, 943.27406pt x 203.25937pt>
+<../figures/riscv_types.png, id=654, 943.27406pt x 203.25937pt>
 File: ../figures/riscv_types.png Graphic file (type png)
 <use ../figures/riscv_types.png>
 Package pdftex.def Info: ../figures/riscv_types.png  used on input line 783.
@@ -1540,7 +1540,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [24]
-<../figures/riscv_load_store.png, id=662, 1655.18375pt x 944.52875pt>
+<../figures/riscv_load_store.png, id=666, 1655.18375pt x 944.52875pt>
 File: ../figures/riscv_load_store.png Graphic file (type png)
 <use ../figures/riscv_load_store.png>
 Package pdftex.def Info: ../figures/riscv_load_store.png  used on input line 888.
@@ -1558,12 +1558,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [25 <../figures/riscv_load_store.png>]
-<../figures/riscv_alu.png, id=675, 1842.885pt x 417.56pt>
+<../figures/riscv_alu.png, id=679, 1842.885pt x 417.56pt>
 File: ../figures/riscv_alu.png Graphic file (type png)
 <use ../figures/riscv_alu.png>
 Package pdftex.def Info: ../figures/riscv_alu.png  used on input line 927.
 (pdftex.def)             Requested size: 405.43596pt x 91.86348pt.
-<../figures/riscv_jumps.png, id=676, 1820.8025pt x 87.32625pt>
+<../figures/riscv_jumps.png, id=680, 1820.8025pt x 87.32625pt>
 File: ../figures/riscv_jumps.png Graphic file (type png)
 <use ../figures/riscv_jumps.png>
 Package pdftex.def Info: ../figures/riscv_jumps.png  used on input line 961.
@@ -1590,7 +1590,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [27]
-<../figures/riscv_branches.png, id=746, 1636.1125pt x 205.76875pt>
+<../figures/riscv_branches.png, id=750, 1636.1125pt x 205.76875pt>
 File: ../figures/riscv_branches.png Graphic file (type png)
 <use ../figures/riscv_branches.png>
 Package pdftex.def Info: ../figures/riscv_branches.png  used on input line 368.
@@ -1620,7 +1620,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [30]
-<../figures/datapath.png, id=784, 1544.77126pt x 876.27374pt>
+<../figures/datapath.png, id=788, 1544.77126pt x 876.27374pt>
 File: ../figures/datapath.png Graphic file (type png)
 <use ../figures/datapath.png>
 Package pdftex.def Info: ../figures/datapath.png  used on input line 593.
@@ -1654,7 +1654,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [33]
-<../figures/datapath_pipeline.png, id=807, 1544.77126pt x 800.23969pt>
+<../figures/datapath_pipeline.png, id=811, 1544.77126pt x 800.23969pt>
 File: ../figures/datapath_pipeline.png Graphic file (type png)
 <use ../figures/datapath_pipeline.png>
 Package pdftex.def Info: ../figures/datapath_pipeline.png  used on input line 698.
@@ -1831,7 +1831,7 @@ Overfull \hbox (27.63853pt too wide) in paragraph at lines 867--869
 []\T1/ppl/m/n/10.95 A co-de exam-ple is pro-vi-ded, and un-der-neath the di-sas-sem-bly wi-thout pseudo-instructions
  []
 
-<../figures/riscv_deps/4_3_8_a.png, id=828, 1068.99374pt x 182.18062pt>
+<../figures/riscv_deps/4_3_8_a.png, id=832, 1068.99374pt x 182.18062pt>
 File: ../figures/riscv_deps/4_3_8_a.png Graphic file (type png)
 <use ../figures/riscv_deps/4_3_8_a.png>
 Package pdftex.def Info: ../figures/riscv_deps/4_3_8_a.png  used on input line 899.
@@ -1844,12 +1844,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [37 <../figures/riscv_deps/4_3_8_a.png>]
-<../figures/riscv_deps/4_3_8_b.png, id=862, 1062.97125pt x 184.43906pt>
+<../figures/riscv_deps/4_3_8_b.png, id=866, 1062.97125pt x 184.43906pt>
 File: ../figures/riscv_deps/4_3_8_b.png Graphic file (type png)
 <use ../figures/riscv_deps/4_3_8_b.png>
 Package pdftex.def Info: ../figures/riscv_deps/4_3_8_b.png  used on input line 929.
 (pdftex.def)             Requested size: 382.66936pt x 66.398pt.
-<../figures/riscv_deps/4_3_8_c.png, id=863, 1062.97125pt x 184.43906pt>
+<../figures/riscv_deps/4_3_8_c.png, id=867, 1062.97125pt x 184.43906pt>
 File: ../figures/riscv_deps/4_3_8_c.png Graphic file (type png)
 <use ../figures/riscv_deps/4_3_8_c.png>
 Package pdftex.def Info: ../figures/riscv_deps/4_3_8_c.png  used on input line 960.
@@ -1863,12 +1863,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [38 <../figures/riscv_deps/4_3_8_b.png> <../figures/riscv_deps/4_3_8_c.png>]
-<../figures/riscv_deps/4_3_9_a.png, id=915, 1126.96031pt x 258.9675pt>
+<../figures/riscv_deps/4_3_9_a.png, id=919, 1126.96031pt x 258.9675pt>
 File: ../figures/riscv_deps/4_3_9_a.png Graphic file (type png)
 <use ../figures/riscv_deps/4_3_9_a.png>
 Package pdftex.def Info: ../figures/riscv_deps/4_3_9_a.png  used on input line 990.
 (pdftex.def)             Requested size: 405.7054pt x 93.22821pt.
-<../figures/riscv_deps/4_3_9_b.png, id=916, 1126.96031pt x 258.9675pt>
+<../figures/riscv_deps/4_3_9_b.png, id=920, 1126.96031pt x 258.9675pt>
 File: ../figures/riscv_deps/4_3_9_b.png Graphic file (type png)
 <use ../figures/riscv_deps/4_3_9_b.png>
 Package pdftex.def Info: ../figures/riscv_deps/4_3_9_b.png  used on input line 1020.
@@ -1882,7 +1882,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [39 <../figures/riscv_deps/4_3_9_a.png>]
-<../figures/riscv_deps/4_3_9_c.png, id=967, 1185.67969pt x 296.60812pt>
+<../figures/riscv_deps/4_3_9_c.png, id=971, 1185.67969pt x 296.60812pt>
 File: ../figures/riscv_deps/4_3_9_c.png Graphic file (type png)
 <use ../figures/riscv_deps/4_3_9_c.png>
 Package pdftex.def Info: ../figures/riscv_deps/4_3_9_c.png  used on input line 1053.
@@ -1900,7 +1900,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [40 <../figures/riscv_deps/4_3_9_b.png> <../figures/riscv_deps/4_3_9_c.png>]
-<../figures/riscv_deps/4_3_9_d.png, id=1012, 1185.67969pt x 296.60812pt>
+<../figures/riscv_deps/4_3_9_d.png, id=1016, 1185.67969pt x 296.60812pt>
 File: ../figures/riscv_deps/4_3_9_d.png Graphic file (type png)
 <use ../figures/riscv_deps/4_3_9_d.png>
 Package pdftex.def Info: ../figures/riscv_deps/4_3_9_d.png  used on input line 1086.
@@ -1919,7 +1919,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [41 <../figures/riscv_deps/4_3_9_d.png>]
-<../figures/modif_pipeline.png, id=1033, 2206.2425pt x 1220.56pt>
+<../figures/modif_pipeline.png, id=1037, 2206.2425pt x 1220.56pt>
 File: ../figures/modif_pipeline.png Graphic file (type png)
 <use ../figures/modif_pipeline.png>
 Package pdftex.def Info: ../figures/modif_pipeline.png  used on input line 391.
@@ -1929,7 +1929,7 @@ Overfull \hbox (18.93326pt too wide) in paragraph at lines 391--392
  [] 
  []
 
-<../figures/bad_branch.png, id=1034, 2155.05125pt x 441.65pt>
+<../figures/bad_branch.png, id=1038, 2155.05125pt x 441.65pt>
 File: ../figures/bad_branch.png Graphic file (type png)
 <use ../figures/bad_branch.png>
 Package pdftex.def Info: ../figures/bad_branch.png  used on input line 399.
@@ -1947,7 +1947,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [42 <../figures/modif_pipeline.png> <../figures/bad_branch.png>]
-<../figures/pred_untaken.png, id=1041, 2160.07pt x 785.93625pt>
+<../figures/pred_untaken.png, id=1045, 2160.07pt x 785.93625pt>
 File: ../figures/pred_untaken.png Graphic file (type png)
 <use ../figures/pred_untaken.png>
 Package pdftex.def Info: ../figures/pred_untaken.png  used on input line 431.
@@ -1965,7 +1965,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [43 <../figures/pred_untaken.png>]
-<../figures/delay_branch.png, id=1048, 602.25pt x 1457.445pt>
+<../figures/delay_branch.png, id=1052, 602.25pt x 1457.445pt>
 File: ../figures/delay_branch.png Graphic file (type png)
 <use ../figures/delay_branch.png>
 Package pdftex.def Info: ../figures/delay_branch.png  used on input line 471.
@@ -1979,12 +1979,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [44 <../figures/delay_branch.png>]
-<../figures/fp_pipeline.png, id=1054, 1633.10126pt x 1084.05pt>
+<../figures/fp_pipeline.png, id=1058, 1633.10126pt x 1084.05pt>
 File: ../figures/fp_pipeline.png Graphic file (type png)
 <use ../figures/fp_pipeline.png>
 Package pdftex.def Info: ../figures/fp_pipeline.png  used on input line 508.
 (pdftex.def)             Requested size: 362.54779pt x 240.65865pt.
-<../figures/fp_pipeline_1.png, id=1055, 2173.11874pt x 1131.22626pt>
+<../figures/fp_pipeline_1.png, id=1059, 2173.11874pt x 1131.22626pt>
 File: ../figures/fp_pipeline_1.png Graphic file (type png)
 <use ../figures/fp_pipeline_1.png>
 Package pdftex.def Info: ../figures/fp_pipeline_1.png  used on input line 528.
@@ -2002,7 +2002,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [45 <../figures/fp_pipeline.png>]
-<../figures/multi_wb.png, id=1061, 2264.46pt x 924.45375pt>
+<../figures/multi_wb.png, id=1065, 2264.46pt x 924.45375pt>
 File: ../figures/multi_wb.png Graphic file (type png)
 <use ../figures/multi_wb.png>
 Package pdftex.def Info: ../figures/multi_wb.png  used on input line 545.
@@ -2020,7 +2020,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [46 <../figures/fp_pipeline_1.png> <../figures/multi_wb.png>]
-<../figures/big_dhazard.png, id=1068, 2242.3775pt x 578.16pt>
+<../figures/big_dhazard.png, id=1072, 2242.3775pt x 578.16pt>
 File: ../figures/big_dhazard.png Graphic file (type png)
 <use ../figures/big_dhazard.png>
 Package pdftex.def Info: ../figures/big_dhazard.png  used on input line 565.
@@ -2087,7 +2087,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [52]
-<../figures/tomasulo.png, id=1106, 1997.4625pt x 1213.53375pt>
+<../figures/tomasulo.png, id=1110, 1997.4625pt x 1213.53375pt>
 File: ../figures/tomasulo.png Graphic file (type png)
 <use ../figures/tomasulo.png>
 Package pdftex.def Info: ../figures/tomasulo.png  used on input line 496.
@@ -2105,7 +2105,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 364.
 
-<../figures/res_stat_field.png, id=1125, 1019.81pt x 218.8175pt>
+<../figures/res_stat_field.png, id=1129, 1019.81pt x 218.8175pt>
 File: ../figures/res_stat_field.png Graphic file (type png)
 <use ../figures/res_stat_field.png>
 Package pdftex.def Info: ../figures/res_stat_field.png  used on input line 368.
@@ -2118,7 +2118,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [54 <../figures/tomasulo.png> <../figures/res_stat_field.png>]
-<../figures/rob.png, id=1132, 1566.85374pt x 1314.9125pt>
+<../figures/rob.png, id=1136, 1566.85374pt x 1314.9125pt>
 File: ../figures/rob.png Graphic file (type png)
 <use ../figures/rob.png>
 Package pdftex.def Info: ../figures/rob.png  used on input line 462.
@@ -2160,7 +2160,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 362.
 
-<../figures/cache_org.png, id=1151, 1945.2675pt x 1017.8025pt>
+<../figures/cache_org.png, id=1155, 1945.2675pt x 1017.8025pt>
 File: ../figures/cache_org.png Graphic file (type png)
 <use ../figures/cache_org.png>
 Package pdftex.def Info: ../figures/cache_org.png  used on input line 374.
@@ -2190,12 +2190,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 360.
 
-<../figures/cache_levels.png, id=1161, 3655.6575pt x 1151.30125pt>
+<../figures/cache_levels.png, id=1165, 3655.6575pt x 1151.30125pt>
 File: ../figures/cache_levels.png Graphic file (type png)
 <use ../figures/cache_levels.png>
 Package pdftex.def Info: ../figures/cache_levels.png  used on input line 367.
 (pdftex.def)             Requested size: 365.58717pt x 115.13687pt.
-<../figures/cache_coher.png, id=1162, 1901.1025pt x 992.70876pt>
+<../figures/cache_coher.png, id=1166, 1901.1025pt x 992.70876pt>
 File: ../figures/cache_coher.png Graphic file (type png)
 <use ../figures/cache_coher.png>
 Package pdftex.def Info: ../figures/cache_coher.png  used on input line 394.
@@ -2224,12 +2224,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [63]
-<../figures/one_bit.png, id=1189, 2594.69376pt x 1182.4175pt>
+<../figures/one_bit.png, id=1193, 2594.69376pt x 1182.4175pt>
 File: ../figures/one_bit.png Graphic file (type png)
 <use ../figures/one_bit.png>
 Package pdftex.def Info: ../figures/one_bit.png  used on input line 487.
 (pdftex.def)             Requested size: 389.18727pt x 177.35497pt.
-<../figures/two_bit.png, id=1190, 1633.10126pt x 901.3675pt>
+<../figures/two_bit.png, id=1194, 1633.10126pt x 901.3675pt>
 File: ../figures/two_bit.png Graphic file (type png)
 <use ../figures/two_bit.png>
 Package pdftex.def Info: ../figures/two_bit.png  used on input line 494.
@@ -2243,7 +2243,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [64 <../figures/one_bit.png> <../figures/two_bit.png>]
-<../figures/22_pred.png, id=1200, 1294.8375pt x 1091.07625pt>
+<../figures/22_pred.png, id=1204, 1294.8375pt x 1091.07625pt>
 File: ../figures/22_pred.png Graphic file (type png)
 <use ../figures/22_pred.png>
 Package pdftex.def Info: ../figures/22_pred.png  used on input line 380.
@@ -2261,12 +2261,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [65 <../figures/22_pred.png>]
-<../figures/btb.png, id=1206, 1729.46124pt x 1153.30875pt>
+<../figures/btb.png, id=1210, 1729.46124pt x 1153.30875pt>
 File: ../figures/btb.png Graphic file (type png)
 <use ../figures/btb.png>
 Package pdftex.def Info: ../figures/btb.png  used on input line 406.
 (pdftex.def)             Requested size: 380.48265pt x 253.72871pt.
-<../figures/btb_flow.png, id=1207, 1093.08376pt x 1405.25pt>
+<../figures/btb_flow.png, id=1211, 1093.08376pt x 1405.25pt>
 File: ../figures/btb_flow.png Graphic file (type png)
 <use ../figures/btb_flow.png>
 Package pdftex.def Info: ../figures/btb_flow.png  used on input line 412.
@@ -2288,7 +2288,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [67 <../figures/btb_flow.png>]
-<../figures/arm7_gp_regs.png, id=1219, 1145.27875pt x 1494.58376pt>
+<../figures/arm7_gp_regs.png, id=1223, 1145.27875pt x 1494.58376pt>
 File: ../figures/arm7_gp_regs.png Graphic file (type png)
 <use ../figures/arm7_gp_regs.png>
 Package pdftex.def Info: ../figures/arm7_gp_regs.png  used on input line 429.
@@ -2302,7 +2302,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [68]
-<../figures/arm7_sp_regs.png, id=1224, 870.25125pt x 723.70375pt>
+<../figures/arm7_sp_regs.png, id=1228, 870.25125pt x 723.70375pt>
 File: ../figures/arm7_sp_regs.png Graphic file (type png)
 <use ../figures/arm7_sp_regs.png>
 Package pdftex.def Info: ../figures/arm7_sp_regs.png  used on input line 452.
@@ -2316,7 +2316,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [69 <../figures/arm7_gp_regs.png>]
-<../figures/xpsr.png, id=1230, 1939.245pt x 362.35374pt>
+<../figures/xpsr.png, id=1234, 1939.245pt x 362.35374pt>
 File: ../figures/xpsr.png Graphic file (type png)
 <use ../figures/xpsr.png>
 Package pdftex.def Info: ../figures/xpsr.png  used on input line 458.
@@ -2334,13 +2334,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [70 <../figures/arm7_sp_regs.png> <../figures/xpsr.png>]
-<../figures/control.png, id=1238, 2054.67625pt x 614.295pt>
+<../figures/control.png, id=1242, 2054.67625pt x 614.295pt>
 File: ../figures/control.png Graphic file (type png)
 <use ../figures/control.png>
 Package pdftex.def Info: ../figures/control.png  used on input line 524.
 (pdftex.def)             Requested size: 308.18814pt x 92.14026pt.
 ) (../11-06/main.tex
-<../figures/cortex_mmap.png, id=1239, 1952.29375pt x 1249.66875pt>
+<../figures/cortex_mmap.png, id=1243, 1952.29375pt x 1249.66875pt>
 File: ../figures/cortex_mmap.png Graphic file (type png)
 <use ../figures/cortex_mmap.png>
 Package pdftex.def Info: ../figures/cortex_mmap.png  used on input line 365.
@@ -2354,7 +2354,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [71 <../figures/control.png>]
-<../figures/mmap_perm.png, id=1245, 2039.62pt x 1109.14375pt>
+<../figures/mmap_perm.png, id=1249, 2039.62pt x 1109.14375pt>
 File: ../figures/mmap_perm.png Graphic file (type png)
 <use ../figures/mmap_perm.png>
 Package pdftex.def Info: ../figures/mmap_perm.png  used on input line 380.
@@ -2376,7 +2376,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [73]
-<../figures/aapcs.png, id=1257, 2059.695pt x 1414.28375pt>
+<../figures/aapcs.png, id=1261, 2059.695pt x 1414.28375pt>
 File: ../figures/aapcs.png Graphic file (type png)
 <use ../figures/aapcs.png>
 Package pdftex.def Info: ../figures/aapcs.png  used on input line 400.
@@ -2398,7 +2398,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [75 <../figures/aapcs.png>]
-<../figures/c_modes.png, id=1267, 1818.795pt x 1274.7625pt>
+<../figures/c_modes.png, id=1271, 1818.795pt x 1274.7625pt>
 File: ../figures/c_modes.png Graphic file (type png)
 <use ../figures/c_modes.png>
 Package pdftex.def Info: ../figures/c_modes.png  used on input line 447.
@@ -2423,7 +2423,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[77])
+[77]) (../11-20/main.tex
+Overfull \hbox (6.87941pt too wide) in paragraph at lines 360--363
+\T1/ppl/m/n/10.95 you to the CM-SDK: []$\T1/lmtt/m/n/10.95 https : / / github . com / seggiani-[]luca / eosa-[]exercises / blob / main /
+ []
+
+)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2437,21 +2442,21 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `master.out' has not changed.
-(rerunfilecheck)             Checksum: BC0673FB2C2C3DDDAAD7283108BF6232;19670.
+(rerunfilecheck)             Checksum: 53BBD3A2A1064EF6CE05C92EC96311DE;19794.
  ) 
 Here is how much of TeX's memory you used:
- 70302 strings out of 469479
- 1770594 string characters out of 5469360
+ 70310 strings out of 469479
+ 1770735 string characters out of 5469360
  2723657 words of memory out of 5000000
- 97531 multiletter control sequences out of 15000+600000
+ 97535 multiletter control sequences out of 15000+600000
  696000 words of font info for 117 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  125i,17n,121p,1582b,2569s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on master.pdf (78 pages, 10155572 bytes).
+Output written on master.pdf (78 pages, 10156203 bytes).
 PDF statistics:
- 1475 PDF objects out of 1728 (max. 8388607)
- 1258 compressed objects within 13 object streams
- 527 named destinations out of 1000 (max. 500000)
- 1267 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1481 PDF objects out of 1728 (max. 8388607)
+ 1264 compressed objects within 13 object streams
+ 528 named destinations out of 1000 (max. 500000)
+ 1275 words of extra memory for PDF output out of 10000 (max. 10000000)
 
